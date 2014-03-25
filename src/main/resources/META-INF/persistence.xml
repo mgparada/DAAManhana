@@ -13,7 +13,8 @@
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 		<properties>
-			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.username" value="DAA" />
+			<property name="hibernate.connection.password" value="vacio" />
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/DAAManhana" />
 			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
 
