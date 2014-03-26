@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 import org.junit.Test;
 
 
-public class ArticuloTest {
+public class ArticleTest {
 	@Test
 	public void Test() {
 		/**

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import daa.manhana.entities.Article;
+import daa.manhana.entities.User;
 
 public class ArticleDAO extends GenericDAO<Article> {
 	public ArticleDAO() {

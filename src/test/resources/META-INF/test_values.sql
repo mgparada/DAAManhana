@@ -6,3 +6,5 @@ insert into articles (releaseDate, name, description) values ("1994-05-13 14:27:
 insert into articles (releaseDate, name, description) values ("1994-11-03 11:44:12", "Pulp Fiction", "The lives of two mob hit men, a boxer, a gangsters wife, and a pair of diner bandits intertwine in four tales of violence and redemption.");
 insert into articles (releaseDate, name, description) values ("1993-01-26 03:32:43", "12 Hombres sin Piedad", "A dissenting juror in a murder trial slowly manages to convince the others that the case is not as obviously clear as it seemed in court.");
 insert into articles (releaseDate, name, description) values ("1957-02-14 18:14:25", "La lista de Schindler", "In Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.");
+
+insert into users (name) values ("aalopez"), ("alfredo"), ("alfonso"), ("alonso"), ("mgparada"), ("mnceleiro");

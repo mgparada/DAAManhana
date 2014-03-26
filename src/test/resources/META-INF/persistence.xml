@@ -11,6 +11,7 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<class>daa.manhana.entities.Article</class>
+		<class>daa.manhana.entities.User</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 		<properties>
