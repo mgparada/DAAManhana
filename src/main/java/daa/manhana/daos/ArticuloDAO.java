@@ -15,4 +15,10 @@ public class ArticuloDAO extends GenericoDAO<Articulo> {
 		return q.getResultList();
 	}
 	
+	public List<Articulo> getAll() {		
+		Query q = em.createQuery("SELECT object(p) FROM Articulo AS p ORDER BY p.nombre");
+		
+		return q.getResultList();
+	}
+	
 }

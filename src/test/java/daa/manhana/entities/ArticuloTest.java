@@ -10,6 +10,10 @@ import org.junit.Test;
 public class ArticuloTest {
 	@Test
 	public void Test() {
+		/**
+		 * Deberia ser EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
+		 * pero no funciona...  
+		 */
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Grupo-Manhana");
 		EntityManager em = emf.createEntityManager();
 	}

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "articulos")
 public class Articulo {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)	// default
+	@GeneratedValue(strategy = GenerationType.AUTO)	// default
 	private Long id;
 	
 	@Column(length=200, nullable=false)

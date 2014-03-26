@@ -14,6 +14,12 @@ public abstract class GenericoDAO<T> {
 //	protected EntityManager em;
 	// No funciona. No se sabe por qué!???
 	
+	/**
+	 * para el test es necesario el siguiente EntityManager..  
+	 * protected EntityManager em = Persistence.createEntityManagerFactory("Grupo-Manhana").createEntityManager();
+	 * algo va mal...
+	 */
+	
 	protected EntityManager em = Persistence.createEntityManagerFactory("Grupo-Manhana").createEntityManager();
 	
 	public T guardar(T entidad) 
@@ -37,17 +43,7 @@ public abstract class GenericoDAO<T> {
 	
 	public T buscarPorId(Object id)
 	{
-		Class <T>className = getClassName();
-		return em.find(className, id);
-	}
-	
-	
-	public List<T> getAll() {
-		System.out.println(getClassName());
-		Query q = em.createQuery("SELECT object(p) FROM :className AS p");
-		q.setParameter("className", getClassName());
-		
-		return q.getResultList();
+		return em.find(getClassName(), id);
 	}
 	
 	private Class<T> getClassName() {
