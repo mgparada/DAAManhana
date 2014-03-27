@@ -15,6 +15,7 @@ insert into articles (releaseDate, name, description) values ("1994-11-03 11:44:
 insert into articles (releaseDate, name, description) values ("1993-01-26 03:32:43", "12 Hombres sin Piedad", "A dissenting juror in a murder trial slowly manages to convince the others that the case is not as obviously clear as it seemed in court.");
 insert into articles (releaseDate, name, description) values ("1957-02-14 18:14:25", "La lista de Schindler", "In Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.");
 
+<<<<<<< HEAD
 -- Insert articles and books --
 insert into articles (releaseDate, name, description) values ("2014-02-14 18:14:25", "EL JUEGO DE RIPPER", "Mi madre todavía está viva, pero la matará el Viernes Santo a medianoche, le advirtió Amanda Martín al inspector jefe y éste no lo puso en duda.");
 insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Isabel Allende", "2014-02-14 18:14:25", "PLAZA & JANES EDITORES", "9788401342547", 480,  9);
@@ -35,3 +36,6 @@ insert into cds (duration, articleId) values (47, 13);
 insert into articles (releaseDate, name, description) values ("2000-09-26 14:34:01", "Por Pasodobles Por Sevillanas", "Music CD from Manolo Escobar");
 insert into cds (duration, articleId) values (48, 14);
 
+=======
+insert into users (name) values ("aalopez"), ("alfredo"), ("alfonso"), ("alonso"), ("mgparada"), ("mnceleiro");
+>>>>>>> e02c40c7903cf73b64066193835944732912e9cd

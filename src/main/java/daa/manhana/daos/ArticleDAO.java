@@ -5,7 +5,14 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+<<<<<<< HEAD
 public class ArticleDAO<T> extends GenericDAO<T> {
+=======
+import daa.manhana.entities.Article;
+import daa.manhana.entities.User;
+
+public class ArticleDAO extends GenericDAO<Article> {
+>>>>>>> e02c40c7903cf73b64066193835944732912e9cd
 	public ArticleDAO() {
 		super();
 	}

@@ -19,6 +19,7 @@ import javax.persistence.Table;
 public class Article {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	// default
+<<<<<<< HEAD
 	@Column(name = "articleId")
 	protected int id;
 	
@@ -28,17 +29,34 @@ public class Article {
 	@Column(nullable = false)
 	protected Date releaseDate;
 	
+=======
+	private int id;
+
+	@Column(length=200, nullable = false)
+	private String name;
+
+	@Column(nullable = false)
+	private Date releaseDate;
+
+>>>>>>> e02c40c7903cf73b64066193835944732912e9cd
 	@Column(nullable = true, length=65536)
 	protected String description;
 
 	
 	public Article() {
-		
+
 	}
+<<<<<<< HEAD
 	
 	public Article(String name, Date releaseDate, String description) {
 		this.name = name;
 		this.releaseDate = releaseDate;
+=======
+
+	public Article(String nombre, Date fechaAlta, String description) {
+		this.name = nombre;
+		this.releaseDate = fechaAlta;
+>>>>>>> e02c40c7903cf73b64066193835944732912e9cd
 		this.description = description;
 //		this.articleType = artType;
 	}
@@ -55,10 +73,21 @@ public class Article {
 		return name;
 	}
 
+<<<<<<< HEAD
 	public void setName(String name) {
 		this.name = name;
 	}
 
+=======
+	public void setNombre(String name) {
+		this.name = name;
+	}
+
+	public int getId() {
+		return this.id;
+	}
+
+>>>>>>> e02c40c7903cf73b64066193835944732912e9cd
 	public Date getReleaseDate() {
 		return releaseDate;
 	}
@@ -75,6 +104,7 @@ public class Article {
 		this.description = description;
 	}
 
+<<<<<<< HEAD
 //	public ArticleType getArticleType() {
 //		return articleType;
 //	}
@@ -85,3 +115,6 @@ public class Article {
 
 	
 }
+=======
+}
+>>>>>>> e02c40c7903cf73b64066193835944732912e9cd
