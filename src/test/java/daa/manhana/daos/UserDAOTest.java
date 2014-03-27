@@ -89,7 +89,7 @@ public class UserDAOTest {
 	{		
 		System.out.println("----- testingCreateUser -----");
 
-		User test = userDAO.save(new User ("mauro"));
+		userDAO.save(new User ("mauro"));
 		List<User> something = userDAO.getAll();
 		something.contains(new User ("mauro"));	
 		

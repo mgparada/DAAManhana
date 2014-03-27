@@ -11,14 +11,11 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<class>daa.manhana.entities.Article</class>
-<<<<<<< HEAD
 		<class>daa.manhana.entities.Comic</class>
 		<class>daa.manhana.entities.Book</class>
 		<class>daa.manhana.entities.Movie</class>
 		<class>daa.manhana.entities.CD</class>
-=======
 		<class>daa.manhana.entities.User</class>
->>>>>>> e02c40c7903cf73b64066193835944732912e9cd
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 		<properties>
