@@ -5,33 +5,40 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-public class ArticleDAO<T> extends GenericDAO<T> {
-	public ArticleDAO() {
+import daa.manhana.entities.Book;
+
+public class BookDAO extends ArticleDAO<Book> { 
+
+	public BookDAO() {
 		super();
 	}
 
-	public ArticleDAO(EntityManager em) {
+	public BookDAO(EntityManager em) {
 		super(em);
 	}
 
-	public List<T> findByName(String name) {
-		TypedQuery<T> q = createQuery(
+	@Override
+	public List<Book> findByName(String name)
+	{
+		TypedQuery<Book> q = createQuery(
 				"SELECT object(p) "
-				+ "FROM Article AS p "
+				+ "FROM Book AS p "
 				+ "WHERE p.name "
 				+ "LIKE :pattern"
 		);
 		
 		q.setParameter("pattern", "%" + name + "%");
 		
-		return (List<T>) q.getResultList();
+		return q.getResultList();
 	}
 	
-	public List<T> getAll() {		
+	@Override
+	public List<Book> getAll() {		
 		return createQuery(
 			"SELECT object(p) "
-			+ "FROM Article AS p "
+			+ "FROM Book AS p "
 			+ "ORDER BY p.name"
 		).getResultList();
 	}
+
 }

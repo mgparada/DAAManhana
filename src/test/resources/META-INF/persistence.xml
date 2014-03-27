@@ -11,6 +11,10 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<class>daa.manhana.entities.Article</class>
+		<class>daa.manhana.entities.Comic</class>
+		<class>daa.manhana.entities.Book</class>
+		<class>daa.manhana.entities.Movie</class>
+		<class>daa.manhana.entities.CD</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 		<properties>

@@ -4,6 +4,7 @@ import java.lang.reflect.ParameterizedType;
 
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
+import javax.persistence.RollbackException;
 import javax.persistence.TransactionRequiredException;
 import javax.persistence.TypedQuery;
 
@@ -22,25 +23,36 @@ public abstract class GenericDAO<T> {
 		this.em = em;
 	}
 
-	public T save(T entity) 
+	public void save(T entity) 
 			throws EntityExistsException, IllegalArgumentException, TransactionRequiredException {
+		
 		em.persist(entity);
 		
-		return entity;
+		doTransaction();
 	}
 	
-	public T update(T entity) 
+	public void update(T entity) 
 			throws IllegalArgumentException, TransactionRequiredException {
-		return em.merge(entity);
+		
+		em.merge(entity);
+		
+		doTransaction();
 	}
 	
 	public void delete(T entity) 
 			throws IllegalArgumentException, TransactionRequiredException {
 		em.remove(em.merge(entity));
+		
+		doTransaction();
 	}
 	
 	public T findById(Object id) {
-		return em.find(getClassName(), id);
+		
+		em.getTransaction().begin();
+		T toRet = em.find(getClassName(), id);
+		em.getTransaction().commit();
+		
+		return toRet;
 	}
 	
 	protected TypedQuery<T> createQuery(String query) {
@@ -51,5 +63,22 @@ public abstract class GenericDAO<T> {
 	private Class<T> getClassName() {
         return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 
+	}
+	
+	private void openTransaction()
+	{
+		em.getTransaction().begin();
+	}
+	
+	private void doTransaction() {
+		openTransaction();
+		
+		if (em.getTransaction().isActive()) {
+			try {
+				em.getTransaction().commit();
+			} catch (RollbackException re) {
+				em.getTransaction().rollback();
+			}
+		}
 	}
 }
