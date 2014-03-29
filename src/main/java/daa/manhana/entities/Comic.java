@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "comics")
-@PrimaryKeyJoinColumn(name = "bookId")
+@PrimaryKeyJoinColumn(name = "articleId")
 public class Comic extends Book {
 	@Column(nullable = false)
 	private int chapter;
