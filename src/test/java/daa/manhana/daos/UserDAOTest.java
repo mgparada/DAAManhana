@@ -28,7 +28,7 @@ public class UserDAOTest {
 		emf = Persistence.createEntityManagerFactory("DAA-test");
 		
 		entityManager = emf.createEntityManager();
-		userDAO = new UserDAO(entityManager);
+		userDAO = new UserDAO(emf);
 
 		entityManager.getTransaction().begin();
 	}

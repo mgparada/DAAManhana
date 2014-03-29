@@ -4,19 +4,26 @@ import java.lang.reflect.ParameterizedType;
 
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.RollbackException;
 import javax.persistence.TransactionRequiredException;
 import javax.persistence.TypedQuery;
 
 public abstract class GenericDAO<T> {
+	private final EntityManagerFactory emf;
 	protected EntityManager em;
 	
 	public GenericDAO() {
+		this.emf = Persistence.createEntityManagerFactory("Grupo-Manhana");
+		this.em = emf.createEntityManager();
 	}
 	
-	public GenericDAO(EntityManager em) {
-		super();
-		this.em = em;
+	public GenericDAO(EntityManagerFactory emf) {
+		this.emf = emf;
+		
+		if (this.em == null)
+			this.em = this.emf.createEntityManager();
 	}
 	
 	public void setEentityManager(EntityManager em) {
@@ -26,9 +33,9 @@ public abstract class GenericDAO<T> {
 	public void save(T entity) 
 			throws EntityExistsException, IllegalArgumentException, TransactionRequiredException {
 		
-		em.persist(entity);
+		persist(entity);
 		
-		doTransaction();
+//		doTransaction();
 	}
 	
 	public void update(T entity) 
@@ -71,7 +78,7 @@ public abstract class GenericDAO<T> {
 	}
 	
 	private void doTransaction() {
-		openTransaction();
+//		openTransaction();
 		
 		if (em.getTransaction().isActive()) {
 			try {
@@ -80,5 +87,13 @@ public abstract class GenericDAO<T> {
 				em.getTransaction().rollback();
 			}
 		}
+	}
+	
+	private void persist(T entity) {
+		openTransaction();
+		
+		em.persist(entity);
+		
+		doTransaction();
 	}
 }

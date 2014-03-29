@@ -1,15 +1,17 @@
 package daa.manhana.daos;
 
-import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
-public class ComicDAO extends ArticleDAO { 
+import daa.manhana.entities.Comic;
+
+public class ComicDAO extends ArticleDAO<Comic> { 
 
 	public ComicDAO() {
 		super();
 	}
 
-	public ComicDAO(EntityManager em) {
-		super(em);
+	public ComicDAO(EntityManagerFactory emf) {
+		super(emf);
 	}
 
 }

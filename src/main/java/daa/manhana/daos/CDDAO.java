@@ -1,15 +1,17 @@
 package daa.manhana.daos;
 
-import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
-public class CDDAO extends ArticleDAO { 
+import daa.manhana.entities.CD;
+
+public class CDDAO extends ArticleDAO<CD> { 
 
 	public CDDAO() {
 		super();
 	}
 
-	public CDDAO(EntityManager em) {
-		super(em);
+	public CDDAO(EntityManagerFactory emf) {
+		super(emf);
 	}
 
 }

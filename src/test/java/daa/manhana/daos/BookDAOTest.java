@@ -19,20 +19,20 @@ public class BookDAOTest {
 	private EntityManagerFactory emf;
 	
 	private BookDAO bookDAO;
-	private EntityManager entityManager;
+//	private EntityManager entityManager;
 
 	
 	@Before
 	public void createEntityManager() {
 		emf = Persistence.createEntityManagerFactory("DAA-test");
 		
-		entityManager = emf.createEntityManager();
-		bookDAO = new BookDAO(entityManager);
+		bookDAO = new BookDAO(emf);
+//		entityManager = emf.createEntityManager();
 	}
 	
 	@After
 	public void closeEntityManager() {
-		entityManager.close();
+//		entityManager.close();
 		emf.close();
 	}	
 	

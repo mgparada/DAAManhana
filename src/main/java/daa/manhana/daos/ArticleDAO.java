@@ -2,7 +2,7 @@ package daa.manhana.daos;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 
 public class ArticleDAO<T> extends GenericDAO<T> {
@@ -10,8 +10,8 @@ public class ArticleDAO<T> extends GenericDAO<T> {
 		super();
 	}
 
-	public ArticleDAO(EntityManager em) {
-		super(em);
+	public ArticleDAO(EntityManagerFactory emf) {
+		super(emf);
 	}
 
 	public List<T> findByName(String name) {

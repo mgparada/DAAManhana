@@ -2,18 +2,19 @@ package daa.manhana.daos;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 
 import daa.manhana.entities.User;
 
 public class UserDAO extends GenericDAO<User> {
+	
 	public UserDAO() {
 		super();
 	}
 
-	public UserDAO(EntityManager em) {
-		super(em);
+	public UserDAO(EntityManagerFactory emf) {
+		super(emf);
 	}
 
 	public List<User> findByName(String name) {

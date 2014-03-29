@@ -2,7 +2,7 @@ package daa.manhana.daos;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.TypedQuery;
 
 import daa.manhana.entities.Book;
@@ -13,8 +13,8 @@ public class BookDAO extends ArticleDAO<Book> {
 		super();
 	}
 
-	public BookDAO(EntityManager em) {
-		super(em);
+	public BookDAO(EntityManagerFactory emf) {
+		super(emf);
 	}
 
 	@Override
