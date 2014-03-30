@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -12,40 +13,43 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import daa.manhana.entities.Book;
+import daa.manhana.entities.Movie;
 
-public class BookDAOTest {
+public class MovieDAOTest {
 	private EntityManagerFactory emf;
 	
-	private BookDAO bookDAO;
+	private MovieDAO movieDAO;
+	private EntityManager entityManager;
 
 	
 	@Before
 	public void createEntityManager() {
 		emf = Persistence.createEntityManagerFactory("DAA-test");
 		
-		bookDAO = new BookDAO(emf);
+		entityManager = emf.createEntityManager();
+		movieDAO = new MovieDAO(emf);
 	}
 	
 	@After
 	public void closeEntityManager() {
+		entityManager.close();
 		emf.close();
 	}	
 	
+	
 	@Test
 	public void testingFindByName() {
-		List<Book> test = bookDAO.findByName("JUEGO");
-		System.out.println("SIZE: " + test.size());
+		List<Movie> test = movieDAO.findByName("Cadena");
 		assertNotNull("Find by id is not null", test);
 		
 		assertEquals("Length is not 1", 1, test.size());
 		
-		assertEquals("Id is different than 9", 9, test.get(0).getId() );
+		assertEquals("Id is different than 2", 2, test.get(0).getId() );
 	}
 	
 	@Test
 	public void testingFindByNameNotRetrieveData() {
-		List<Book> test = bookDAO.findByName("hjjasjdiefs");
+		List<Movie> test = movieDAO.findByName("hjjasjdiefs");
 		assertNotNull("Find by id is not null", test);
 		
 		assertEquals("Length is not 0", 0, test.size());
@@ -53,26 +57,26 @@ public class BookDAOTest {
 	
 	@Test
 	public void testingFindById() {
-		final int id = 10;
-		final String name = "DIVERGENT BOOK 1";
+		final int id = 2;
+		final String name = "Cadena Perpetua";
 		
-		Book test = bookDAO.findById(id);
+		Movie test = movieDAO.findById(id);
 		
 		assertNotNull("Find by id is null", test);
 		
-		assertEquals("Book ID are not equals", id, test.getId());
+		assertEquals("Movie ID are not equals", id, test.getId());
 		
-		assertEquals("Book name are not equals", name.toUpperCase(), test.getName().toUpperCase());
+		assertEquals("Movie name are not equals", name.toUpperCase(), test.getName().toUpperCase());
 	}
 	
 	
 	
 	@Test
 	public void testingFindAll() {
-		List<Book> test = bookDAO.getAll();
+		List<Movie> test = movieDAO.getAll();
 		assertNotNull("Find by id is not null", test);
 		
-		assertEquals("Length is not 5", 5, test.size());
+		assertEquals("Length is not 3", 3, test.size());
 	}
 
 }
