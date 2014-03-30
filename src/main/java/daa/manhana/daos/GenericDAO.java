@@ -1,99 +1,122 @@
 package daa.manhana.daos;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.RollbackException;
 import javax.persistence.TransactionRequiredException;
 import javax.persistence.TypedQuery;
 
 public abstract class GenericDAO<T> {
 	private final EntityManagerFactory emf;
-	protected EntityManager em;
 	
 	public GenericDAO() {
 		this.emf = Persistence.createEntityManagerFactory("Grupo-Manhana");
-		this.em = emf.createEntityManager();
 	}
 	
 	public GenericDAO(EntityManagerFactory emf) {
 		this.emf = emf;
-		
-		if (this.em == null)
-			this.em = this.emf.createEntityManager();
 	}
 	
-	public void setEentityManager(EntityManager em) {
-		this.em = em;
+	private EntityManager createEntityManager() {
+		return this.emf.createEntityManager();
 	}
 
+	public List<T> findByName(String name) {
+		TypedQuery<T> q = createQuery(
+				"SELECT object(p) "
+				+ "FROM " + getClassName() + " AS p "
+				+ "WHERE p.name "
+				+ "LIKE :pattern"
+		);
+		
+		q.setParameter("pattern", "%" + name + "%");
+		
+		return (List<T>) q.getResultList();
+	}
+	
+	public List<T> getAll() {
+		return createQuery(
+			"SELECT object(p) "
+			+ "FROM " + getClassName() + " AS p "
+			+ "ORDER BY p.name"
+		).getResultList();
+	}
+	
+	public T findCOncreteArticle (String name) {
+		TypedQuery<T> q = createQuery(
+				"SELECT object(p) "
+				+ "FROM " + getClassName() + " AS p "
+				+ "WHERE p.name "
+				+ "LIKE :pattern"
+		);
+		
+		q.setParameter("pattern", "%" + name + "%");
+		
+		return q.getSingleResult();
+	}
+	
 	public void save(T entity) 
 			throws EntityExistsException, IllegalArgumentException, TransactionRequiredException {
 		
-		persist(entity);
+		final EntityManager em = createEntityManager();
 		
-//		doTransaction();
+		DAOUtils.setUp(em);
+		em.persist(entity);
+		DAOUtils.doTransaction();
 	}
 	
 	public void update(T entity) 
 			throws IllegalArgumentException, TransactionRequiredException {
 		
-		em.merge(entity);
+		final EntityManager em = createEntityManager();
 		
-		doTransaction();
+		DAOUtils.setUp(em);
+		em.merge(entity);
+		DAOUtils.doTransaction();
 	}
 	
 	public void delete(T entity) 
 			throws IllegalArgumentException, TransactionRequiredException {
-		em.remove(em.merge(entity));
 		
-		doTransaction();
+		final EntityManager em = createEntityManager();
+		
+		DAOUtils.setUp(em);
+		em.remove(entity);
+		DAOUtils.doTransaction();
 	}
 	
 	public T findById(Object id) {
+		final EntityManager em = createEntityManager();
 		
-		em.getTransaction().begin();
-		T toRet = em.find(getClassName(), id);
-		em.getTransaction().commit();
+		DAOUtils.setUp(em);
+		T toRet = em.find(getGenericClass(), id);
+		DAOUtils.doTransaction();
 		
 		return toRet;
 	}
 	
 	protected TypedQuery<T> createQuery(String query) {
-		return this.em.createQuery(query, getClassName());
+		final EntityManager em = createEntityManager();
+		
+		DAOUtils.setUp(em);
+		TypedQuery<T> result = em.createQuery(query, getGenericClass());
+		
+		return result;
 	}
 	
 	@SuppressWarnings("unchecked")
-	private Class<T> getClassName() {
+	protected Class<T> getGenericClass() {
         return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 
 	}
 	
-	private void openTransaction()
-	{
-		em.getTransaction().begin();
-	}
-	
-	private void doTransaction() {
-//		openTransaction();
+	protected String getClassName() {
+		Class<T> extendedClass = getGenericClass();
 		
-		if (em.getTransaction().isActive()) {
-			try {
-				em.getTransaction().commit();
-			} catch (RollbackException re) {
-				em.getTransaction().rollback();
-			}
-		}
-	}
-	
-	private void persist(T entity) {
-		openTransaction();
-		
-		em.persist(entity);
-		
-		doTransaction();
+		return extendedClass.getName();
 	}
 }

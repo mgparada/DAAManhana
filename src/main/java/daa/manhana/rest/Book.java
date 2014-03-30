@@ -1,5 +1,6 @@
 package daa.manhana.rest;
 
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -34,9 +35,21 @@ public class Book {
 	@GET
 	@Path("/name")
 	public Response search(
-			@QueryParam("name") final String name) {
+			@DefaultValue("") @QueryParam("name") final String name) {
 		try{
 			return Response.ok(this.bookDAO.findByName(name)).build();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return Response.serverError().entity(e.getMessage()).build();
+		}
+	}
+	
+	@GET
+	@Path("/id")
+	public Response concreteBook(
+			@DefaultValue("9") @QueryParam("id") final int id) {
+		try{
+			return Response.ok(this.bookDAO.findById(id)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();

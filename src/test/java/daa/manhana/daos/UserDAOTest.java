@@ -79,7 +79,7 @@ public class UserDAOTest {
 	{		
 		System.out.println("----- testingFindUser -----");
 
-		User test = userDAO.findUser("aalopez");
+		User test = userDAO.findById("aalopez");
 		assertNotNull("Find User is not null", test.getName());
 		
 	}

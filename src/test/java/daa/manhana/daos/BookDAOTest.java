@@ -1,11 +1,10 @@
 package daa.manhana.daos;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
-import java.util.Date;
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -19,7 +18,6 @@ public class BookDAOTest {
 	private EntityManagerFactory emf;
 	
 	private BookDAO bookDAO;
-//	private EntityManager entityManager;
 
 	
 	@Before
@@ -27,12 +25,10 @@ public class BookDAOTest {
 		emf = Persistence.createEntityManagerFactory("DAA-test");
 		
 		bookDAO = new BookDAO(emf);
-//		entityManager = emf.createEntityManager();
 	}
 	
 	@After
 	public void closeEntityManager() {
-//		entityManager.close();
 		emf.close();
 	}	
 	
