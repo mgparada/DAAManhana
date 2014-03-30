@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -19,20 +18,17 @@ public class CDDAOTest {
 	private EntityManagerFactory emf;
 	
 	private CDDAO CDDAO;
-	private EntityManager entityManager;
 
 	
 	@Before
 	public void createEntityManager() {
 		emf = Persistence.createEntityManagerFactory("DAA-test");
 		
-		entityManager = emf.createEntityManager();
 		CDDAO = new CDDAO(emf);
 	}
 	
 	@After
 	public void closeEntityManager() {
-		entityManager.close();
 		emf.close();
 	}	
 	

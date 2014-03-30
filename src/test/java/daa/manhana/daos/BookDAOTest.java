@@ -35,7 +35,7 @@ public class BookDAOTest {
 	@Test
 	public void testingFindByName() {
 		List<Book> test = bookDAO.findByName("JUEGO");
-		System.out.println("SIZE: " + test.size());
+		
 		assertNotNull("Find by id is not null", test);
 		
 		assertEquals("Length is not 1", 1, test.size());

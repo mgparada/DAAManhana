@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -17,22 +16,18 @@ import daa.manhana.entities.Comic;
 
 public class ComicDAOTest {
 	private EntityManagerFactory emf;
-	
 	private ComicDAO comicDAO;
-	private EntityManager entityManager;
 
 	
 	@Before
 	public void createEntityManager() {
 		emf = Persistence.createEntityManagerFactory("DAA-test");
 		
-		entityManager = emf.createEntityManager();
 		comicDAO = new ComicDAO(emf);
 	}
 	
 	@After
 	public void closeEntityManager() {
-		entityManager.close();
 		emf.close();
 	}	
 	
