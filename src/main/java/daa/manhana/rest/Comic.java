@@ -9,27 +9,25 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import daa.manhana.daos.BookDAO;
+import daa.manhana.daos.ComicDAO;
 
-
-@Path("/books")
+@Path("/comics")
 @Produces(MediaType.APPLICATION_JSON)
-public class Book {
-	private final BookDAO bookDAO;
+public class Comic {
+	private final ComicDAO comicDAO;
 	
-	public Book() {
-		this.bookDAO = new BookDAO();
+	public Comic() {
+		this.comicDAO = new ComicDAO();
 	}
 	
-	public Book(EntityManagerFactory emf) {
-		this.bookDAO = new BookDAO(emf);
+	public Comic(EntityManagerFactory emf) {
+		this.comicDAO = new ComicDAO(emf);
 	}
-	
 	@GET
 	@Path("/all")
 	public Response all() {
 		try{
-			return Response.ok(this.bookDAO.getAll()).build();
+			return Response.ok(this.comicDAO.getAll()).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -41,7 +39,7 @@ public class Book {
 	public Response search(
 			@DefaultValue("") @QueryParam("name") final String name) {
 		try{
-			return Response.ok(this.bookDAO.findByName(name)).build();
+			return Response.ok(this.comicDAO.findByName(name)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -50,15 +48,14 @@ public class Book {
 	
 	@GET
 	@Path("/id")
-	public Response concreteBook(
-			@DefaultValue("9") @QueryParam("id") final int id) {
+	public Response concreteComic(
+			@DefaultValue("15") @QueryParam("id") final int id) {
 		try{
-			return Response.ok(this.bookDAO.findById(id)).build();
+			return Response.ok(this.comicDAO.findById(id)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
 		}
 	}
 	
-
 }

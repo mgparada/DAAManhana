@@ -9,27 +9,26 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import daa.manhana.daos.BookDAO;
+import daa.manhana.daos.MovieDAO;
 
-
-@Path("/books")
+@Path("/movies")
 @Produces(MediaType.APPLICATION_JSON)
-public class Book {
-	private final BookDAO bookDAO;
+public class Movie {
+	private final MovieDAO movieDAO;
 	
-	public Book() {
-		this.bookDAO = new BookDAO();
+	public Movie() {
+		this.movieDAO = new MovieDAO();
 	}
 	
-	public Book(EntityManagerFactory emf) {
-		this.bookDAO = new BookDAO(emf);
+	public Movie(EntityManagerFactory emf) {
+		this.movieDAO = new MovieDAO(emf);
 	}
 	
 	@GET
 	@Path("/all")
 	public Response all() {
 		try{
-			return Response.ok(this.bookDAO.getAll()).build();
+			return Response.ok(this.movieDAO.getAll()).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -41,7 +40,7 @@ public class Book {
 	public Response search(
 			@DefaultValue("") @QueryParam("name") final String name) {
 		try{
-			return Response.ok(this.bookDAO.findByName(name)).build();
+			return Response.ok(this.movieDAO.findByName(name)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -50,15 +49,14 @@ public class Book {
 	
 	@GET
 	@Path("/id")
-	public Response concreteBook(
-			@DefaultValue("9") @QueryParam("id") final int id) {
+	public Response concreteMovie(
+			@DefaultValue("2") @QueryParam("id") final int id) {
 		try{
-			return Response.ok(this.bookDAO.findById(id)).build();
+			return Response.ok(this.movieDAO.findById(id)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
 		}
 	}
 	
-
 }

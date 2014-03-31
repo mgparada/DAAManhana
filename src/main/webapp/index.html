@@ -2,9 +2,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.js"> </script>
+<script type="text/javascript" src="js/dao/articles.js"> </script>
 <title>Insert title here</title>
 </head>
 <body>
 <p>Página principal</p>
+
+<input name="Busqueda de articulos" id="find_articles" />
+<select id="categories" >
+  <option value="books">Libros</option>
+  <option value="movies">Peliculas</option>
+  <option value="comics">Comics</option>
+  <option value="cds">CDs</option>
+</select>
+<p></p>
 </body>
+
+<script>
+	var find_articles_val = $("#find_articles");
+		
+	$("#categories").change(function(){
+		findByName( $("#find_articles").val() , $("#categories").val() , 
+			function(articles){ 
+				$.each(articles, function(key, article) {
+					console.log(article)
+				});  
+			});
+	});
+	
+</script>
+
 </html>

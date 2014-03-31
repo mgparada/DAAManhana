@@ -38,11 +38,11 @@ insert into cds (duration, articleId) values (48, 14);
 -- Insert comics -
 insert into articles (releaseDate, name, description) values ("1975-04-30 8:12:01", "Cigars of the Pharoah (The Adventures of Tintin)", "The classic graphic novel. Tintin tries to take a vacation, but while on his cruise ship a mystery unfolds! He meets Dr. Sarcophagus who leads him to the undiscovered tomb of the Pharaoh Kih-Oskh.");
 insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Herge", "1975-04-30 8:12:01", "Little, Brown Books for Young Readers", "0316358363", 62, 15);
-insert into comics (chapter, articleId) values (3, 15)
+insert into comics (chapter, articleId) values (3, 15);
 
 insert into articles (releaseDate, name, description) values ("1984-12-03 8:12:01", "Dragon ball", "A comic masterpiece . . . Dragon Ball's spirit of fun and adventure is unparalleled.");
 insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Akira Toriyama", "2003-03-12 18:32:31", "VIZ Media LLC; 2nd Edition edition", "1569319200", 192, 16);
-insert into comics (chapter, articleId) values (1, 16)
+insert into comics (chapter, articleId) values (1, 16);
 
 -- Insert users --
 insert into users (name) values ("aalopez"), ("alfredo"), ("alfonso"), ("alonso"), ("mgparada"), ("mnceleiro");

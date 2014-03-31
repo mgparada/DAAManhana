@@ -111,7 +111,6 @@ public abstract class GenericDAO<T> {
 	@SuppressWarnings("unchecked")
 	protected Class<T> getGenericClass() {
         return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-
 	}
 	
 	protected String getClassName() {
