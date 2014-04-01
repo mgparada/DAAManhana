@@ -7,7 +7,7 @@ public class DAOUtils {
 	private static EntityManager entityManager;
 	
 	public static void setUp(final EntityManager em) {
-		initializeEntityManager(em);
+		entityManager = em;
 		openTransaction();
 	}
 	
@@ -21,10 +21,6 @@ public class DAOUtils {
 		}
 		
 		closeTransaction();
-	}
-		
-	private static void initializeEntityManager(final EntityManager em) {
-		entityManager = em;
 	}
 	
 	private static void openTransaction()

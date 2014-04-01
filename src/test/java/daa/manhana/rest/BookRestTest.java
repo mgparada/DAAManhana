@@ -55,7 +55,7 @@ public class BookRestTest extends JerseyTest {
 
 		final daa.manhana.entities.Book book = response.readEntity(daa.manhana.entities.Book.class);
 		assertEquals(9, book.getId());
-		assertEquals("el juego de ripper", book.getName().toLowerCase());
+		assertEquals("la lista de schindler", book.getName().toLowerCase());
 	}
 	
 	@Test

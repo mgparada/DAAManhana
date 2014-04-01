@@ -16,6 +16,7 @@ public class Book {
 	private final BookDAO bookDAO;
 	
 	public Book() {
+		System.setProperty("persistenceUnit", "Grupo-Manhana");
 		this.bookDAO = new BookDAO();
 	}
 	

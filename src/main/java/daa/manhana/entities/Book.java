@@ -27,8 +27,6 @@ public class Book extends Article {
 	@Column(nullable = false, length = 70)
 	private String isbn;
 	
-	
-	
 	public Book() {
 		super();
 	}

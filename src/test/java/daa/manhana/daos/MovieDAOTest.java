@@ -5,17 +5,12 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import daa.manhana.entities.Movie;
 
 public class MovieDAOTest {
-	private EntityManagerFactory emf;
 	private MovieDAO movieDAO;
 
 	

@@ -11,17 +11,15 @@ import javax.persistence.TransactionRequiredException;
 import javax.persistence.TypedQuery;
 
 public abstract class GenericDAO<T> {
-	private final EntityManagerFactory emf;
+	private EntityManagerFactory emf;
+	private EntityManager em;
 	
 	public GenericDAO() {
-		this.emf = Persistence.createEntityManagerFactory( System.getProperty("persistenceUnit") );
 	}
 	
-	private EntityManager createEntityManager() {
-		return this.emf.createEntityManager();
-	}
-
 	public List<T> findByName(String name) {
+		createEntities();
+		
 		TypedQuery<T> q = createQuery(
 				"SELECT object(p) "
 				+ "FROM " + getClassName() + " AS p "
@@ -31,18 +29,30 @@ public abstract class GenericDAO<T> {
 		
 		q.setParameter("pattern", "%" + name + "%");
 		
-		return (List<T>) q.getResultList();
+		List<T> toRet = (List<T>) q.getResultList();
+		
+		closeEntityManagerFactory();
+		
+		return toRet;
 	}
 	
 	public List<T> getAll() {
-		return createQuery(
+		createEntities();
+		
+		List<T> toRet = createQuery(
 			"SELECT object(p) "
 			+ "FROM " + getClassName() + " AS p "
 			+ "ORDER BY p.name"
 		).getResultList();
+		
+		closeEntityManagerFactory();
+		
+		return toRet;
 	}
 	
-	public T findCOncreteArticle (String name) {
+	public T findConcreteArticle (String name) {
+		createEntities();
+		
 		TypedQuery<T> q = createQuery(
 				"SELECT object(p) "
 				+ "FROM " + getClassName() + " AS p "
@@ -52,56 +62,60 @@ public abstract class GenericDAO<T> {
 		
 		q.setParameter("pattern", "%" + name + "%");
 		
-		return q.getSingleResult();
+		T toRet = q.getSingleResult();
+		
+		closeEntityManagerFactory();
+		
+		return toRet;
 	}
 	
 	public void save(T entity) 
 			throws EntityExistsException, IllegalArgumentException, TransactionRequiredException {
-		
-		final EntityManager em = createEntityManager();
+		createEntities();
 		
 		DAOUtils.setUp(em);
 		em.persist(entity);
 		DAOUtils.doTransaction();
+		
+		closeEntityManagerFactory();
 	}
 	
 	public void update(T entity) 
 			throws IllegalArgumentException, TransactionRequiredException {
-		
-		final EntityManager em = createEntityManager();
+		createEntities();
 		
 		DAOUtils.setUp(em);
 		em.merge(entity);
 		DAOUtils.doTransaction();
+		
+		closeEntityManagerFactory();
 	}
 	
 	public void delete(T entity) 
 			throws IllegalArgumentException, TransactionRequiredException {
-		
-		final EntityManager em = createEntityManager();
+		createEntities();
 		
 		DAOUtils.setUp(em);
 		em.remove(entity);
 		DAOUtils.doTransaction();
+		
+		closeEntityManagerFactory();
 	}
 	
 	public T findById(Object id) {
-		final EntityManager em = createEntityManager();
+		createEntities();
 		
 		DAOUtils.setUp(em);
 		T toRet = em.find(getGenericClass(), id);
 		DAOUtils.doTransaction();
 		
+		closeEntityManagerFactory();
 		return toRet;
 	}
 	
-	protected TypedQuery<T> createQuery(String query) {
-		final EntityManager em = createEntityManager();
-		
+	protected TypedQuery<T> createQuery(String query) {		
 		DAOUtils.setUp(em);
-		TypedQuery<T> result = em.createQuery(query, getGenericClass());
-		
-		return result;
+		return em.createQuery(query, getGenericClass());	
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -113,5 +127,18 @@ public abstract class GenericDAO<T> {
 		Class<T> extendedClass = getGenericClass();
 		
 		return extendedClass.getName();
+	}
+	
+	private void createEntityManagerFactory() {
+		this.emf = Persistence.createEntityManagerFactory( System.getProperty("persistenceUnit") );
+	}
+	
+	private void closeEntityManagerFactory() {
+		this.emf.close();
+	}
+	
+	private void createEntities() {
+		createEntityManagerFactory();
+		this.em = this.emf.createEntityManager();
 	}
 }
