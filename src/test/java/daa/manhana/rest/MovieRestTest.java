@@ -16,12 +16,12 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BookRestTest extends JerseyTest {
+public class MovieRestTest extends JerseyTest {
 	@Override
 	protected Application configure() {
 		System.setProperty("persistenceUnit", "DAA-test");
 		
-		return new ResourceConfig(Book.class)
+		return new ResourceConfig(Movie.class)
 			.register(JacksonJsonProvider.class)
 			.property("com.sun.jersey.api.json.POJOMappingFeature", Boolean.TRUE);
 	}
@@ -49,21 +49,22 @@ public class BookRestTest extends JerseyTest {
 	}
 	
 	@Test
-	public void testingFindBookById() throws IOException {
-		final Response response = target("/books/9").request().get();
+	public void testingFindMovieById() throws IOException {
+		final Response response = target("/movies/2").request().get();
 		TestUtils.assertOkStatus(response);
 
-		final daa.manhana.entities.Book book = response.readEntity(daa.manhana.entities.Book.class);
-		assertEquals(9, book.getId());
-		assertEquals("el juego de ripper", book.getName().toLowerCase());
+		final daa.manhana.entities.Movie movie = response.readEntity(daa.manhana.entities.Movie.class);
+		assertEquals("cadena perpetua", movie.getName().toLowerCase());
+		assertEquals("frank darabont", movie.getDirectors().toLowerCase());
 	}
 	
 	@Test
-	public void testingFindAllBooks() {
-		final Response response = target("/books/name/el").request().get();
+	public void testingFindAllMovies() {
+		final Response response = target("/movies/all").request().get();
 		TestUtils.assertOkStatus(response);
 
-		final List<daa.manhana.entities.Book> books = response.readEntity(new GenericType<List<daa.manhana.entities.Book>>(){});
-		assertEquals(1, books.size());
+		final List<daa.manhana.entities.Movie> movies = response.readEntity(new GenericType<List<daa.manhana.entities.Movie>>(){});
+		assertEquals(3, movies.size());
 	}
 }
+

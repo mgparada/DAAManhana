@@ -31,6 +31,7 @@ public class DAOUtils {
 	{
 		entityManager.getTransaction().begin();
 	}
+	
 	private static void closeTransaction() {
 		entityManager.close();
 	}

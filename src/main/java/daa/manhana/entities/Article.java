@@ -15,7 +15,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "articles")
 @Inheritance(strategy = InheritanceType.JOINED)
-//@DiscriminatorColumn(name = "ARTICLE_TYPE", discriminatorType = DiscriminatorType.STRING, length = 20)
 public class Article {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	// default

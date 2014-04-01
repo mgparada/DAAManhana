@@ -1,10 +1,9 @@
 package daa.manhana.rest;
 
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -31,9 +30,9 @@ public class CD {
 	}
 	
 	@GET
-	@Path("/name")
+	@Path("/name/{name}")
 	public Response search(
-			@DefaultValue("") @QueryParam("name") final String name) {
+			@PathParam("name") final String name) {
 		try{
 			return Response.ok(this.CDDAO.findByName(name)).build();
 		}catch(Exception e) {
@@ -43,9 +42,9 @@ public class CD {
 	}
 	
 	@GET
-	@Path("/id")
+	@Path("/{id}")
 	public Response concreteCD(
-			@DefaultValue("12") @QueryParam("id") final int id) {
+			@PathParam("id") final int id) {
 		try{
 			return Response.ok(this.CDDAO.findById(id)).build();
 		}catch(Exception e) {

@@ -21,16 +21,10 @@ public class ComicDAOTest {
 	
 	@Before
 	public void createEntityManager() {
-		emf = Persistence.createEntityManagerFactory("DAA-test");
+		System.setProperty("persistenceUnit", "DAA-test");
 		
-		comicDAO = new ComicDAO(emf);
-	}
-	
-	@After
-	public void closeEntityManager() {
-		emf.close();
+		comicDAO = new ComicDAO();
 	}	
-	
 	
 	@Test
 	public void testingFindByName() {

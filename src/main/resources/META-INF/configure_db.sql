@@ -1,4 +1,4 @@
-CREATE TABLE DAAManhana;
+CREATE database DAAManhana;
 GRANT ALL PRIVILEGES ON DAAManhana.* to 'DAA'@'localhost' IDENTIFIED BY 'vacio';
 
 create database DAAManhana_test;

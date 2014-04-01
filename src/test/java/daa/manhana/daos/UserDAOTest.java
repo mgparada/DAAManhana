@@ -7,11 +7,11 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.RollbackException;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import daa.manhana.entities.User;
@@ -21,14 +21,15 @@ public class UserDAOTest {
 	
 	private UserDAO userDAO;
 	private EntityManager entityManager;
-
+	
+	@BeforeClass
+	public static void setPersistenceUnit() {
+		System.setProperty("persistenceUnit", "DAA-test");
+	}
 	
 	@Before
-	public void createEntityManager() {
-		emf = Persistence.createEntityManagerFactory("DAA-test");
-		
-		entityManager = emf.createEntityManager();
-		userDAO = new UserDAO(emf);
+	public void createEntityManager() {		
+		userDAO = new UserDAO();
 
 		entityManager.getTransaction().begin();
 	}
@@ -44,7 +45,7 @@ public class UserDAOTest {
 		}
 		entityManager.close();
 		
-		emf.close();
+//		emf.close();
 	}	
 	
 	@Test
@@ -65,7 +66,6 @@ public class UserDAOTest {
 	@Test
 	public void testingFindAll()
 	{		
-		System.out.println("----- testingFindAll -----");
 		List<User> test = userDAO.getAll();
 		assertNotNull("Find by id is not null", test);
 		
@@ -77,7 +77,6 @@ public class UserDAOTest {
 	@Test
 	public void testingFindUser()
 	{		
-		System.out.println("----- testingFindUser -----");
 
 		User test = userDAO.findById("aalopez");
 		assertNotNull("Find User is not null", test.getName());
@@ -87,7 +86,6 @@ public class UserDAOTest {
 	@Test
 	public void testingCreateUser()
 	{		
-		System.out.println("----- testingCreateUser -----");
 
 		userDAO.save(new User ("mauro"));
 		List<User> something = userDAO.getAll();
@@ -98,8 +96,6 @@ public class UserDAOTest {
 	@Test
 	public void testingDeleteUser()
 	{		
-		System.out.println("----- testingDeleteUser -----");
-
 		userDAO.delete(new User ("mauro"));
 		List<User> something = userDAO.getAll();
 		something.contains(new User ("mauro"));

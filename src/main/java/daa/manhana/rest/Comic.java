@@ -1,11 +1,9 @@
 package daa.manhana.rest;
 
-import javax.persistence.EntityManagerFactory;
-import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -20,9 +18,6 @@ public class Comic {
 		this.comicDAO = new ComicDAO();
 	}
 	
-	public Comic(EntityManagerFactory emf) {
-		this.comicDAO = new ComicDAO(emf);
-	}
 	@GET
 	@Path("/all")
 	public Response all() {
@@ -35,9 +30,9 @@ public class Comic {
 	}
 	
 	@GET
-	@Path("/name")
+	@Path("/name/{name}")
 	public Response search(
-			@DefaultValue("") @QueryParam("name") final String name) {
+			@PathParam("name") final String name) {
 		try{
 			return Response.ok(this.comicDAO.findByName(name)).build();
 		}catch(Exception e) {
@@ -47,9 +42,9 @@ public class Comic {
 	}
 	
 	@GET
-	@Path("/id")
+	@Path("/{id}")
 	public Response concreteComic(
-			@DefaultValue("15") @QueryParam("id") final int id) {
+			@PathParam("id") final int id) {
 		try{
 			return Response.ok(this.comicDAO.findById(id)).build();
 		}catch(Exception e) {

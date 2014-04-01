@@ -22,9 +22,9 @@ public class CDDAOTest {
 	
 	@Before
 	public void createEntityManager() {
-		emf = Persistence.createEntityManagerFactory("DAA-test");
+		System.setProperty("persistenceUnit", "DAA-test");
 		
-		CDDAO = new CDDAO(emf);
+		CDDAO = new CDDAO();
 	}
 	
 	@After

@@ -21,16 +21,10 @@ public class MovieDAOTest {
 	
 	@Before
 	public void createEntityManager() {
-		emf = Persistence.createEntityManagerFactory("DAA-test");
+		System.setProperty("persistenceUnit", "DAA-test");
 		
-		movieDAO = new MovieDAO(emf);
-	}
-	
-	@After
-	public void closeEntityManager() {
-		emf.close();
+		movieDAO = new MovieDAO();
 	}	
-	
 	
 	@Test
 	public void testingFindByName() {

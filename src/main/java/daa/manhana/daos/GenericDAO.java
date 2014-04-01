@@ -14,11 +14,7 @@ public abstract class GenericDAO<T> {
 	private final EntityManagerFactory emf;
 	
 	public GenericDAO() {
-		this.emf = Persistence.createEntityManagerFactory("Grupo-Manhana");
-	}
-	
-	public GenericDAO(EntityManagerFactory emf) {
-		this.emf = emf;
+		this.emf = Persistence.createEntityManagerFactory( System.getProperty("persistenceUnit") );
 	}
 	
 	private EntityManager createEntityManager() {

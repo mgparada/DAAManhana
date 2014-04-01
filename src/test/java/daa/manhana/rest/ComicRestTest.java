@@ -16,12 +16,12 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BookRestTest extends JerseyTest {
+public class ComicRestTest extends JerseyTest {
 	@Override
 	protected Application configure() {
 		System.setProperty("persistenceUnit", "DAA-test");
 		
-		return new ResourceConfig(Book.class)
+		return new ResourceConfig(Comic.class)
 			.register(JacksonJsonProvider.class)
 			.property("com.sun.jersey.api.json.POJOMappingFeature", Boolean.TRUE);
 	}
@@ -49,21 +49,21 @@ public class BookRestTest extends JerseyTest {
 	}
 	
 	@Test
-	public void testingFindBookById() throws IOException {
-		final Response response = target("/books/9").request().get();
+	public void testingFindComicById() throws IOException {
+		final Response response = target("/comics/16").request().get();
 		TestUtils.assertOkStatus(response);
 
-		final daa.manhana.entities.Book book = response.readEntity(daa.manhana.entities.Book.class);
-		assertEquals(9, book.getId());
-		assertEquals("el juego de ripper", book.getName().toLowerCase());
+		final daa.manhana.entities.Comic comic = response.readEntity(daa.manhana.entities.Comic.class);
+		assertEquals(16, comic.getId());
+		assertEquals("frozen", comic.getName().toLowerCase());
 	}
 	
 	@Test
-	public void testingFindAllBooks() {
-		final Response response = target("/books/name/el").request().get();
+	public void testingFindAllComics() {
+		final Response response = target("/cds/name/f").request().get();
 		TestUtils.assertOkStatus(response);
 
-		final List<daa.manhana.entities.Book> books = response.readEntity(new GenericType<List<daa.manhana.entities.Book>>(){});
-		assertEquals(1, books.size());
+		final List<daa.manhana.entities.Comic> comics = response.readEntity(new GenericType<List<daa.manhana.entities.Comic>>(){});
+		assertEquals(2, comics.size());
 	}
 }

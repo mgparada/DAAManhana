@@ -5,31 +5,18 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import daa.manhana.entities.Book;
 
-public class BookDAOTest {
-	private EntityManagerFactory emf;
-	
+public class BookDAOTest {	
 	private BookDAO bookDAO;
 
-	
 	@Before
 	public void createEntityManager() {
-		emf = Persistence.createEntityManagerFactory("DAA-test");
-		
-		bookDAO = new BookDAO(emf);
-	}
-	
-	@After
-	public void closeEntityManager() {
-		emf.close();
+		System.setProperty("persistenceUnit", "DAA-test");
+		bookDAO = new BookDAO();
 	}	
 	
 	@Test
