@@ -3,11 +3,13 @@ package daa.manhana.entities;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "movies")
+@DiscriminatorValue(value = "movie")
 public class Movie extends Article {
 	
 	@Column(name = "director")

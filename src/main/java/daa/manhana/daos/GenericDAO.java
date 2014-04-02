@@ -129,15 +129,15 @@ public abstract class GenericDAO<T> {
 		return extendedClass.getName();
 	}
 	
-	private void createEntityManagerFactory() {
+	protected void createEntityManagerFactory() {
 		this.emf = Persistence.createEntityManagerFactory( System.getProperty("persistenceUnit") );
 	}
 	
-	private void closeEntityManagerFactory() {
+	protected void closeEntityManagerFactory() {
 		this.emf.close();
 	}
 	
-	private void createEntities() {
+	protected void createEntities() {
 		createEntityManagerFactory();
 		this.em = this.emf.createEntityManager();
 	}

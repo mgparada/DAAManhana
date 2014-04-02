@@ -55,12 +55,12 @@ public class ComicRestTest extends JerseyTest {
 
 		final daa.manhana.entities.Comic comic = response.readEntity(daa.manhana.entities.Comic.class);
 		assertEquals(16, comic.getId());
-		assertEquals("frozen", comic.getName().toLowerCase());
+		assertEquals("dragon ball", comic.getName().toLowerCase());
 	}
 	
 	@Test
 	public void testingFindAllComics() {
-		final Response response = target("/cds/name/f").request().get();
+		final Response response = target("/comics/all").request().get();
 		TestUtils.assertOkStatus(response);
 
 		final List<daa.manhana.entities.Comic> comics = response.readEntity(new GenericType<List<daa.manhana.entities.Comic>>(){});

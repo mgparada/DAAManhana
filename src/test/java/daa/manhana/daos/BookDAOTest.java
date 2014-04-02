@@ -59,7 +59,7 @@ public class BookDAOTest {
 		List<Book> test = bookDAO.getAll();
 		assertNotNull("Find by id is not null", test);
 		
-		assertEquals("Length is not 5", 5, test.size());
+		assertEquals("Length is not 3", 3, test.size());
 	}
 
 }

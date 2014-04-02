@@ -5,17 +5,12 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
-import javax.persistence.EntityManagerFactory;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import daa.manhana.entities.CD;
 
-public class CDDAOTest {
-	private EntityManagerFactory emf;
-	
+public class CDDAOTest {	
 	private CDDAO CDDAO;
 
 	
@@ -25,12 +20,6 @@ public class CDDAOTest {
 		
 		CDDAO = new CDDAO();
 	}
-	
-	@After
-	public void closeEntityManager() {
-		emf.close();
-	}	
-	
 	
 	@Test
 	public void testingFindByName() {

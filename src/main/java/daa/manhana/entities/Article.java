@@ -3,6 +3,8 @@ package daa.manhana.entities;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +17,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "articles")
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(
+	    name="discriminator",
+	    discriminatorType=DiscriminatorType.STRING
+	)
 public class Article {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)	// default
@@ -29,7 +35,9 @@ public class Article {
 
 	@Column(nullable = true, length=65536)
 	protected String description;
-
+	
+	@Column(name = "discriminator", nullable = false)
+	protected String discriminator;
 	
 	public Article() {
 
@@ -71,5 +79,13 @@ public class Article {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getDiscriminator() {
+		return discriminator;
+	}
+	
+	public void setDiscriminator(String discriminator) {
+		this.discriminator = discriminator;
 	}
 }

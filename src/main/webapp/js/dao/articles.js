@@ -1,12 +1,29 @@
-function findByName(article_name, category, function_done, fail) {
-	function_done = typeof done !== 'undefined' ? done : function() {};
+function findByName(article_name, category, done, fail) {
+	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 	
+	url = 'rest/' + category + '/name/' + article_name;
+	
 	$.ajax({
-		url: 'rest/' + category + "/name",
-		type: 'GET',
-		data: {name: article_name}
+		dataType: "json",
+		url: url,
+		type: 'GET'
 	})
-	.done(function_done)
+	.done(done)
+	.fail(fail);
+}
+
+function findById(article_id, category, done, fail) {
+	done = typeof done !== 'undefined' ? done : function() {};
+	fail = typeof fail !== 'undefined' ? fail : function() {};
+	
+	url = 'rest/' + category + '/' + article_id;
+	
+	$.ajax({
+		dataType: "json",
+		url: url,
+		type: 'GET'
+	})
+	.done(done)
 	.fail(fail);
 }

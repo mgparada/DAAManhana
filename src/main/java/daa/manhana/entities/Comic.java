@@ -3,6 +3,7 @@ package daa.manhana.entities;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -10,6 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "comics")
 @PrimaryKeyJoinColumn(name = "articleId")
+@DiscriminatorValue(value = "comic")
 public class Comic extends Book {
 	@Column(nullable = false)
 	private int chapter;
