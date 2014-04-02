@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.js"> </script>
+<script type="text/javascript" src="js/dao/articles.js"> </script>
+<title>Insert title here</title>
+</head>
+<body>
+<p>Página principal</p>
+
+<input name="Busqueda de articulos" id="find_articles" />
+<select id="categories" >
+  <option value="books">Libros</option>
+  <option value="movies">Peliculas</option>
+  <option value="comics">Comics</option>
+  <option value="cds">CDs</option>
+</select>
+<div id="articles_div" style="display: none;">
+	<table border="1" style="width:300px">
+	   <thead>
+	      <tr>
+	         <th>Nombre</th>
+	      </tr>
+	   </thead>
+	   <tbody>
+	   </tbody>
+	</table>
+</div>
+</body>
+
+<script>
+	var find_articles_val = $("#find_articles");
+
+	$("tbody").on("click", "a", function(){
+		id = $(this).data("id");
+		category = $(this).data("category");
+
+		findById(id, category, function(article){
+				console.log(article);
+			});
+	});
+		
+	$("#categories").change(function(){
+		findByName( $("#find_articles").val() , $("#categories").val() , 
+			function(articles){
+				$("tbody").empty();
+				$.each(articles, function(key, art) {
+					var tr = "<tr><td><a href='#' data-id='" + art["id"] + "' data-category='" + $("#categories").val() +"'>" + art["name"] + "</a></td></tr>";
+					$("tbody").append(tr);
+				});  
+			});
+		$("#articles_div").css('display', '');
+	});
+	
+</script>
+
+</html>

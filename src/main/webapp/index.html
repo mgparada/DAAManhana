@@ -1,58 +1,201 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.js"> </script>
-<script type="text/javascript" src="js/dao/articles.js"> </script>
-<title>Insert title here</title>
-</head>
-<body>
-<p>Página principal</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="DC.Language" scheme="RFC1766" content="Spanish"/>
+		<link rel="stylesheet" type="text/css" href="search.css" />
 
-<input name="Busqueda de articulos" id="find_articles" />
-<select id="categories" >
-  <option value="books">Libros</option>
-  <option value="movies">Peliculas</option>
-  <option value="comics">Comics</option>
-  <option value="cds">CDs</option>
-</select>
-<div id="articles_div" style="display: none;">
-	<table border="1" style="width:300px">
-	   <thead>
-	      <tr>
-	         <th>Nombre</th>
-	      </tr>
-	   </thead>
-	   <tbody>
-	   </tbody>
-	</table>
-</div>
-</body>
-
-<script>
-	var find_articles_val = $("#find_articles");
-
-	$("tbody").on("click", "a", function(){
-		id = $(this).data("id");
-		category = $(this).data("category");
-
-		findById(id, category, function(article){
-				console.log(article);
-			});
-	});
+		<!-- Libreria jQuery -->
+        <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		
-	$("#categories").change(function(){
-		findByName( $("#find_articles").val() , $("#categories").val() , 
-			function(articles){
-				$("tbody").empty();
-				$.each(articles, function(key, art) {
-					var tr = "<tr><td><a href='#' data-id='" + art["id"] + "' data-category='" + $("#categories").val() +"'>" + art["name"] + "</a></td></tr>";
-					$("tbody").append(tr);
-				});  
-			});
-		$("#articles_div").css('display', '');
-	});
-	
-</script>
+		<link href="img/Uvicon.ico" type="image/x-icon" rel="shortcut icon" />		
 
+	</head>
+	<body>
+		 <div class="body_container"> 
+			<center>
+				<!-- Cabecera -->
+				<div class="head">
+					<div class="logo_session_container">
+						<!-- Logotipo -->
+						<div class="logo">
+							<img src="img/UniDeVigoLogo.png" onclick="changeContent();"/>
+						</div>
+						<!-- Sesion -->
+						<div class="session_container">
+							<div id="login" class="session_login">
+								<a href="#" onclick="changeContent(5);">Iniciar sesión</a>
+							</div>
+							<div id="register" class="session_register">
+								<a href="#" onclick="changeContent(6);">Registro</a>
+							</div>
+						</div>
+					</div>
+					<!-- Busqueda -->
+					<div class="container_div_search">
+						<div class="div_search">
+							<div class="search">
+								Buscar
+							</div>
+							<div class="box_search">
+								<input type="text" name="search" class="input_search" placeholder="Buscar personas, CDs, cómics, películas..."/>
+							</div>
+							<div class="img_search" onclick="changeContent(0);">
+								<img src="img/search.png"/>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Contenido body -->
+				<div class="body">
+				
+					<!-- Contenido inicial -->
+					<div  id="contentDiv" class="data_container" style="display:block;">
+						Inicio
+					</div>
+					
+					<!-- Cajón de sastre -->
+					<div id="auxDiv" class="data_container" style="display:none;">
+							
+					</div>
+					
+					<!-- Contenido login -->
+					<div  id="loginDiv" class="data_container" style="display:none;">
+						Login
+					</div>
+					
+					<!-- Contenido registro -->
+					<div  id="registerDiv" class="data_container" style="display:none;">
+						Registro
+					</div>
+					
+					<!-- Contenido busqueda -->
+					<div id="searchDiv" class="data_container" style="display:none;">
+						<!-- Filtros y ordenar -->
+						<div class="container_bars">
+							<!-- Filtros -->
+							<div class="container_filter_bar">
+								<ul class="nav" >
+									<li><a href="#" id="first">Todos</a></li>
+									<li><a href="#" id="inter">Usuarios</a></li>
+									<li><a href="#" id="art">Artículos<img src="img/arrow.png" class="arrow" /></a>
+										<ul>
+											<li><a class="subart" data-category="cds" href="#">CDs</a></li>
+											<li><a class="subart" data-category="movies" href="#">Películas</a></li>
+											<li><a class="subart" data-category="books" href="#">Libros</a></li>
+											<li><a class="subart" data-category="comics" href="#">Cómics</a></li>
+										</ul>
+									</li>
+									<li style=""><a href="#" id="last">Más<img src="img/arrow.png" class="arrow" /></a>
+										<ul>
+											<li><a class="submas" href="#">S1</a></li>
+											<li><a class="submas" href="#">S2</a></li>
+											<li><a class="submas" href="#">S3</a></li>
+											<li><a class="submas" href="#">S4</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<!-- Ordenaciones -->
+							<div class="container_order_bar">
+								<ul class="nav"> 
+									<li><a href="" id="order">Ordenar por<img src="img/arrow.png" class="arrow"/></a>
+										<ul>
+											<li><a href="" class="suborder">Nombre</a></li>
+											<li><a href="" class="suborder">Categoría</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- Resultados de la busqueda -->
+						<div class="search_container">
+							<div class="search_result_count">
+							</div>
+							<div class="search_result">
+							</div>
+						</div>
+					</div>
+					
+					<!-- Contenido Acerca de -->
+					<div  id="aboutDiv" class="data_container" style="display:none;">
+						<div class="text_tittle"> Acerca de </div>
+						<div class="text_block">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur aliquet lacus est, eget tempor nibh blandit vitae. Etiam imperdiet risus posuere mauris faucibus, ac varius tellus consequat. Donec et ipsum ligula. Morbi ut feugiat magna. Cras luctus tempus nisl, eu fermentum lectus porta eu. Nunc interdum consequat nulla, facilisis posuere ante venenatis nec. Mauris non interdum nulla. Nulla nec libero quis enim vehicula fringilla et non purus. Integer accumsan dapibus pretium. Phasellus neque dui, bibendum eget ipsum eu, tincidunt congue lorem. Sed iaculis nisi et dui semper dignissim.</p>
+							<p>Sed mattis massa sed mauris iaculis, in sagittis mi sollicitudin. Aliquam pellentesque, orci eget iaculis luctus, nunc nibh hendrerit tortor, et ultricies augue arcu in leo. Quisque volutpat eu dolor semper iaculis. Nam blandit ullamcorper magna ut congue. Etiam vel ipsum quis libero molestie varius. Fusce vehicula rhoncus tortor id facilisis. Duis pharetra consectetur felis a feugiat.</p>
+						</div>
+					</div>
+					
+					<!-- Contenido Soporte -->
+					<div  id="supportDiv" class="data_container" style="display:none;">
+						<div class="text_tittle"> Soporte </div>
+						<div class="text_block">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet blandit ante. Curabitur elementum risus et nisl consequat cursus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam imperdiet consectetur libero eu hendrerit. Nullam porta tellus vitae elit ultrices, vitae fermentum est convallis. Vivamus et nisl a diam gravida lacinia quis et arcu. Pellentesque eu sagittis ipsum. Duis vestibulum gravida velit in semper. Nunc tincidunt dolor quis metus volutpat sagittis.</p> 
+						</div>
+					</div>
+					
+					<!-- Contenido Terminos y Condiciones -->
+					<div  id="termsDiv" class="data_container" style="display:none;">
+						<div class="text_tittle"> Terminos y condiciones </div>
+						<div class="text_block">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo neque eu tortor adipiscing, et aliquam magna malesuada. Etiam accumsan at massa quis egestas. Nam quis magna velit. Duis at diam et nisi rutrum condimentum. Proin lobortis, felis vel hendrerit luctus, velit libero mollis purus, ut imperdiet metus lacus eget mi. Curabitur id leo et lectus mollis commodo eget eget ligula. Etiam nisl lectus, imperdiet non bibendum ac, accumsan eget massa. Donec consectetur id dui vitae euismod. Nunc in turpis ac erat vulputate sollicitudin. Fusce tempor orci vel lorem sodales egestas. Nam rutrum faucibus ante, nec lacinia sem accumsan non. Pellentesque ullamcorper enim nunc. Maecenas bibendum nisl id felis aliquet, in consequat orci mattis. Nam imperdiet non nisl a fermentum. Mauris dapibus ut magna vel fermentum.</p>
+							<p>Curabitur semper mi eget fermentum porttitor. Nullam ac elit vestibulum, tempus lacus dictum, dapibus erat. Nam vulputate nunc vitae diam vehicula sollicitudin vitae at diam. Donec ullamcorper hendrerit sagittis. Sed porttitor ac lectus vitae suscipit. Suspendisse pellentesque mollis suscipit. Sed vel porttitor felis, eget feugiat mauris. Aliquam sit amet metus mattis, aliquet tellus quis, pretium nisi. Donec dapibus ipsum id arcu tincidunt viverra. Suspendisse vulputate quis dui non scelerisque.</p>
+							<p>Mauris fermentum risus sit amet metus aliquet hendrerit. In vulputate congue elit vel scelerisque. Quisque scelerisque magna eu ligula tempor rutrum. In hac habitasse platea dictumst. Maecenas sed ligula id ligula ornare iaculis. Nunc pharetra erat eget odio tempus interdum volutpat quis augue. Aenean at enim ac sapien dignissim ultricies. Nulla rutrum pellentesque urna, ut lacinia lorem congue eleifend. Nullam mollis tempus elit. Fusce non nibh tristique, vulputate nisi in, dictum lectus. Curabitur eget placerat justo. Quisque in tristique lacus. Aliquam volutpat mollis lectus, sed viverra nisi. In dui dui, cursus sit amet odio sit amet, pulvinar tempor mauris.</p>
+							<p>Etiam id odio venenatis, aliquam felis in, mattis dolor. Maecenas non nisl vitae est blandit iaculis feugiat adipiscing dolor. Fusce neque nibh, luctus nec condimentum lobortis, placerat nec est. Sed vel est auctor, bibendum dui eu, convallis dolor. Nullam bibendum ullamcorper tempor. Praesent semper leo molestie est tincidunt tristique. Etiam dapibus nunc ante, eget dictum erat posuere ac. Maecenas mi libero, placerat et pellentesque at, vestibulum quis tellus. Vivamus et rutrum ipsum. Donec eget ante leo. Fusce sollicitudin nisl a arcu pulvinar malesuada. Donec elit est, malesuada eu nisi vel, faucibus blandit quam.</p>
+							<p>Pellentesque vehicula quam id leo cursus dignissim vel ut nunc. Fusce imperdiet, erat quis egestas elementum, risus lorem iaculis tellus, nec fermentum lorem diam vel purus. Cras dapibus quis diam nec mollis. Proin tincidunt urna sit amet mauris adipiscing, consequat semper nibh congue. Ut tincidunt imperdiet tortor, imperdiet vulputate tortor sodales ac. Donec sollicitudin nec tortor eget pellentesque. Donec id imperdiet libero. In diam quam, scelerisque non dolor quis, lobortis rutrum libero. Nam fermentum, magna non dapibus gravida, nulla dolor dapibus sem, nec bibendum sem arcu id nisl. Aenean dignissim tristique risus ut varius. Etiam malesuada turpis et dui elementum pretium.</p>
+							<p>In eget massa eleifend arcu vehicula lacinia. Quisque rutrum justo velit, id luctus arcu facilisis in. Nunc risus libero, porta at aliquam sed, rutrum sit amet odio. Etiam consectetur non magna a dictum. Mauris egestas nisl risus, id vehicula augue suscipit nec. In iaculis ac urna nec pharetra. Mauris nec aliquet neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at metus feugiat, ultricies leo in, aliquet purus. Suspendisse potenti. Mauris tempor non urna ac vestibulum. Nullam lectus leo, rutrum vel nisi vitae, ultricies malesuada felis. Donec turpis elit, sodales eget vulputate id, aliquet ullamcorper ipsum. Nam ultricies leo eu ante tincidunt, eu vehicula lorem ullamcorper.</p>
+							<p>Pellentesque mattis, ligula in ultricies fermentum, enim nulla varius lectus, nec congue ipsum justo sit amet lacus. Suspendisse suscipit tempor lacinia. Aenean a felis vel nisi porttitor scelerisque a ornare odio. Suspendisse vitae gravida quam. Proin tempor pretium odio id vestibulum. Suspendisse ut ornare massa. Quisque interdum porta hendrerit. Maecenas cursus ac augue vitae venenatis. In semper lacinia gravida. Nulla facilisi. Nulla aliquam commodo condimentum. Praesent enim ante, consequat nec varius sed, mollis vel massa.</p>
+							<p>Aliquam congue volutpat nunc, in posuere est euismod vitae. Maecenas sagittis erat nulla, ut vestibulum mi congue vitae. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin consectetur nibh vel massa egestas sodales. Integer imperdiet ut eros sit amet accumsan. Sed semper enim quis faucibus congue. Integer metus sem, vehicula non tristique eget, congue vel erat. Proin a pellentesque augue, eget varius magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam gravida a justo pulvinar suscipit. Proin id ligula ultrices, semper libero et, commodo dolor. Vivamus luctus rhoncus urna. Ut luctus arcu quis dignissim sollicitudin.</p>
+						</div>
+					</div>
+					
+					<!-- Contenido Privacidad -->
+					<div  id="privacyDiv" class="data_container" style="display:none;">
+						<div class="text_tittle"> Privacidad </div>
+						<div class="text_block">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at est ut tortor elementum consequat. Sed quis pellentesque lorem, ac vehicula quam. Nunc venenatis dolor et mauris eleifend, id gravida nunc fringilla. Donec ipsum nibh, semper quis magna eget, eleifend adipiscing felis. Proin ut ligula a mi scelerisque fermentum at et felis. Nam ultricies, velit non tincidunt viverra, elit lectus malesuada mauris, ac rutrum mi nisi at eros. Duis tempus, ipsum vel dictum ornare, leo magna porta lectus, et dignissim turpis ante non purus. Duis suscipit commodo convallis. Etiam quis rhoncus quam. Donec dictum urna quis enim pellentesque, in molestie magna pharetra. Sed vel auctor lectus, vitae consectetur diam.</p>
+							<p>Nullam lacinia tempor consectetur. Vestibulum commodo feugiat consectetur. Pellentesque a mi nec enim interdum fermentum at eu nulla. Proin eu sem orci. Suspendisse porttitor volutpat quam laoreet iaculis. Vivamus feugiat tempor iaculis. In tempor mi augue, vel tempus nulla vulputate id. Cras scelerisque lectus nisl, nec imperdiet libero vestibulum sed. Morbi pulvinar dui at enim malesuada, at pulvinar risus dictum. Suspendisse aliquam arcu ut vestibulum eleifend. Sed vulputate tortor dolor, vel convallis nunc sollicitudin et. Etiam massa turpis, condimentum ut ipsum eget, blandit fermentum elit. Phasellus tempus nisl sed turpis dignissim pulvinar. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+							<p>Integer commodo convallis mattis. Aenean nunc eros, dictum sed fermentum sed, aliquam id mauris. Vivamus bibendum pellentesque placerat. Sed eu ante aliquet, iaculis orci vehicula, condimentum magna. Phasellus mi urna, vestibulum eu luctus in, vulputate non est. Pellentesque fermentum erat ante, sed volutpat mauris laoreet eu. In condimentum consequat vehicula. Proin vitae ultricies velit. Fusce in vestibulum nulla. Donec sagittis nibh eget nunc tincidunt posuere.</p>
+							<p>Aenean tempus dignissim erat, eget lobortis eros mollis eu. Sed hendrerit mauris risus, hendrerit rutrum neque eleifend ac. Fusce id condimentum est. Ut lobortis odio nec tempus convallis. Nunc sodales dapibus laoreet. Quisque in posuere urna, dapibus aliquam eros. Donec ut venenatis tortor. Sed ligula turpis, semper sit amet commodo sit amet, placerat nec justo. Suspendisse id lectus tempor, venenatis enim vitae, iaculis lacus. Curabitur sed nisi ligula. Morbi ut dignissim lorem. Morbi aliquam sagittis nisl id venenatis. Morbi hendrerit vestibulum dui. Sed turpis libero, ultrices sed lectus quis, feugiat convallis mi.</p>
+							<p>Maecenas ante orci, aliquam quis blandit ac, iaculis non risus. Nulla eget rhoncus nulla, non viverra risus. Nunc non urna blandit augue gravida faucibus eu id est. Integer lorem turpis, tincidunt id elit ut, congue interdum lorem. Suspendisse tristique sed lorem vestibulum congue. Ut fermentum turpis sit amet eros molestie porttitor. Vestibulum ut turpis posuere, mollis tortor at, suscipit erat. Mauris hendrerit purus sapien, in tincidunt nunc accumsan vitae. Aliquam non odio nec orci placerat dapibus at vel velit.</p> 
+						</div>
+					</div>
+					
+					<!-- Contenido publicidad - siempre visible -->
+					<div class="banner_container">
+					
+						<!-- Banner -->
+						<div class="banner_div">
+							<img src="img/imagen_404.jpg"  class="banner_img" alt="" />
+						</div>
+						<!--          -->
+						
+						<!-- Banner -->
+						<div class="banner_div">
+							<img src="img/imagen_404.jpg"  class="banner_img" alt="" />
+						</div>
+						<!--          -->
+						
+					</div>
+				</div>
+				<!-- Pie -->
+				<div class="foot">
+					<div class="foot_contanier">
+						<a href="#" class="foot_link" onclick="changeContent(1);">Acerca de</a>
+						<a href="#" class="foot_link" onclick="changeContent(2);">Soporte</a>
+						<a href="#" class="foot_link" onclick="changeContent(3);">Términos y condiciones</a>
+						<a href="#" class="foot_link" onclick="changeContent(4);">Privacidad</a>
+					</div>
+					<div class="foot_img_container">
+						<img src="img/escudo.png" class="foot_img"/>
+					</div>
+				</div>
+			</center>
+		 </div>
+	</body>
+	
+	<script language="JavaScript" type="text/javascript" src="js/view/daaScript.js"></script>
+	<script language="JavaScript" type="text/javascript" src="js/dao/articles.js"></script>
+	<script language="JavaScript" type="text/javascript" src="js/view/events.js"></script>
+	
 </html>

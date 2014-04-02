@@ -120,7 +120,15 @@ public abstract class GenericDAO<T> {
 	
 	@SuppressWarnings("unchecked")
 	protected Class<T> getGenericClass() {
-        return (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+		Class<T> genericClassName = (Class<T>) getClass();
+		
+		String[] split = genericClassName.toString().split("\\.");
+        
+        if ( split[split.length-1].equals("ArticleDAO") ) {
+        	return (Class<T>) new daa.manhana.entities.Article().getClass();
+        }
+		
+        return (Class<T>) ((ParameterizedType)genericClassName.getGenericSuperclass()).getActualTypeArguments()[0];        
 	}
 	
 	protected String getClassName() {
