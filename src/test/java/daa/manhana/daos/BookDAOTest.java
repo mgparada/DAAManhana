@@ -8,14 +8,14 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import daa.manhana.ConfigTest;
 import daa.manhana.entities.Book;
 
-public class BookDAOTest {	
+public class BookDAOTest extends ConfigTest {	
 	private BookDAO bookDAO;
-
+	
 	@Before
 	public void createEntityManager() {
-		System.setProperty("persistenceUnit", "DAA-test");
 		bookDAO = new BookDAO();
 	}	
 	

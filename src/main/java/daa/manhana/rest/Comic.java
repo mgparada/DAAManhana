@@ -7,22 +7,22 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import daa.manhana.daos.ComicDAO;
+import daa.manhana.controllers.ComicController;
 
 @Path("/comics")
 @Produces(MediaType.APPLICATION_JSON)
 public class Comic {
-	private final ComicDAO comicDAO;
+	private final ComicController comicController;
 	
 	public Comic() {
-		this.comicDAO = new ComicDAO();
+		this.comicController = new ComicController();
 	}
 	
 	@GET
 	@Path("/all")
 	public Response all() {
 		try{
-			return Response.ok(this.comicDAO.getAll()).build();
+			return Response.ok(this.comicController.getAll()).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -34,7 +34,7 @@ public class Comic {
 	public Response search(
 			@PathParam("name") final String name) {
 		try{
-			return Response.ok(this.comicDAO.findByName(name)).build();
+			return Response.ok(this.comicController.findByName(name)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -46,7 +46,7 @@ public class Comic {
 	public Response concreteComic(
 			@PathParam("id") final int id) {
 		try{
-			return Response.ok(this.comicDAO.findById(id)).build();
+			return Response.ok(this.comicController.findById(id)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();

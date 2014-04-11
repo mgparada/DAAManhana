@@ -7,22 +7,22 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import daa.manhana.daos.CDDAO;
+import daa.manhana.controllers.CDController;
 
 @Path("/cds")
 @Produces(MediaType.APPLICATION_JSON)
 public class CD {
-	private final CDDAO CDDAO;
+	private final CDController CDController;
 	
 	public CD() {
-		this.CDDAO = new CDDAO();
+		this.CDController = new CDController();
 	}
 	
 	@GET
 	@Path("/all")
 	public Response all() {
 		try{
-			return Response.ok(this.CDDAO.getAll()).build();
+			return Response.ok(this.CDController.getAll()).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -34,7 +34,7 @@ public class CD {
 	public Response search(
 			@PathParam("name") final String name) {
 		try{
-			return Response.ok(this.CDDAO.findByName(name)).build();
+			return Response.ok(this.CDController.findByName(name)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -46,7 +46,7 @@ public class CD {
 	public Response concreteCD(
 			@PathParam("id") final int id) {
 		try{
-			return Response.ok(this.CDDAO.findById(id)).build();
+			return Response.ok(this.CDController.findById(id)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();

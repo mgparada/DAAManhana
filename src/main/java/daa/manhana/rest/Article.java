@@ -7,23 +7,23 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import daa.manhana.daos.ArticleDAO;
+import daa.manhana.controllers.ArticleController;
 
 
 @Path("/articles")
 @Produces(MediaType.APPLICATION_JSON)
 public class Article {
-	private final ArticleDAO<Article> articleDAO;
+	private ArticleController artController;
 	
 	public Article() {
-		this.articleDAO = new ArticleDAO<Article>();
+		this.artController = new ArticleController();
 	}
 	
 	@GET
 	@Path("/all")
 	public Response all() {
 		try{
-			return Response.ok(this.articleDAO.getAll()).build();
+			return Response.ok(this.artController.getAll()).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -35,7 +35,7 @@ public class Article {
 	public Response search(
 			@PathParam("name") final String name) {
 		try{
-			return Response.ok(this.articleDAO.findByName(name)).build();
+			return Response.ok(this.artController.findConcreteObject(name)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -47,12 +47,10 @@ public class Article {
 	public Response concreteArticle(
 			@PathParam("id") final int id) {
 		try{
-			return Response.ok(this.articleDAO.findById(id)).build();
+			return Response.ok(this.artController.findById(id)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
 		}
 	}
-	
-
 }

@@ -8,15 +8,16 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import daa.manhana.ConfigTest;
 import daa.manhana.entities.Movie;
 
-public class MovieDAOTest {
+public class MovieDAOTest extends ConfigTest {
 	private MovieDAO movieDAO;
 
 	
 	@Before
 	public void createEntityManager() {
-		System.setProperty("persistenceUnit", "DAA-test");
+//		System.setProperty("persistenceUnit", "DAA-test");
 		
 		movieDAO = new MovieDAO();
 	}	

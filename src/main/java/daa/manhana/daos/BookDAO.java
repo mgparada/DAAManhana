@@ -14,7 +14,7 @@ public class BookDAO extends ArticleDAO<Book> {
 	
 	@Override
 	public List<Book> findByName(String name) {
-		createEntities();
+		DAOUtils.setUp();
 		
 		TypedQuery<Book> q = createQuery(
 				"SELECT object(p) "
@@ -27,14 +27,14 @@ public class BookDAO extends ArticleDAO<Book> {
 		
 		List<Book> toRet = (List<Book>) q.getResultList();
 		
-		closeEntityManagerFactory();
+		DAOUtils.closeTransaction();
 		
 		return toRet;
 	}
 	
 	@Override
 	public List<Book> getAll() {
-		createEntities();
+		DAOUtils.setUp();
 		
 		List<Book> toRet = createQuery(
 			"SELECT object(p) "
@@ -43,14 +43,14 @@ public class BookDAO extends ArticleDAO<Book> {
 			+ "ORDER BY p.name"
 		).getResultList();
 		
-		closeEntityManagerFactory();
+		DAOUtils.closeTransaction();
 		
 		return toRet;
 	}
 	
 	@Override
-	public Book findConcreteArticle (String name) {
-		createEntities();
+	public Book findConcreteObject (String name) {
+		DAOUtils.setUp();
 		
 		TypedQuery<Book> q = createQuery(
 				"SELECT object(p) "
@@ -63,7 +63,7 @@ public class BookDAO extends ArticleDAO<Book> {
 		
 		Book toRet = q.getSingleResult();
 		
-		closeEntityManagerFactory();
+		DAOUtils.closeTransaction();
 		
 		return toRet;
 	}

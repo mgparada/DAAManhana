@@ -12,14 +12,13 @@ import javax.ws.rs.core.Response;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BookRestTest extends JerseyTest {
+public class BookRestTest extends ConfigRestTest {
 	@Override
 	protected Application configure() {
-		System.setProperty("persistenceUnit", "DAA-test");
+//		System.setProperty("persistenceUnit", "DAA-test");
 		
 		return new ResourceConfig(Book.class)
 			.register(JacksonJsonProvider.class)
@@ -41,11 +40,6 @@ public class BookRestTest extends JerseyTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	@Override
-	public void tearDown() throws Exception {
-		super.tearDown();
 	}
 	
 	@Test

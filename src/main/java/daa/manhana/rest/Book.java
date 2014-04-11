@@ -7,23 +7,23 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import daa.manhana.daos.BookDAO;
+import daa.manhana.controllers.BookController;
 
 
 @Path("/books")
 @Produces(MediaType.APPLICATION_JSON)
 public class Book {
-	private final BookDAO bookDAO;
+	private BookController bookController;
 	
 	public Book() {
-		this.bookDAO = new BookDAO();
+		this.bookController = new BookController();
 	}
 	
 	@GET
 	@Path("/all")
 	public Response all() {
 		try{
-			return Response.ok(this.bookDAO.getAll()).build();
+			return Response.ok(this.bookController.getAll()).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -35,7 +35,7 @@ public class Book {
 	public Response search(
 			@PathParam("name") final String name) {
 		try{
-			return Response.ok(this.bookDAO.findByName(name)).build();
+			return Response.ok(this.bookController.findByName(name)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -47,7 +47,7 @@ public class Book {
 	public Response concreteBook(
 			@PathParam("id") final int id) {
 		try{
-			return Response.ok(this.bookDAO.findById(id)).build();
+			return Response.ok(this.bookController.findById(id)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();

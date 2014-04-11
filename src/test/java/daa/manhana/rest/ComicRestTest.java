@@ -16,7 +16,7 @@ import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ComicRestTest extends JerseyTest {
+public class ComicRestTest extends ConfigRestTest {
 	@Override
 	protected Application configure() {
 		System.setProperty("persistenceUnit", "DAA-test");
@@ -41,11 +41,6 @@ public class ComicRestTest extends JerseyTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	@Override
-	public void tearDown() throws Exception {
-		super.tearDown();
 	}
 	
 	@Test

@@ -8,9 +8,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import daa.manhana.ConfigTest;
 import daa.manhana.entities.Comic;
 
-public class ComicDAOTest {
+public class ComicDAOTest extends ConfigTest {
 	private ComicDAO comicDAO;
 
 	

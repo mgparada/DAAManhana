@@ -7,22 +7,22 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import daa.manhana.daos.MovieDAO;
+import daa.manhana.controllers.MovieController;
 
 @Path("/movies")
 @Produces(MediaType.APPLICATION_JSON)
 public class Movie {
-	private final MovieDAO movieDAO;
+	private final MovieController movieController;
 	
 	public Movie() {
-		this.movieDAO = new MovieDAO();
+		this.movieController = new MovieController();
 	}
 	
 	@GET
 	@Path("/all")
 	public Response all() {
 		try{
-			return Response.ok(this.movieDAO.getAll()).build();
+			return Response.ok(this.movieController.getAll()).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -34,7 +34,7 @@ public class Movie {
 	public Response search(
 			 @PathParam("name") final String name) {
 		try{
-			return Response.ok(this.movieDAO.findByName(name)).build();
+			return Response.ok(this.movieController.findByName(name)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();
@@ -46,7 +46,7 @@ public class Movie {
 	public Response concreteMovie(
 			@PathParam("id") final int id) {
 		try{
-			return Response.ok(this.movieDAO.findById(id)).build();
+			return Response.ok(this.movieController.findById(id)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();

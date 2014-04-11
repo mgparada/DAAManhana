@@ -8,12 +8,12 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import daa.manhana.ConfigTest;
 import daa.manhana.entities.CD;
 
-public class CDDAOTest {	
+public class CDDAOTest extends ConfigTest {	
 	private CDDAO CDDAO;
 
-	
 	@Before
 	public void createEntityManager() {
 		System.setProperty("persistenceUnit", "DAA-test");
