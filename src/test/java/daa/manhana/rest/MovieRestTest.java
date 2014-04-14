@@ -54,7 +54,7 @@ public class MovieRestTest extends ConfigRestTest {
 	
 	@Test
 	public void testingFindAllMovies() {
-		final Response response = target("/movies/all").request().get();
+		final Response response = target("/movies/").request().get();
 		TestUtils.assertOkStatus(response);
 
 		final List<daa.manhana.entities.Movie> movies = response.readEntity(new GenericType<List<daa.manhana.entities.Movie>>(){});

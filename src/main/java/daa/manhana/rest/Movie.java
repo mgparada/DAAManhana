@@ -19,7 +19,7 @@ public class Movie {
 	}
 	
 	@GET
-	@Path("/all")
+	@Path("/")
 	public Response all() {
 		try{
 			return Response.ok(this.movieController.getAll()).build();

@@ -20,7 +20,7 @@ public class Book {
 	}
 	
 	@GET
-	@Path("/all")
+	@Path("/")
 	public Response all() {
 		try{
 			return Response.ok(this.bookController.getAll()).build();

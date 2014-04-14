@@ -9,10 +9,6 @@ import javax.persistence.TypedQuery;
 
 public class GenericDAO<T> {
 	public GenericDAO() {
-//		if (DAOUtils.getEmf().equals(null)) {
-//			System.out.println(DAOUtils.getEmf().toString() + "jdsf");
-//			DAOUtils.setEmf(Persistence.createEntityManagerFactory("Grupo-Manhana"));
-//		}
 	}
 	
 	public List<T> findByName(String name) {
@@ -116,17 +112,4 @@ public class GenericDAO<T> {
 		
 		return extendedClass.getName();
 	}
-	
-//	protected void createEntityManagerFactory() {
-//		this.emf = Persistence.createEntityManagerFactory( System.getProperty("persistenceUnit") );
-//	}
-//	
-//	protected void closeEntityManagerFactory() {
-//		this.emf.close();
-//	}
-	
-//	protected void createEntities() {
-//		createEntityManagerFactory();
-//		this.em = this.emf.createEntityManager();
-//	}
 }

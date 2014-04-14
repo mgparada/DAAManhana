@@ -19,7 +19,7 @@ public class Comic {
 	}
 	
 	@GET
-	@Path("/all")
+	@Path("/")
 	public Response all() {
 		try{
 			return Response.ok(this.comicController.getAll()).build();
