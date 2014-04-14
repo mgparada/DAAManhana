@@ -35,7 +35,7 @@ public class Article {
 	public Response search(
 			@PathParam("name") final String name) {
 		try{
-			return Response.ok(this.artController.findConcreteObject(name)).build();
+			return Response.ok(this.artController.findByName(name)).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();

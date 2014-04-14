@@ -4,17 +4,15 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.persistence.EntityExistsException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.TransactionRequiredException;
 import javax.persistence.TypedQuery;
 
 public class GenericDAO<T> {
-	private EntityManagerFactory emf;
-	
 	public GenericDAO() {
-		this.emf = DAOUtils.getEmf();
+//		if (DAOUtils.getEmf().equals(null)) {
+//			System.out.println(DAOUtils.getEmf().toString() + "jdsf");
+//			DAOUtils.setEmf(Persistence.createEntityManagerFactory("Grupo-Manhana"));
+//		}
 	}
 	
 	public List<T> findByName(String name) {
