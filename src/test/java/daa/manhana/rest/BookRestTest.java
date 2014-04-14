@@ -53,6 +53,15 @@ public class BookRestTest extends ConfigRestTest {
 	}
 	
 	@Test
+	public void testingFindBookByNameWithPagination() throws IOException {
+		final Response response = target("/books/name/Divergent/1/2").request().get();
+		TestUtils.assertOkStatus(response);
+
+		final List<daa.manhana.entities.Book> books = response.readEntity(new GenericType<List<daa.manhana.entities.Book>>(){});
+		assertEquals(1, books.size());
+	}
+	
+	@Test
 	public void testingFindAllBooks() {
 		final Response response = target("/books/name/el").request().get();
 		TestUtils.assertOkStatus(response);

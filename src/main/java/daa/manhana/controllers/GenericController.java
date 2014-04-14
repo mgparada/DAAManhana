@@ -20,6 +20,10 @@ public abstract class GenericController<T> {
 		return gDAO.findByName(name);
 	}
 	
+	public List<T> findByNameWithPagination(String name, int page, int numResults) {
+		return gDAO.findByNameWithPagination(name, page, numResults);
+	}
+	
 	public void save(T entity) {
 		gDAO.save(entity);
 	}

@@ -25,11 +25,22 @@ public class CDDAOTest extends ConfigTest {
 	public void testingFindByName() {
 		List<CD> test = CDDAO.findByName("Fary");
 
-		assertNotNull("Find by id is not null", test);
+		assertNotNull("Find by name is not null", test);
 		
 		assertEquals("Length is not 1", 1, test.size());
 		
 		assertEquals("Id is different than 13", 13, test.get(0).getId() );
+	}
+	
+	@Test
+	public void testingFindByNameWithPagination() {
+		List<CD> test = CDDAO.findByNameWithPagination("Pasodobles", 1, 1);
+		
+		assertNotNull("Find by name with pagination is not null", test);
+		
+		assertEquals("Length is not 1", 1, test.size());
+		
+		assertEquals("Id is different than 14", 14, test.get(0).getId() );
 	}
 	
 	@Test

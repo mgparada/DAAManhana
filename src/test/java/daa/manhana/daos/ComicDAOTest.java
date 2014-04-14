@@ -26,7 +26,18 @@ public class ComicDAOTest extends ConfigTest {
 	public void testingFindByName() {
 		List<Comic> test = comicDAO.findByName("Tintin");
 
-		assertNotNull("Find by id is not null", test);
+		assertNotNull("Find by name is not null", test);
+		
+		assertEquals("Length is not 1", 1, test.size());
+		
+		assertEquals("Id is different than 15", 15, test.get(0).getId() );
+	}
+	
+	@Test
+	public void testingFindByNameWithPagination() {
+		List<Comic> test = comicDAO.findByNameWithPagination("Cigars", 1, 1);
+		
+		assertNotNull("Find by name with pagination is not null", test);
 		
 		assertEquals("Length is not 1", 1, test.size());
 		

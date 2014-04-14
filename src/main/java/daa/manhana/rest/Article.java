@@ -43,6 +43,21 @@ public class Article {
 	}
 	
 	@GET
+	@Path("/name/{name}/{results}/{page}")
+	public Response search(
+			@PathParam("name") final String name,
+			@PathParam("page") final int page,
+			@PathParam("results") final int numResults
+			) {
+		try {
+			return Response.ok(this.artController.findByNameWithPagination(name, page, numResults)).build();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return Response.serverError().entity(e.getMessage()).build();
+		}
+	}
+	
+	@GET
 	@Path("/{id}")
 	public Response concreteArticle(
 			@PathParam("id") final int id) {

@@ -60,5 +60,14 @@ public class MovieRestTest extends ConfigRestTest {
 		final List<daa.manhana.entities.Movie> movies = response.readEntity(new GenericType<List<daa.manhana.entities.Movie>>(){});
 		assertEquals(3, movies.size());
 	}
+	
+	@Test
+	public void testingFindBookByNameWithPagination() throws IOException {
+		final Response response = target("/movies/name/padrino/1/1").request().get();
+		TestUtils.assertOkStatus(response);
+
+		final List<daa.manhana.entities.Movie> cds = response.readEntity(new GenericType<List<daa.manhana.entities.Movie>>(){});
+		assertEquals(1, cds.size());
+	}
 }
 
