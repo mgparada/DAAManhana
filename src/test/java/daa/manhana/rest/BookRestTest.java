@@ -18,8 +18,6 @@ import org.junit.Test;
 public class BookRestTest extends ConfigRestTest {
 	@Override
 	protected Application configure() {
-//		System.setProperty("persistenceUnit", "DAA-test");
-		
 		return new ResourceConfig(Book.class)
 			.register(JacksonJsonProvider.class)
 			.property("com.sun.jersey.api.json.POJOMappingFeature", Boolean.TRUE);

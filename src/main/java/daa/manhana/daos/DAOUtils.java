@@ -2,30 +2,26 @@ package daa.manhana.daos;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.RollbackException;
 
 public class DAOUtils {
 	private static EntityManager entityManager;
-	private static EntityManagerFactory emf;
+	private static EntityManagerFactory entityManagerFactory;
 	
 	public static EntityManager getEntityManager() {
 		return entityManager;
 	}
 	
-	public static EntityManagerFactory getEmf() {
-		if (DAOUtils.emf == null) {
-			DAOUtils.setEmf(Persistence.createEntityManagerFactory("Grupo-Manhana"));
-		}
-		return emf;
+	public static EntityManagerFactory getEntityManagerFactory() {
+		return entityManagerFactory;
 	}
 
-	public static void setEmf(EntityManagerFactory emf) {
-		DAOUtils.emf = emf;
+	public static void setEntityManagerFactory(EntityManagerFactory emf) {
+		DAOUtils.entityManagerFactory = emf;
 	}
 
 	public static void setUp() {
-		entityManager = getEmf().createEntityManager();
+		entityManager = getEntityManagerFactory().createEntityManager();
 		openTransaction();
 	}
 	

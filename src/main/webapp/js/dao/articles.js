@@ -28,26 +28,11 @@ function findById(article_id, category, done, fail) {
 	.fail(fail);
 }
 
-function findAllByName(name, done, fail) {
+function findByCategory(category, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 	
-	url = 'rest/articles/name/' + name;
-	
-	$.ajax({
-		dataType: "json",
-		url: url,
-		type: 'GET'
-	})
-	.done(done)
-	.fail(fail);
-}
-
-function findAll(done, fail) {
-	done = typeof done !== 'undefined' ? done : function() {};
-	fail = typeof fail !== 'undefined' ? fail : function() {};
-	
-	url = 'rest/articles/all';
+	url = 'rest/' + category + '/';
 	
 	$.ajax({
 		dataType: "json",

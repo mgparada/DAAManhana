@@ -10,11 +10,11 @@ import daa.manhana.daos.DAOUtils;
 public class TestUtils {
 
 	public static void createEntityManagerFactory() {
-		DAOUtils.setEmf(Persistence.createEntityManagerFactory("DAA-test"));
+		DAOUtils.setEntityManagerFactory(Persistence.createEntityManagerFactory("DAA-test"));
 	}
 	
 	public static void closeEntityManagerFactory () {
-		DAOUtils.getEmf().close();
+		DAOUtils.getEntityManagerFactory().close();
 	}
 	
 	public static void assertOkStatus(final Response response) {

@@ -19,7 +19,7 @@ public class CD {
 	}
 	
 	@GET
-	@Path("/all")
+	@Path("/")
 	public Response all() {
 		try{
 			return Response.ok(this.CDController.getAll()).build();

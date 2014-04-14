@@ -12,7 +12,6 @@ import javax.ws.rs.core.Response;
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -55,7 +54,7 @@ public class ComicRestTest extends ConfigRestTest {
 	
 	@Test
 	public void testingFindAllComics() {
-		final Response response = target("/comics/all").request().get();
+		final Response response = target("/comics/").request().get();
 		TestUtils.assertOkStatus(response);
 
 		final List<daa.manhana.entities.Comic> comics = response.readEntity(new GenericType<List<daa.manhana.entities.Comic>>(){});
