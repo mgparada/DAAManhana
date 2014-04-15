@@ -13,6 +13,10 @@
 //	.fail(fail);
 //}
 
+// PROVISIONAL
+var num_results = 10;
+var page = 1;
+
 function findByName(article_name, category, page, num_results, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
@@ -43,7 +47,7 @@ function findById(article_id, category, done, fail) {
 	.fail(fail);
 }
 
-function findByCategory(category, page, num_results, done, fail) {
+function findByCategory(category, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 	
