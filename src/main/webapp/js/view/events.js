@@ -5,6 +5,12 @@
  * 
  * En caso de que el input no tenga valor, la función devolverá todos los elementos de la categoría
  */
+
+
+// PROVISIONAL
+var num_results = 10;
+var page = 1;
+
 $(".subart").on("click", function(){
 	var name = getInputText();
 	var category = $(this).data("category");
@@ -12,9 +18,9 @@ $(".subart").on("click", function(){
 	setUpSearchResultDiv();
 	
 	if( name != "" ) {
-		findArticlesByName(name, category);
+		findArticlesByName(name, category, page, num_results);
 	}else
-		findAllArticlesByCategory(category);
+		findAllArticlesByCategory(category, page, num_results);
 	
 	
 });
@@ -31,9 +37,9 @@ $(".img_search").on("click",function(){
 	setUpSearchResultDiv();
 	
 	if(name != "") {
-		findArticlesByName(name);
+		findArticlesByName(name, page, num_results);
 	}else
-		findAllArticlesByCategory("articles");
+		findAllArticlesByCategory("articles", page, num_results);
 });
 
 /**
@@ -43,13 +49,15 @@ $(".img_search").on("click",function(){
  */
 $("#first").on("click",function(){
 	var name = getInputText();
+//	var page = 1;
+//	var num_results = 10;
 	
 	setUpSearchResultDiv();
 
 	if(name != "") {
-		findArticlesByName(name);
+		findArticlesByName(name, page, num_results);
 	}else
-		findAllArticlesByCategory("articles");
+		findAllArticlesByCategory("articles", page, num_results);
 });
 
 /**
@@ -72,10 +80,12 @@ function setUpSearchResultDiv() {
  * Función para obtener los artículos por nombre y categoría
  * Los obtiene y los muestra en el div, además de mostrar el número de ocurrencias
  */
-function findArticlesByName(name, category) {
+function findArticlesByName(name, category, page, num_results) {
 	category = typeof category !== "undefined" ? category : "articles";
+	page = typeof page !== "undefined" ? page : 1;
+	num_results = typeof num_results !== "undefined" ? num_results : 10;
 	
-	findByName(name, category, function(articles){
+	findByName(name, category, page, num_results, function(articles){
 		$.each(articles, function(key, value) {
 			appendArticle(value["name"], value["discriminator"], value["description"]);
 		});
@@ -87,8 +97,8 @@ function findArticlesByName(name, category) {
  * Función para obtener los artículos por categoría
  * Los obtiene y los muestra en el div, además de mostrar el número de ocurrencias
  */
-function findAllArticlesByCategory(category) {
-	findByCategory(category, function(articles){
+function findAllArticlesByCategory(category, page, num_results) {
+	findByCategory(category, page, num_results, function(articles){
 		$.each(articles, function(key, value) {
 			appendArticle(value["name"], value["discriminator"], value["description"]);
 		});
@@ -126,3 +136,4 @@ function getCategory(discriminator) {
 		case "cd": return "CD"; break;
 	}
 }
+

@@ -67,4 +67,13 @@ public class BookRestTest extends ConfigRestTest {
 		final List<daa.manhana.entities.Book> books = response.readEntity(new GenericType<List<daa.manhana.entities.Book>>(){});
 		assertEquals(1, books.size());
 	}
+	
+	@Test
+	public void testingFindAllWithPagination() {
+		final Response response = target("/books/1/2").request().get();
+		TestUtils.assertOkStatus(response);
+
+		final List<daa.manhana.entities.Book> books = response.readEntity(new GenericType<List<daa.manhana.entities.Book>>(){});
+		assertEquals(1, books.size());
+	}
 }

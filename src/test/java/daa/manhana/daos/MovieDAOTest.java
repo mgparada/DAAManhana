@@ -34,13 +34,24 @@ public class MovieDAOTest extends ConfigTest {
 	
 	@Test
 	public void testingFindByNameWithPagination() {
-		List<Movie> test = movieDAO.findByNameWithPagination("p", 1, 2);
+		List<Movie> test = movieDAO.findByName("p", 1, 2);
 		
 		assertNotNull("Find by name is not null", test);
 		
 		assertEquals("Length is not 2", 2, test.size());
 		
 		assertEquals("Id is different than 1", 1, test.get(0).getId() );
+	}
+	
+	@Test
+	public void testingFindAllWithPagination() {
+		List<Movie> test = movieDAO.getAll(1, 2);
+		
+		assertNotNull("Find All with pagination is not null", test);
+		
+		assertEquals("Length is not 2", 2, test.size());
+		
+		assertEquals("Id is different than 2", 2, test.get(0).getId() );
 	}
 	
 	@Test

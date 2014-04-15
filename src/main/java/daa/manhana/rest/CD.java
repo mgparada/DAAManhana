@@ -30,6 +30,20 @@ public class CD {
 	}
 	
 	@GET
+	@Path("/{results}/{page}")
+	public Response all(
+			@PathParam("page") final int page,
+			@PathParam("results") final int numResults
+			) {
+		try{
+			return Response.ok(this.CDController.getAll(page, numResults)).build();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return Response.serverError().entity(e.getMessage()).build();
+		}
+	}
+	
+	@GET
 	@Path("/name/{name}")
 	public Response search(
 			@PathParam("name") final String name) {
@@ -49,7 +63,7 @@ public class CD {
 			@PathParam("results") final int numResults
 			) {
 		try {
-			return Response.ok(this.CDController.findByNameWithPagination(name, page, numResults)).build();
+			return Response.ok(this.CDController.findByName(name, page, numResults)).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();

@@ -30,6 +30,20 @@ public class Movie {
 	}
 	
 	@GET
+	@Path("/{results}/{page}")
+	public Response all(
+			@PathParam("page") final int page,
+			@PathParam("results") final int numResults
+			) {
+		try{
+			return Response.ok(this.movieController.getAll(page, numResults)).build();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return Response.serverError().entity(e.getMessage()).build();
+		}
+	}
+	
+	@GET
 	@Path("/name/{name}")
 	public Response search(
 			 @PathParam("name") final String name) {
@@ -49,7 +63,7 @@ public class Movie {
 			@PathParam("results") final int numResults
 			) {
 		try {
-			return Response.ok(this.movieController.findByNameWithPagination(name, page, numResults)).build();
+			return Response.ok(this.movieController.findByName(name, page, numResults)).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();

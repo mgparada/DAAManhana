@@ -31,6 +31,20 @@ public class Article {
 	}
 	
 	@GET
+	@Path("/{results}/{page}")
+	public Response all(
+			@PathParam("page") final int page,
+			@PathParam("results") final int numResults
+			) {
+		try{
+			return Response.ok(this.artController.getAll(page, numResults)).build();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return Response.serverError().entity(e.getMessage()).build();
+		}
+	}
+	
+	@GET
 	@Path("/name/{name}")
 	public Response search(
 			@PathParam("name") final String name) {
@@ -50,7 +64,7 @@ public class Article {
 			@PathParam("results") final int numResults
 			) {
 		try {
-			return Response.ok(this.artController.findByNameWithPagination(name, page, numResults)).build();
+			return Response.ok(this.artController.findByName(name, page, numResults)).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();

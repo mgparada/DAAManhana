@@ -12,6 +12,10 @@ public abstract class GenericController<T> {
 		return gDAO.getAll();
 	}
 	
+	public Object getAll(int page, int numResults) {
+		return gDAO.getAll(page, numResults);
+	}
+	
 	public T findConcreteObject (String name) {
 		return gDAO.findConcreteObject(name);
 	}
@@ -20,8 +24,8 @@ public abstract class GenericController<T> {
 		return gDAO.findByName(name);
 	}
 	
-	public List<T> findByNameWithPagination(String name, int page, int numResults) {
-		return gDAO.findByNameWithPagination(name, page, numResults);
+	public List<T> findByName(String name, int page, int numResults) {
+		return gDAO.findByName(name, page, numResults);
 	}
 	
 	public void save(T entity) {

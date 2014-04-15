@@ -35,11 +35,22 @@ public class ComicDAOTest extends ConfigTest {
 	
 	@Test
 	public void testingFindByNameWithPagination() {
-		List<Comic> test = comicDAO.findByNameWithPagination("Cigars", 1, 1);
+		List<Comic> test = comicDAO.findByName("Cigars", 1, 1);
 		
 		assertNotNull("Find by name with pagination is not null", test);
 		
 		assertEquals("Length is not 1", 1, test.size());
+		
+		assertEquals("Id is different than 15", 15, test.get(0).getId() );
+	}
+	
+	@Test
+	public void testingFindAllWithPagination() {
+		List<Comic> test = comicDAO.getAll(1, 2);
+		
+		assertNotNull("Find All with pagination is not null", test);
+		
+		assertEquals("Length is not 2", 2, test.size());
 		
 		assertEquals("Id is different than 15", 15, test.get(0).getId() );
 	}

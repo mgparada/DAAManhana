@@ -30,7 +30,7 @@ public class GenericDAO<T> {
 		return toRet;
 	}
 	
-	public List<T> findByNameWithPagination(String name, int page, int numResults) {
+	public List<T> findByName(String name, int page, int numResults) {
 		DAOUtils.setUp();
 		
 		TypedQuery<T> q = createQuery(
@@ -57,6 +57,19 @@ public class GenericDAO<T> {
 		DAOUtils.closeTransaction();
 		
 		return toRet;
+	}
+	
+	public List<T> getAll(int page, int numResults) {
+		TypedQuery<T> q = createQuery(
+				"SELECT object(p) "
+				+ "FROM " + getClassName() + " AS p "
+				+ "ORDER BY p.name"
+		);
+		
+		q.setFirstResult( (numResults * page - numResults) );
+		q.setMaxResults(numResults);
+		
+		return q.getResultList();
 	}
 	
 	public T findConcreteObject (String name) {

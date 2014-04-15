@@ -32,13 +32,24 @@ public class BookDAOTest extends ConfigTest {
 	
 	@Test
 	public void testingFindByNameWithPagination() {
-		List<Book> test = bookDAO.findByNameWithPagination("Book", 1, 2);
+		List<Book> test = bookDAO.getAll(2, 1);
 		
 		assertNotNull("Find by name with pagination is not null", test);
 		
-		assertEquals("Length is not 2", 2, test.size());
+		assertEquals("Length is not 2", 1, test.size());
 		
-		assertEquals("Id is different than 10", 10, test.get(0).getId() );
+		assertEquals("Id is different than 11", 11, test.get(0).getId() );
+	}
+	
+	@Test
+	public void testingFindAllWithPagination() {
+		List<Book> test = bookDAO.getAll(2, 2);
+		
+		assertNotNull("Find All with pagination is not null", test);
+		
+		assertEquals("Length is not 1", 1, test.size());
+		
+		assertEquals("Id is different than 9", 9, test.get(0).getId() );
 	}
 	
 	@Test

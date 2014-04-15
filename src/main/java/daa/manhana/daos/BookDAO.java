@@ -32,6 +32,26 @@ public class BookDAO extends ArticleDAO<Book> {
 		return toRet;
 	}
 	
+	public List<Book> findByName(String name, int page, int numResults) {
+		TypedQuery<Book> q = createQuery(
+				"SELECT object(p) "
+				+ "FROM " + getClassName() + " AS p "
+				+ "WHERE p.name "
+				+ "LIKE :pattern AND "
+				+ "p.discriminator = 'book'"
+		);
+		
+		q.setParameter("pattern", "%" + name + "%");
+		q.setFirstResult(numResults * (page-1));
+		q.setMaxResults(numResults);
+		
+		List<Book> toret = q.getResultList();
+		
+		DAOUtils.closeTransaction();
+		
+		return toret;
+	}
+	
 	@Override
 	public List<Book> getAll() {
 		DAOUtils.setUp();
@@ -46,6 +66,23 @@ public class BookDAO extends ArticleDAO<Book> {
 		DAOUtils.closeTransaction();
 		
 		return toRet;
+	}
+	
+	public List<Book> getAll(int page, int numResults) {
+		TypedQuery<Book> q = createQuery(
+				"SELECT object(p) "
+				+ "FROM " + getClassName() + " AS p "
+				+ "WHERE p.discriminator like '%book%' "
+				+ "ORDER BY p.name"
+		);
+		
+		q.setFirstResult( numResults * page - numResults );
+		q.setMaxResults(numResults);
+		List<Book> toret = q.getResultList();
+		
+		DAOUtils.closeTransaction();
+		
+		return toret;
 	}
 	
 	@Override

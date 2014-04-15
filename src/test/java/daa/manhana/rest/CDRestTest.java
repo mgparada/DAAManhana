@@ -68,4 +68,13 @@ public class CDRestTest extends ConfigRestTest {
 		final List<daa.manhana.entities.CD> cds = response.readEntity(new GenericType<List<daa.manhana.entities.CD>>(){});
 		assertEquals(1, cds.size());
 	}
+	
+	@Test
+	public void testingFindAllWithPagination() {
+		final Response response = target("/cds/1/2").request().get();
+		TestUtils.assertOkStatus(response);
+
+		final List<daa.manhana.entities.CD> cds = response.readEntity(new GenericType<List<daa.manhana.entities.CD>>(){});
+		assertEquals(1, cds.size());
+	}
 }
