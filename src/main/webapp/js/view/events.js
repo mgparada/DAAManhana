@@ -1,7 +1,8 @@
 // PROVISIONAL
 var num_results;
 var page;
-var actualName;	// Necesitas mantener un nombre global entre llamadas a las funciones js (por paginacion)
+var actual_name;	// Necesitas mantener un nombre global entre llamadas a las funciones js (por paginacion)
+var actualCategory;
 
 function initFunction() {
 	num_results = 10;
@@ -38,7 +39,7 @@ $(".subart").on("click", function(){
 $(".img_search").on("click",function(){
 	initFunction();
 	var name = getInputText();
-	actualName = name;
+	actual_name = name;
 	
 	setUpSearchResultDiv();
 	
@@ -56,7 +57,7 @@ $(".img_search").on("click",function(){
 $("#first").on("click",function(){
 	initFunction();
 	var name = getInputText();
-	actualName = name;
+	actual_name = name;
 	
 	setUpSearchResultDiv();
 
@@ -67,7 +68,8 @@ $("#first").on("click",function(){
 });
 
 $(".search_result_count").on('click', '#next_page', function(){
-	name = actualName;
+	name = actual_name;
+	category = actual_category;
 	page++;
 	
 	setUpSearchResultDiv();
@@ -136,13 +138,20 @@ function setPaginationInfo(articles) {
 				+ '<a id="next_page" href="#">Siguiente</a>'
 				+ '</div>'
 		);
+	} else if ( articles.length != 0) {
+		$('.search_result_count').append(
+				'<div style="text-align: center;">'
+				+ '<span> Se muestran los artículos del ' 			// pagina 1 limite 10 por pagina serían:
+				+ (page * articles.length - articles.length + 1)	// del 1 (1 * 10 - 1) = 1
+				+ " al " + (page * articles.length) + ".</span></div>"	// al 10 (1 * 10) = 10
+		);	
+	} else {
+		$('.search_result_count').append(
+				'<div style="text-align: center;">'
+				+ '<span> No se han encontrado artículos.</span>'
+				+ '</span></div>'
+		);
 	}
-	$('.search_result_count').append(
-			'<div style="text-align: center;">'
-			+ '<span> Se muestran los artículos del ' 			// pagina 1 limite 10 por pagina serían:
-			+ (page * articles.length - articles.length + 1)	// del 1 (1 * 10 - 1) = 1
-			+ " al " + (page * articles.length) + ".</span></div>"	// al 10 (1 * 10) = 10
-	);	
 }
 
 
