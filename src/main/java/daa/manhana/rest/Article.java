@@ -8,12 +8,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import daa.manhana.controllers.ArticleController;
+import daa.manhana.controllers.GenericController;
 
 
 @Path("/articles")
 @Produces(MediaType.APPLICATION_JSON)
-public class Article {
-	private ArticleController artController;
+public class Article<T extends daa.manhana.entities.Article> {
+	protected GenericController<?> artController;
 	
 	public Article() {
 		this.artController = new ArticleController();
@@ -38,6 +39,30 @@ public class Article {
 			) {
 		try{
 			return Response.ok(this.artController.getAll(page, numResults)).build();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return Response.serverError().entity(e.getMessage()).build();
+		}
+	}
+	
+	@GET
+	@Path("/name/{name}/count")
+	public Response count(
+			@PathParam("name") final String name
+			) {
+		try{
+			return Response.ok(this.artController.count(name)).build();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return Response.serverError().entity(e.getMessage()).build();
+		}
+	}
+	
+	@GET
+	@Path("/count")
+	public Response count() {
+		try{
+			return Response.ok(this.artController.count()).build();
 		}catch(Exception e) {
 			e.printStackTrace();
 			return Response.serverError().entity(e.getMessage()).build();

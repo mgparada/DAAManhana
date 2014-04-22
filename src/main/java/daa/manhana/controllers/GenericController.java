@@ -28,6 +28,14 @@ public abstract class GenericController<T> {
 		return gDAO.findByName(name, page, numResults);
 	}
 	
+	public int count(String name) {
+		return gDAO.count(name);
+	}
+	
+	public int count() {
+		return gDAO.count();
+	}
+	
 	public void save(T entity) {
 		gDAO.save(entity);
 	}

@@ -1,13 +1,25 @@
-// PROVISIONAL
+// Variables globales
 var num_results;
 var page;
-var actual_name;	// Necesitas mantener un nombre global entre llamadas a las funciones js (por paginacion)
-var actualCategory;
+var actual_name;
+var actual_category;
+var count;
+var do_count;
 
-function initFunction() {
+function initContext(category) {
+//	category = typeof category !== "undefined" ? category : "articles";
+	do_count = true;
 	num_results = 10;
 	page = 1;
+	count = 0;
+	actual_name = "";
+	
+	// Si no le paso nada como parámetro a la función actual_category no se actualiza.
+	// Esto se usa para que al pulsar el botón "buscar" se mantenga la configuración de la última búsqueda
+	actual_category = typeof category !== "undefined" ? actual_category : "articles";
 }
+
+
 /**
  * Este evento se dispara cuando se hace click en alguno de los tipos de articulos (CD, Peliculas, Libros o Cómics).
  * Se obtiene el texto introducido en el input y la categoría en la que se disparó el evento
@@ -16,18 +28,17 @@ function initFunction() {
  * En caso de que el input no tenga valor, la función devolverá todos los elementos de la categoría
  */
 $(".subart").on("click", function(){
-	initFunction();
-	var name = getInputText();
-	var category = $(this).data("category");
+	initContext();
+	
+	actual_name = getInputText();
+	actual_category = $(this).data("category");
 	
 	setUpSearchResultDiv();
 	
-	if( name != "" ) {
-		findArticlesByName(name, category);
+	if( actual_name != "" ) {
+		findArticlesByName();
 	}else
-		findAllArticlesByCategory(category);
-	
-	
+		findAllArticlesByCategory();
 });
 
 
@@ -37,16 +48,16 @@ $(".subart").on("click", function(){
  * En caso contrario, se obtienen todos los articulos.
  */
 $(".img_search").on("click",function(){
-	initFunction();
-	var name = getInputText();
-	actual_name = name;
+	initContext(actual_category);
+	
+	actual_name = getInputText();
 	
 	setUpSearchResultDiv();
 	
-	if(name != "") {
-		findArticlesByName(name);
-	}else
-		findAllArticlesByCategory("articles");
+	if(actual_name != "") {
+		findArticlesByName();
+	} else
+		findAllArticlesByCategory();
 });
 
 /**
@@ -55,30 +66,42 @@ $(".img_search").on("click",function(){
  * En caso contrario, se obtienen todos los articulos.
  */
 $("#first").on("click",function(){
-	initFunction();
-	var name = getInputText();
-	actual_name = name;
+	initContext();
+	
+	actual_name = getInputText();
 	
 	setUpSearchResultDiv();
 
-	if(name != "") {
-		findArticlesByName(name);
+	if(actual_name != "") {
+		findArticlesByName();
 	}else
-		findAllArticlesByCategory("articles");
+		findAllArticlesByCategory();
 });
 
 $(".search_result_count").on('click', '#next_page', function(){
-	name = actual_name;
-	category = actual_category;
+	do_count = false;
 	page++;
-	
+
 	setUpSearchResultDiv();
 	
-	if(name != "") {
-		findArticlesByName(name);
+	if(actual_name != "") {
+		findArticlesByName();
 	}else
-		findAllArticlesByCategory("articles");
+		findAllArticlesByCategory();
 });
+
+$(".search_result_count").on('click', '#previous_page', function(){
+	do_count = false;
+	page--;
+
+	setUpSearchResultDiv();
+	
+	if(actual_name != "") {
+		findArticlesByName();
+	}else
+		findAllArticlesByCategory();
+});
+
 
 
 /**
@@ -101,12 +124,15 @@ function setUpSearchResultDiv() {
  * Función para obtener los artículos por nombre y categoría
  * Los obtiene y los muestra en el div, además de mostrar el número de ocurrencias
  */
-function findArticlesByName(name, category) {
-	category = typeof category !== "undefined" ? category : "articles";
-	page = typeof page !== "undefined" ? page : 1;
-	num_results = typeof num_results !== "undefined" ? num_results : 10;
+function findArticlesByName() {
+	if (do_count) {
+		countArticles(actual_name, actual_category, function(a) {
+			count = a;
+			alert(count);
+		});
+	}
 	
-	findByName(name, category, page, num_results, function(articles){
+	findByName(actual_name, actual_category, page, num_results, function(articles){
 		$.each(articles, function(key, value) {
 			appendArticle(value["name"], value["discriminator"], value["description"]);
 		});
@@ -118,8 +144,15 @@ function findArticlesByName(name, category) {
  * Función para obtener los artículos por categoría
  * Los obtiene y los muestra en el div, además de mostrar el número de ocurrencias
  */
-function findAllArticlesByCategory(category) {
-	findByCategory(category, function(articles){
+function findAllArticlesByCategory() {
+	if (do_count) {
+		countArticles(actual_name, actual_category, function(c) {
+			count = c;
+			alert(count);
+		});
+	}
+	
+	findByCategory(actual_category, num_results, function(articles){
 		$.each(articles, function(key, value) {
 			appendArticle(value["name"], value["discriminator"], value["description"]);
 		});
@@ -129,21 +162,36 @@ function findAllArticlesByCategory(category) {
 
 
 function setPaginationInfo(articles) {
-	if (articles.length == 10) {
+	upper_bound = page * num_results - (num_results - articles.length);
+	
+	if ( articles.length != 0 ) {
+		lower_bound = page * num_results - (num_results - 1);
+	} else {
+		lower_bound = 0;
+	}
+	
+	if (page > 1) {
 		$('.search_result_count').append(
-				'<div id="pagination_left" style="float: left; display: inline;">'
-				+ '<a id="previous_page" href="#">Anterior</a>'
-				+ '</div>'
-				+ '<div id="pagination_right" style="float: right;display: inline;">'
+		'<div id="pagination_left" style="float:left; display:inline;">'
+		+ '<a id="previous_page" href="#">Anterior</a>'
+		+ '</div>'
+		);
+	}
+	
+	if (upper_bound < count) {
+		$('.search_result_count').append(
+				'<div id="pagination_right" style="float: right; display: inline;">'
 				+ '<a id="next_page" href="#">Siguiente</a>'
 				+ '</div>'
 		);
-	} else if ( articles.length != 0) {
+	}
+	
+	if ( articles.length != 0) {
 		$('.search_result_count').append(
 				'<div style="text-align: center;">'
-				+ '<span> Se muestran los artículos del ' 			// pagina 1 limite 10 por pagina serían:
-				+ (page * articles.length - articles.length + 1)	// del 1 (1 * 10 - 1) = 1
-				+ " al " + (page * articles.length) + ".</span></div>"	// al 10 (1 * 10) = 10
+				+ '<span> Se muestran articulos del '
+				+ lower_bound + " al " + upper_bound + 
+				" de un total de " + count + ".</span></div>"	
 		);	
 	} else {
 		$('.search_result_count').append(

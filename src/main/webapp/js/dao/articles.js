@@ -1,27 +1,27 @@
-//function findByName(article_name, category, done, fail) {
-//	done = typeof done !== 'undefined' ? done : function() {};
-//	fail = typeof fail !== 'undefined' ? fail : function() {};
-//	
-//	url = 'rest/' + category + '/name/' + article_name;
-//	
-//	$.ajax({
-//		dataType: "json",
-//		url: url,
-//		type: 'GET'
-//	})
-//	.done(done)
-//	.fail(fail);
-//}
+function countArticles(name, category, done, fail) {
+	done = typeof done !== 'undefined' ? done : function() {};
+	fail = typeof fail !== 'undefined' ? fail : function() {};
+	alert("countArticles: name is " + name + " and category is " + category);
+	
+	if (name.length != 0) {
+		url = 'rest/' + category + '/name/' + name + '/count';
+	} else {
+		url = 'rest/' + category + '/count';
+	}
+	$.ajax({
+		dataType: "json",
+		url: url,
+		type: 'GET'
+	})
+	.done(done)
+	.fail(fail);
+}
 
-// PROVISIONAL
-var num_results = 10;
-var page = 1;
-
-function findByName(article_name, category, page, num_results, done, fail) {
+function findByName(name, category, page, num_results, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 	
-	url = 'rest/' + category + '/name/' + article_name + '/' + num_results + '/' + page;
+	url = 'rest/' + category + '/name/' + name + '/' + num_results + '/' + page;
 	
 	$.ajax({
 		dataType: "json",
@@ -32,7 +32,7 @@ function findByName(article_name, category, page, num_results, done, fail) {
 	.fail(fail);
 }
 
-function findById(article_id, category, done, fail) {
+function findById(article_id, category, num_results, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 	
@@ -47,7 +47,7 @@ function findById(article_id, category, done, fail) {
 	.fail(fail);
 }
 
-function findByCategory(category, done, fail) {
+function findByCategory(category, num_results, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 	

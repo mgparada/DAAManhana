@@ -4,124 +4,176 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.persistence.EntityExistsException;
+import javax.persistence.EntityManager;
+import javax.persistence.RollbackException;
 import javax.persistence.TransactionRequiredException;
 import javax.persistence.TypedQuery;
 
 public class GenericDAO<T> {
+	private EntityManager em;
+	
 	public GenericDAO() {
 	}
 	
 	public List<T> findByName(String name) {
-		DAOUtils.setUp();
-		
-		TypedQuery<T> q = createQuery(
+		try {
+			this.openTransaction();
+			
+			TypedQuery<T> q = createQuery(
 				"SELECT object(p) "
 				+ "FROM " + getClassName() + " AS p "
 				+ "WHERE p.name "
 				+ "LIKE :pattern"
-		);
-		
-		q.setParameter("pattern", "%" + name + "%");
-		
-		List<T> toRet = (List<T>) q.getResultList();
-		
-		DAOUtils.closeTransaction();
-		
-		return toRet;
+			);
+			
+			q.setParameter("pattern", "%" + name + "%");
+			
+			List<T> toRet = (List<T>) q.getResultList();
+			
+			return toRet;
+		} finally {
+			this.closeTransaction();
+		}
 	}
 	
 	public List<T> findByName(String name, int page, int numResults) {
-		DAOUtils.setUp();
+		this.openTransaction();
 		
 		TypedQuery<T> q = createQuery(
-				"SELECT object(p) "
-				+ "FROM " + getClassName() + " AS p "
-				+ "WHERE p.name "
-				+ "LIKE :pattern"
+			"SELECT object(p) "
+			+ "FROM " + getClassName() + " AS p "
+			+ "WHERE p.name "
+			+ "LIKE :pattern"
 		);
 		
 		q.setParameter("pattern", "%" + name + "%");
 		q.setFirstResult(numResults * (page-1));
 		q.setMaxResults(numResults);
 		
-		return (List<T>)q.getResultList();
+		List<T> toret = q.getResultList();
+		
+		this.closeTransaction();
+		
+		return toret;
+	}
+	
+	public int count(String name) {
+		this.openTransaction();
+		
+		TypedQuery<T> q = createQuery(
+			"SELECT object(p) "
+			+ "FROM " + getClassName() + " AS p "
+			+ "WHERE p.name "
+			+ "LIKE :pattern"
+		);
+		
+		q.setParameter("pattern", "%" + name + "%");
+		
+		int count = q.getResultList().size();	// bastante cutre, pero en HQL con count() peta
+		
+		this.closeTransaction();
+		
+		return count;
+	}
+	
+	public int count() {
+		this.openTransaction();
+		
+		long toret = this.getEntityManager().createQuery(
+			"SELECT count(p) "
+			+ "FROM " + getClassName() + " AS p ",
+			Long.class
+		).getSingleResult();
+		
+		this.closeTransaction();
+		
+		return (int) toret;
 	}
 	
 	public List<T> getAll() {		
+		this.openTransaction();
+		
 		List<T> toRet = createQuery(
 			"SELECT object(p) "
 			+ "FROM " + getClassName() + " AS p "
 			+ "ORDER BY p.name"
 		).getResultList();
 		
-		DAOUtils.closeTransaction();
+		this.closeTransaction();
 		
 		return toRet;
 	}
 	
 	public List<T> getAll(int page, int numResults) {
+		this.openTransaction();
+		
 		TypedQuery<T> q = createQuery(
-				"SELECT object(p) "
-				+ "FROM " + getClassName() + " AS p "
-				+ "ORDER BY p.name"
+			"SELECT object(p) "
+			+ "FROM " + getClassName() + " AS p "
+			+ "ORDER BY p.name"
 		);
 		
 		q.setFirstResult( (numResults * page - numResults) );
 		q.setMaxResults(numResults);
 		
-		return q.getResultList();
+		List<T> toret = q.getResultList();
+		
+		this.closeTransaction();
+		
+		return toret;
 	}
 	
 	public T findConcreteObject (String name) {
+		this.openTransaction();
+		
 		TypedQuery<T> q = createQuery(
-				"SELECT object(p) "
-				+ "FROM " + getClassName() + " AS p "
-				+ "WHERE p.name "
-				+ "LIKE :pattern"
+			"SELECT object(p) "
+			+ "FROM " + getClassName() + " AS p "
+			+ "WHERE p.name "
+			+ "LIKE :pattern"
 		);
 		
 		q.setParameter("pattern", "%" + name + "%");
 		
 		T toRet = q.getSingleResult();
 		
-		DAOUtils.closeTransaction();
+		this.closeTransaction();
 		
 		return toRet;
 	}
 	
 	public void save(T entity) 
 			throws EntityExistsException, IllegalArgumentException, TransactionRequiredException {
-		DAOUtils.setUp();
-		DAOUtils.getEntityManager().persist(entity);
-		DAOUtils.doTransaction();
+		this.openTransaction();
+		this.getEntityManager().persist(entity);
+		this.closeTransaction();
 	}
 	
 	public void update(T entity) 
 			throws IllegalArgumentException, TransactionRequiredException {
-		
-		DAOUtils.setUp();
-		DAOUtils.getEntityManager().merge(entity);
-		DAOUtils.doTransaction();
+		this.openTransaction();
+		this.getEntityManager().merge(entity);
+		this.closeTransaction();
 	}
 	
 	public void delete(T entity) 
-			throws IllegalArgumentException, TransactionRequiredException {		
-		DAOUtils.setUp();
-		DAOUtils.getEntityManager().remove(entity);
-		DAOUtils.doTransaction();
+			throws IllegalArgumentException, TransactionRequiredException {
+		this.openTransaction();
+		this.getEntityManager().remove(entity);
+		this.closeTransaction();
 	}
 	
 	public T findById(Object id) {
-		DAOUtils.setUp();
-		T toRet = DAOUtils.getEntityManager().find(getGenericClass(), id);
-		DAOUtils.doTransaction();
+		this.openTransaction();
+		
+		T toRet = this.getEntityManager().find(getGenericClass(), id);
+		this.closeTransaction();
 		
 		return toRet;
 	}
-	
-	protected TypedQuery<T> createQuery(String query) {		
-		DAOUtils.setUp();
-		return DAOUtils.getEntityManager().createQuery(query, getGenericClass());	
+
+	protected TypedQuery<T> createQuery(String query) {
+		return this.getEntityManager().createQuery(query, getGenericClass());	
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -141,5 +193,27 @@ public class GenericDAO<T> {
 		Class<T> extendedClass = getGenericClass();
 		
 		return extendedClass.getName();
+	}
+	
+	protected synchronized EntityManager getEntityManager() {
+		if (this.em == null) {
+			this.em = DAOUtils.createEntityManager();
+		}
+		
+		return this.em;
+	}
+
+	protected void openTransaction() {
+		this.getEntityManager().getTransaction().begin();
+	}
+	
+	public void closeTransaction() {
+		if (this.getEntityManager().getTransaction().isActive()) {
+			try {
+				this.getEntityManager().getTransaction().commit();
+			} catch (RollbackException re) {
+				this.getEntityManager().getTransaction().rollback();
+			}
+		}
 	}
 }
