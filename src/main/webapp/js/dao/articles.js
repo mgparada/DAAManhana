@@ -1,7 +1,6 @@
 function countArticles(name, category, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
-	alert("countArticles: name is " + name + " and category is " + category);
 	
 	if (name.length != 0) {
 		url = 'rest/' + category + '/name/' + name + '/count';

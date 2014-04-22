@@ -128,7 +128,6 @@ function findArticlesByName() {
 	if (do_count) {
 		countArticles(actual_name, actual_category, function(a) {
 			count = a;
-			alert(count);
 		});
 	}
 	
@@ -148,7 +147,6 @@ function findAllArticlesByCategory() {
 	if (do_count) {
 		countArticles(actual_name, actual_category, function(c) {
 			count = c;
-			alert(count);
 		});
 	}
 	
