@@ -2,20 +2,33 @@
 /***************************************************************************/
 
 /*-----------------------------*/
-//Detalla un artículo
-function detailProduct(id) {
-	$(document).ready(function() { //ERROR ESTO NO VA
-                $("#article"+id).click(function(event) {
-                    $("#auxDiv").load('productDetail.html');
-                });
-            });
-	changeContent(7);
+//Cambio de pestaÃ±a de busqueda
+function changeTab(aux) {
+	document.getElementById('tab1').style.display = 'none';
+	document.getElementById('tab2').style.display = 'none';
+	
+	$('.search_container').empty();
+	
+	$('ul.tabs li:first').addClass('active');
+	$('ul.tabs li').on('click',function(){
+		$('ul.tabs li').removeClass('active');
+		$(this).addClass('active')
+		var activeTab = $(this).find('a').attr('href');
+	});
+	
+	switch (aux) {
+		case 0:
+			document.getElementById('tab1').style.display = 'block';
+			break;
+		case 1:
+			document.getElementById('tab2').style.display = 'block';
+			break;
+	}
 }
-
 /*-----------------------------*/
 
 /*-----------------------------*/
-//Intercambia los tabs de forma dinámica
+//Intercambia los tabs de forma dinï¿½mica
 function changeContent(aux) {
 		
 	//Oculta todos para garantizar que solo se muestra el elegido (primero oculta, luego muestra)

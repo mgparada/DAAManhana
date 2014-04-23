@@ -2,11 +2,12 @@ function countArticles(name, category, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 	
+	url = 'rest/' + category + '/count';
+	
 	if (name.length != 0) {
 		url = 'rest/' + category + '/name/' + name + '/count';
-	} else {
-		url = 'rest/' + category + '/count';
 	}
+	
 	$.ajax({
 		dataType: "json",
 		url: url,
@@ -14,6 +15,7 @@ function countArticles(name, category, done, fail) {
 	})
 	.done(done)
 	.fail(fail);
+	
 }
 
 function findByName(name, category, page, num_results, done, fail) {

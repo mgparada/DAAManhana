@@ -16,7 +16,7 @@ function initContext(category) {
 	
 	// Si no le paso nada como parámetro a la función actual_category no se actualiza.
 	// Esto se usa para que al pulsar el botón "buscar" se mantenga la configuración de la última búsqueda
-	actual_category = typeof category !== "undefined" ? actual_category : "articles";
+//	actual_category = typeof category !== "undefined" ? actual_category : "articles";
 }
 
 
@@ -27,18 +27,20 @@ function initContext(category) {
  * 
  * En caso de que el input no tenga valor, la función devolverá todos los elementos de la categoría
  */
-$(".subart").on("click", function(){
+$(".subart").on("click", function(){	
+	setUpSearchResultDiv();
 	initContext();
+	setUpDivs();
 	
 	actual_name = getInputText();
 	actual_category = $(this).data("category");
-	
-	setUpSearchResultDiv();
 	
 	if( actual_name != "" ) {
 		findArticlesByName();
 	}else
 		findAllArticlesByCategory();
+	
+	setUpPagination();
 });
 
 
@@ -47,17 +49,21 @@ $(".subart").on("click", function(){
  * En caso de que en el input se hubiera introducido texto, se buscan los articulos que lo contengan.
  * En caso contrario, se obtienen todos los articulos.
  */
-$(".img_search").on("click",function(){
+$(".img_search_2").on("click",function() {
+	setUpSearchResultDiv();
 	initContext(actual_category);
+	setUpDivs();
 	
 	actual_name = getInputText();
+	actual_category = $(".select_article").val();
 	
-	setUpSearchResultDiv();
 	
 	if(actual_name != "") {
 		findArticlesByName();
 	} else
 		findAllArticlesByCategory();
+	
+	setUpPagination();
 });
 
 /**
@@ -90,7 +96,7 @@ $(".search_result_count").on('click', '#next_page', function(){
 		findAllArticlesByCategory();
 });
 
-$(".search_result_count").on('click', '#previous_page', function(){
+$(".search_result_count").on('click', '#previous_page', function(){	
 	do_count = false;
 	page--;
 
@@ -108,7 +114,7 @@ $(".search_result_count").on('click', '#previous_page', function(){
  * Función interna para obtener el valor del input text
  */
 function getInputText() {
-	return $(".input_search").val();
+	return $("#search_articles").val();
 }
 
 /*
@@ -116,7 +122,8 @@ function getInputText() {
  * div en los que se muestran los resultados, y el contador de resultados mostrados.
  */
 function setUpSearchResultDiv() {
-	$(".search_result").empty();
+	$('.search_container').empty();
+	$("#container").empty();
 	$('.search_result_count').empty();
 }
 
@@ -204,32 +211,52 @@ function setPaginationInfo(articles) {
 /*
  * Función para añadir un artículo y sus datos al div principal
  */
-function appendArticle(name, discriminator, description) {
-	var category = getCategory(discriminator);
+function appendArticle(name, discriminator, description) { 
+	
 	var toAppend = "<div class='element_container'>" +
 			"<div class='element_img'>" +
 			"<img src='' alt=''>" +
 			"</div>" +
-			"<div class='element_description_contaniner'>" +
+			"<div class='element_description_container'>" +
 				"<div class='element_name'><a id='article0' href='#' onclick='detailProduct(0);'>" + name + "</a></div>"+
-				"<div class='element_cat'>" + category + "</div>"+
+				"<div class='element_cat'><img src='img/" + discriminator + ".png' class='img_cat'/></div>"+
 				"<div class='element_description'>" + description + "</div>"+
 			"</div>"+
 		"</div>";
 	
-	$(".search_result").append(toAppend);
+	$("#container").append(toAppend);
 }
 
-/*
- * Función que obtiene la cateoría del artículo para mostrarla correctamente
- */
-function getCategory(discriminator) {
-	switch(discriminator) {
-		case "book": return "Libro"; break;
-		case "movie": return "Película"; break;
-		case "comic": return "Comic"; break;
-		case "cd": return "CD"; break;
-	}
+function setUpDivs() {
+	var toAppend = "" +
+			"<div class='div_banner_search'>" +
+				"<img src='img/imagen_404.jpg'  class='img_banner_search' alt='' />" +
+			"</div>" +
+			"<div id='container'>" +
+			"</div>";
+	
+	$('.search_container').append(toAppend);
+}
+
+function setUpPagination() {
+	
+	var toAppend = "" +
+		"<div class='container_nav_top'>" +
+			"<div class='nav_button'>" +
+				"<a href=''>Anterior</a>" +
+			"</div>" +
+			"<div class='nav_number'>" +
+				"<a href=''>1</a>" +
+			"</div>" +
+			"<div class='nav_point'>" +
+				"..." +
+			"</div>" +
+			"<div class='nav_button'>" +
+				"<a href=''>Siguiente</a>" +
+			"</div>" +
+		"</div>";
+
+	$('.search_container').append(toAppend);
 }
 
 

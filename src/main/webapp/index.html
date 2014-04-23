@@ -4,12 +4,21 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="DC.Language" scheme="RFC1766" content="Spanish"/>
 		<link rel="stylesheet" type="text/css" href="search.css" />
-
-		<!-- Libreria jQuery -->
-        <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		
-		<link href="img/Uvicon.ico" type="image/x-icon" rel="shortcut icon" />		
-
+		<link href="img/Uvicon.ico" type="image/x-icon" rel="shortcut icon" />
+		<script language="JavaScript" type="text/javascript" src="js/view/daaScript.js"></script>
+		
+		
+		<!-- Libreria jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		
+		
+		<link rel="stylesheet" href="lightbox/css/lightbox.css" />
+	
+		<script src="lightbox/js/jquery-1.11.0.min.js"></script>
+		<script src="lightbox/js/lightbox.js"></script>
+		
 	</head>
 	<body>
 		 <div class="body_container"> 
@@ -24,24 +33,62 @@
 						<!-- Sesion -->
 						<div class="session_container">
 							<div id="login" class="session_login">
-								<a href="#" onclick="changeContent(5);">Iniciar sesión</a>
+								<a href="#" class="login_reg" onclick="changeContent(5);">Iniciar sesión</a>
 							</div>
 							<div id="register" class="session_register">
-								<a href="#" onclick="changeContent(6);">Registro</a>
+								<a href="#" class="login_reg" onclick="changeContent(6);">Registro</a>
 							</div>
 						</div>
 					</div>
 					<!-- Busqueda -->
 					<div class="container_div_search">
 						<div class="div_search">
-							<div class="search">
-								Buscar
-							</div>
-							<div class="box_search">
-								<input type="text" name="search" class="input_search" placeholder="Buscar personas, CDs, cómics, películas..."/>
-							</div>
-							<div class="img_search" onclick="changeContent(0);">
-								<img src="img/search.png"/>
+							<div class="wrapper">
+								<ul class="tabs">
+									<li><a href="#" onclick="changeTab(0)">Usuarios</a></li>
+									<li><a href="#" onclick="changeTab(1)">Artículos</a></li>
+								</ul>
+								<div class="clr">
+									<div>
+										<!-- Contenido pestaña usuarios -->
+										<div id="tab1"  class="container_tab" style="display:block;">
+											<div class="tab">
+													<div class="search">
+														Buscar
+													</div>
+													<div class="box_search">
+														<input type="text" id="search_users" name="search" class="input_search" placeholder="Buscar usuarios"/>
+													</div>
+													<div class="img_search" onclick="changeContent(0);">
+														<img src="img/search.png"/>
+													</div>
+											</div>
+										</div>
+										<!-- Contenido pestaña articulos -->
+										<div id="tab2" class="container_tab" style="display:none;">
+											<div class="tab">
+													<div class="search">
+														Buscar
+													</div>
+													<div class="box_search">
+														<input type="text" id="search_articles" name="search" class="input_search" placeholder="Buscar CDs, cómics, libros, películas..."/>
+													</div>
+													<div class="box_select">
+														<select class="select_article">
+															<option value="articles" selected="selected" >Todos</option>
+															<option value="cds">CDs</option>
+															<option value="movies">Películas</option>
+															<option value="books">Libros</option>
+															<option value="comics">Cómics</option>
+														</select>
+													</div>
+													<div class="img_search_2" onclick="changeContent(0);">
+														<img src="img/search.png"/>
+													</div>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -71,50 +118,80 @@
 					
 					<!-- Contenido busqueda -->
 					<div id="searchDiv" class="data_container" style="display:none;">
-						<!-- Filtros y ordenar -->
-						<div class="container_bars">
-							<!-- Filtros -->
-							<div class="container_filter_bar">
-								<ul class="nav" >
-									<li><a href="#" id="first">Todos</a></li>
-									<li><a href="#" id="inter">Usuarios</a></li>
-									<li><a href="#" id="art">Artículos<img src="img/arrow.png" class="arrow" /></a>
-										<ul>
-											<li><a class="subart" data-category="cds" href="#">CDs</a></li>
-											<li><a class="subart" data-category="movies" href="#">Películas</a></li>
-											<li><a class="subart" data-category="books" href="#">Libros</a></li>
-											<li><a class="subart" data-category="comics" href="#">Cómics</a></li>
-										</ul>
-									</li>
-									<li style=""><a href="#" id="last">Más<img src="img/arrow.png" class="arrow" /></a>
-										<ul>
-											<li><a class="submas" href="#">S1</a></li>
-											<li><a class="submas" href="#">S2</a></li>
-											<li><a class="submas" href="#">S3</a></li>
-											<li><a class="submas" href="#">S4</a></li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-							<!-- Ordenaciones -->
-							<div class="container_order_bar">
-								<ul class="nav"> 
-									<li><a href="" id="order">Ordenar por<img src="img/arrow.png" class="arrow"/></a>
-										<ul>
-											<li><a href="" class="suborder">Nombre</a></li>
-											<li><a href="" class="suborder">Categoría</a></li>
-										</ul>
-									</li>
-								</ul>
-							</div>
-						</div>
 						<!-- Resultados de la busqueda -->
 						<div class="search_container">
 							<div class="search_result_count">
-							
+								<span> Se han encontrado 465465 resultados.</span>
 							</div>
-							<div class="search_result">
+							<!-- Banner Search -->
+							<div class="div_banner_search">
+								<img src="img/imagen_404.jpg"  class="img_banner_search" alt="" />
+							</div>
 							
+							<!-- Barra de paginación -->
+							<div class="container_nav_top">
+								<div class="nav_button">
+									<a href="">Anterior</a>
+								</div>
+								<div class="nav_number">
+									<a href="">1</a>
+								</div>
+								<div class="nav_point">
+									...
+								</div>
+								<div class="nav_number">
+									<a href="">4</a>
+								</div>
+								<div class="nav_number_active">
+									<a href="">5</a>
+								</div>
+								<div class="nav_number">
+									<a href="">6</a>
+								</div>
+								<div class="nav_point">
+									...
+								</div>
+								<div class="nav_number">
+									<a href="">9</a>
+								</div>
+								<div class="nav_button">
+									<a href="">Siguiente</a>
+								</div>
+							</div>
+							
+							<!-- Contenedor de elementos -->
+							<div id="container">
+							</div>
+							
+							<!-- Barra de paginación -->
+							<div class="container_nav_bottom">
+								<div class="nav_button">
+									<a href="">Anterior</a>
+								</div>
+								<div class="nav_number">
+									<a href="">1</a>
+								</div>
+								<div class="nav_point">
+									...
+								</div>
+								<div class="nav_number">
+									<a href="">4</a>
+								</div>
+								<div class="nav_number_active">
+									<a href="">5</a>
+								</div>
+								<div class="nav_number">
+									<a href="">6</a>
+								</div>
+								<div class="nav_point">
+									...
+								</div>
+								<div class="nav_number">
+									<a href="">9</a>
+								</div>
+								<div class="nav_button">
+									<a href="">Siguiente</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -176,8 +253,6 @@
 						<div class="banner_div">
 							<img src="img/imagen_404.jpg"  class="banner_img" alt="" />
 						</div>
-						<!--          -->
-						
 					</div>
 				</div>
 				<!-- Pie -->
@@ -188,16 +263,16 @@
 						<a href="#" class="foot_link" onclick="changeContent(3);">Términos y condiciones</a>
 						<a href="#" class="foot_link" onclick="changeContent(4);">Privacidad</a>
 					</div>
-					<div class="foot_img_container">
-						<img src="img/escudo.png" class="foot_img"/>
-					</div>
 				</div>
 			</center>
 		 </div>
+		 <!-- Carga la pestaña de búsqueda usuarios como activa inicialmente -->
+		 <script>
+			$('ul.tabs li:first').addClass('active');
+		</script>
 	</body>
 	
 	<script language="JavaScript" type="text/javascript" src="js/view/daaScript.js"></script>
 	<script language="JavaScript" type="text/javascript" src="js/dao/articles.js"></script>
-	<script language="JavaScript" type="text/javascript" src="js/view/events.js"></script>
-	
+	<script language="JavaScript" type="text/javascript" src="js/view/articles/events.js"></script>
 </html>
