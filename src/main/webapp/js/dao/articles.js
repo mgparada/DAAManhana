@@ -35,11 +35,11 @@ function findByName(name, category, page, num_results, done, fail) {
 	.fail(fail);
 }
 
-function findById(article_id, category, num_results, done, fail) {
+function findArticleById(article_id, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 	
-	url = 'rest/' + category + '/' + article_id;
+	url = 'rest/articles/' + article_id;
 	
 	$.ajax({
 		dataType: "JSON",
