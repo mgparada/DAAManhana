@@ -263,10 +263,10 @@ ul.tabs li.active {
 	border-color:#e0e0e0;
 }
 
-.search_result_count {
-	margin-left:20px;
-	text-align:left;
+.content_articles_and_users {
+	padding-botom: 10px;
 }
+
 
 .element_container {
 	width:648px;
