@@ -61,7 +61,7 @@ public class BookDAO extends ArticleDAO<Book> {
 		this.openTransaction();
 		
 		TypedQuery<Long> q = this.getEntityManager().createQuery(
-			"SELECT object(p) "
+			"SELECT count(p)"
 			+ "FROM " + getClassName() + " AS p "
 			+ "WHERE p.name "
 			+ "LIKE :pattern AND "

@@ -9,8 +9,9 @@ function countArticles(name, category, done, fail) {
 	}
 	
 	$.ajax({
-		dataType: "json",
+		dataType: "JSON",
 		url: url,
+		header: 'Content-type: application/json',
 		type: 'GET'
 	})
 	.done(done)
@@ -25,8 +26,9 @@ function findByName(name, category, page, num_results, done, fail) {
 	url = 'rest/' + category + '/name/' + name + '/' + num_results + '/' + page;
 	
 	$.ajax({
-		dataType: "json",
+		dataType: "JSON",
 		url: url,
+		header: 'Content-type: application/json',
 		type: 'GET'
 	})
 	.done(done)
@@ -40,8 +42,9 @@ function findById(article_id, category, num_results, done, fail) {
 	url = 'rest/' + category + '/' + article_id;
 	
 	$.ajax({
-		dataType: "json",
+		dataType: "JSON",
 		url: url,
+		header: 'Content-type: application/json',
 		type: 'GET'
 	})
 	.done(done)
@@ -55,8 +58,9 @@ function findByCategory(category, num_results, done, fail) {
 	url = 'rest/' + category + '/' + num_results + '/' + page;
 	
 	$.ajax({
-		dataType: "json",
+		dataType: "JSON",
 		url: url,
+		header: 'Content-type: application/json',
 		type: 'GET'
 	})
 	.done(done)
