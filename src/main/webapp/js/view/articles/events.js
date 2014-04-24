@@ -7,18 +7,22 @@ var count;
 var do_count;
 
 function initContext(category) {
-//	category = typeof category !== "undefined" ? category : "articles";
 	do_count = true;
 	num_results = 10;
 	page = 1;
-	count = 0;
 	actual_name = "";
+	count = 1;
 	
-	// Si no le paso nada como parámetro a la función actual_category no se actualiza.
-	// Esto se usa para que al pulsar el botón "buscar" se mantenga la configuración de la última búsqueda
-//	actual_category = typeof category !== "undefined" ? actual_category : "articles";
+	totalPages();
 }
 
+
+function totalPages() {
+	countArticles($("#search_articles").val(), $(".select_article").val(), 
+		function(a){
+			count = Math.ceil(a/10);
+	});
+}
 
 /**
  * Este evento se dispara cuando se hace click en alguno de los tipos de articulos (CD, Peliculas, Libros o Cómics).
@@ -56,8 +60,7 @@ $(".img_search_2").on("click",function() {
 	
 	actual_name = getInputText();
 	actual_category = $(".select_article").val();
-	
-	
+
 	if(actual_name != "") {
 		findArticlesByName();
 	} else
@@ -66,47 +69,32 @@ $(".img_search_2").on("click",function() {
 	setUpPagination();
 });
 
-/**
- * Este evento se dispara cuando se hace click en la pestaña de "Todos".
- * En caso de que en el input se hubiera introducido texto, se buscan los articulos que lo contengan.
- * En caso contrario, se obtienen todos los articulos.
- */
-$("#first").on("click",function(){
-	initContext();
-	
-	actual_name = getInputText();
-	
-	setUpSearchResultDiv();
+function setUpPagination() {	
+	var options = {
+            currentPage: 1,
+            totalPages: count,
+            onPageClicked: function(e,originalEvent,type,page) {
+            	setUpSearchResultDiv();
+            	setUpDivs();
+            	
+            	if($("#search_articles").val() !== '')
+	            	findByName( $("#search_articles").val(), $(".select_article").val(), page, 10, function(articles){
+	            		$.each(articles, function(key, value) {
+	            			appendArticle(value["name"], value["discriminator"], value["description"], value["id"]);
+	            		});
+	            	});
+            	else
+            		findByCategory( $(".select_article").val(), page, 10, function(articles){
+            			$.each(articles, function(key, value) {
+            				appendArticle(value["name"], value["discriminator"], value["description"], value["id"]);
+            			});
+            		});
+            }
+    	}
 
-	if(actual_name != "") {
-		findArticlesByName();
-	}else
-		findAllArticlesByCategory();
-});
-
-$(".search_result_count").on('click', '#next_page', function(){
-	do_count = false;
-	page++;
-
-	setUpSearchResultDiv();
-	
-	if(actual_name != "") {
-		findArticlesByName();
-	}else
-		findAllArticlesByCategory();
-});
-
-$(".search_result_count").on('click', '#previous_page', function(){	
-	do_count = false;
-	page--;
-
-	setUpSearchResultDiv();
-	
-	if(actual_name != "") {
-		findArticlesByName();
-	}else
-		findAllArticlesByCategory();
-});
+	$('.paginator').bootstrapPaginator(options);
+	$('.paginator').bootstrapPaginator(options);
+}
 
 /*
  * Función para mostrar los detalles de un elemento en concreto
@@ -161,13 +149,7 @@ function setUpSearchResultDiv() {
  * Función para obtener los artículos por nombre y categoría
  * Los obtiene y los muestra en el div, además de mostrar el número de ocurrencias
  */
-function findArticlesByName() {
-	if (do_count) {
-		countArticles(actual_name, actual_category, function(a) {
-			count = a;
-		});
-	}
-	
+function findArticlesByName() {	
 	findByName(actual_name, actual_category, page, num_results, function(articles){
 		$.each(articles, function(key, value) {
 			appendArticle(value["name"], value["discriminator"], value["description"], value["id"]);
@@ -180,18 +162,11 @@ function findArticlesByName() {
  * Función para obtener los artículos por categoría
  * Los obtiene y los muestra en el div, además de mostrar el número de ocurrencias
  */
-function findAllArticlesByCategory() {
-	if (do_count) {
-		countArticles(actual_name, actual_category, function(c) {
-			count = c;
-		});
-	}
-	
-	findByCategory(actual_category, num_results, function(articles){
+function findAllArticlesByCategory() {	
+	findByCategory(actual_category, page, num_results, function(articles){
 		$.each(articles, function(key, value) {
 			appendArticle(value["name"], value["discriminator"], value["description"], value["id"]);
 		});
-		setPaginationInfo(articles);
 	});
 }
 

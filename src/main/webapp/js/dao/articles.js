@@ -11,6 +11,7 @@ function countArticles(name, category, done, fail) {
 	$.ajax({
 		dataType: "JSON",
 		url: url,
+		async: false,
 		header: 'Content-type: application/json',
 		type: 'GET'
 	})
@@ -51,7 +52,7 @@ function findArticleById(article_id, done, fail) {
 	.fail(fail);
 }
 
-function findByCategory(category, num_results, done, fail) {
+function findByCategory(category, page, num_results, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 	
