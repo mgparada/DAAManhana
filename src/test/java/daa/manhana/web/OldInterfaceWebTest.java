@@ -59,164 +59,164 @@ public class OldInterfaceWebTest {
 			fail(verificationErrorString);
 		}
 	}
-//	@Test
-//	public void testSearchNumberOfArticlesByName() throws Exception{
-//
-//		driver.findElement(By.id("articles")).click();
-//
-//        driver.findElement(By.id("search_articles")).sendKeys("a");
-//        driver.findElement(By.className("img_search_2")).click();
-//        // Sleep until the div we want is visible or 5 seconds is over
-//        long end = System.currentTimeMillis() + 5000;
-//        while (System.currentTimeMillis() < end) {
-//            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
-//
-//            // If results have been returned, the results are displayed in a drop down.
-//            if (resultsDiv.isDisplayed()) {
-//              break;
-//            }
-//        }
-////        // And now list the suggestions
-//        List<WebElement> l = driver.findElements(By.className("element_description_container"));
-//        
-//        assertEquals("The values are not equals.", 10, l.size());
-//
-//        driver.quit();
-//	}
-//	
-//	@Test
-//	public void testVoidSearchArticles() throws Exception{
-//
-//		driver.findElement(By.id("articles")).click();
-//        driver.findElement(By.className("img_search_2")).click();
-//        // Sleep until the div we want is visible or 5 seconds is over
-//        long end = System.currentTimeMillis() + 5000;
-//        while (System.currentTimeMillis() < end) {
-//            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
-//
-//            // If results have been returned, the results are displayed in a drop down.
-//            if (resultsDiv.isDisplayed()) {
-//              break;
-//            }
-//        }
-////        // And now list the suggestions
-//        List<WebElement> l = driver.findElements(By.className("element_description_container"));
-//        
-//        assertEquals("The values are not equals.", 10, l.size());
-//
-//        driver.quit();
-//	}
-//	
-//	@Test
-//	public void testSearchOneArticleCD() throws Exception{
-//
-//		driver.findElement(By.id("articles")).click();
-//		driver.findElement(By.className("select_article")).click();
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ENTER);
-//		driver.findElement(By.id("search_articles")).sendKeys("fr");
-//        driver.findElement(By.className("img_search_2")).click();
-//        // Sleep until the div we want is visible or 5 seconds is over
-//        long end = System.currentTimeMillis() + 5000;
-//        while (System.currentTimeMillis() < end) {
-//            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
-//
-//            // If results have been returned, the results are displayed in a drop down.
-//            if (resultsDiv.isDisplayed()) {
-//              break;
-//            }
-//        }
-////        // And now list the suggestions
-//        List<WebElement> l = driver.findElements(By.className("element_description_container"));
-//        
-//        assertEquals("The values are not equals.", 1, l.size());
-//
-//        driver.quit();
-//	}
-//	
-//	@Test
-//	public void testSearchMovie() throws Exception{
-//
-//		driver.findElement(By.id("articles")).click();
-//		driver.findElement(By.className("select_article")).click();
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ENTER);
-//        driver.findElement(By.className("img_search_2")).click();
-//        // Sleep until the div we want is visible or 5 seconds is over
-//        long end = System.currentTimeMillis() + 5000;
-//        while (System.currentTimeMillis() < end) {
-//            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
-//
-//            // If results have been returned, the results are displayed in a drop down.
-//            if (resultsDiv.isDisplayed()) {
-//              break;
-//            }
-//        }
-////        // And now list the suggestions
-//        List<WebElement> l = driver.findElements(By.className("element_description_container"));
-//        
-//        assertEquals("The values are not equals.", 3, l.size());
-//
-//        driver.quit();
-//	}
-//
-//	@Test
-//	public void testSearchBook() throws Exception{
-//
-//		driver.findElement(By.id("articles")).click();
-//		driver.findElement(By.className("select_article")).click();
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ENTER);
-//        driver.findElement(By.className("img_search_2")).click();
-//        // Sleep until the div we want is visible or 5 seconds is over
-//        long end = System.currentTimeMillis() + 5000;
-//        while (System.currentTimeMillis() < end) {
-//            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
-//
-//            // If results have been returned, the results are displayed in a drop down.
-//            if (resultsDiv.isDisplayed()) {
-//              break;
-//            }
-//        }
-////        // And now list the suggestions
-//        List<WebElement> l = driver.findElements(By.className("element_description_container"));
-//        
-//        assertEquals("The values are not equals.", 3, l.size());
-//
-//        driver.quit();
-//	}
-//
-//	@Test
-//	public void testSearchComic() throws Exception{
-//
-//		driver.findElement(By.id("articles")).click();
-//		driver.findElement(By.className("select_article")).click();
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
-//		driver.findElement(By.className("select_article")).sendKeys(Keys.ENTER);
-//        driver.findElement(By.className("img_search_2")).click();
-//        // Sleep until the div we want is visible or 5 seconds is over
-//        long end = System.currentTimeMillis() + 5000;
-//        while (System.currentTimeMillis() < end) {
-//            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
-//
-//            // If results have been returned, the results are displayed in a drop down.
-//            if (resultsDiv.isDisplayed()) {
-//              break;
-//            }
-//        }
-////        // And now list the suggestions
-//        List<WebElement> l = driver.findElements(By.className("element_description_container"));
-//        
-//        assertEquals("The values are not equals.", 2, l.size());
-//
-//        driver.quit();
-//	}
+	@Test
+	public void testSearchNumberOfArticlesByName() throws Exception{
+
+		driver.findElement(By.id("articles")).click();
+
+        driver.findElement(By.id("search_articles")).sendKeys("a");
+        driver.findElement(By.className("img_search_2")).click();
+        // Sleep until the div we want is visible or 5 seconds is over
+        long end = System.currentTimeMillis() + 5000;
+        while (System.currentTimeMillis() < end) {
+            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
+
+            // If results have been returned, the results are displayed in a drop down.
+            if (resultsDiv.isDisplayed()) {
+              break;
+            }
+        }
+//        // And now list the suggestions
+        List<WebElement> l = driver.findElements(By.className("element_description_container"));
+        
+        assertEquals("The values are not equals.", 10, l.size());
+
+        driver.quit();
+	}
+	
+	@Test
+	public void testVoidSearchArticles() throws Exception{
+
+		driver.findElement(By.id("articles")).click();
+        driver.findElement(By.className("img_search_2")).click();
+        // Sleep until the div we want is visible or 5 seconds is over
+        long end = System.currentTimeMillis() + 5000;
+        while (System.currentTimeMillis() < end) {
+            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
+
+            // If results have been returned, the results are displayed in a drop down.
+            if (resultsDiv.isDisplayed()) {
+              break;
+            }
+        }
+//        // And now list the suggestions
+        List<WebElement> l = driver.findElements(By.className("element_description_container"));
+        
+        assertEquals("The values are not equals.", 10, l.size());
+
+        driver.quit();
+	}
+	
+	@Test
+	public void testSearchOneArticleCD() throws Exception{
+
+		driver.findElement(By.id("articles")).click();
+		driver.findElement(By.className("select_article")).click();
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ENTER);
+		driver.findElement(By.id("search_articles")).sendKeys("fr");
+        driver.findElement(By.className("img_search_2")).click();
+        // Sleep until the div we want is visible or 5 seconds is over
+        long end = System.currentTimeMillis() + 5000;
+        while (System.currentTimeMillis() < end) {
+            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
+
+            // If results have been returned, the results are displayed in a drop down.
+            if (resultsDiv.isDisplayed()) {
+              break;
+            }
+        }
+//        // And now list the suggestions
+        List<WebElement> l = driver.findElements(By.className("element_description_container"));
+        
+        assertEquals("The values are not equals.", 1, l.size());
+
+        driver.quit();
+	}
+	
+	@Test
+	public void testSearchMovie() throws Exception{
+
+		driver.findElement(By.id("articles")).click();
+		driver.findElement(By.className("select_article")).click();
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ENTER);
+        driver.findElement(By.className("img_search_2")).click();
+        // Sleep until the div we want is visible or 5 seconds is over
+        long end = System.currentTimeMillis() + 5000;
+        while (System.currentTimeMillis() < end) {
+            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
+
+            // If results have been returned, the results are displayed in a drop down.
+            if (resultsDiv.isDisplayed()) {
+              break;
+            }
+        }
+//        // And now list the suggestions
+        List<WebElement> l = driver.findElements(By.className("element_description_container"));
+        
+        assertEquals("The values are not equals.", 3, l.size());
+
+        driver.quit();
+	}
+
+	@Test
+	public void testSearchBook() throws Exception{
+
+		driver.findElement(By.id("articles")).click();
+		driver.findElement(By.className("select_article")).click();
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ENTER);
+        driver.findElement(By.className("img_search_2")).click();
+        // Sleep until the div we want is visible or 5 seconds is over
+        long end = System.currentTimeMillis() + 5000;
+        while (System.currentTimeMillis() < end) {
+            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
+
+            // If results have been returned, the results are displayed in a drop down.
+            if (resultsDiv.isDisplayed()) {
+              break;
+            }
+        }
+//        // And now list the suggestions
+        List<WebElement> l = driver.findElements(By.className("element_description_container"));
+        
+        assertEquals("The values are not equals.", 3, l.size());
+
+        driver.quit();
+	}
+
+	@Test
+	public void testSearchComic() throws Exception{
+
+		driver.findElement(By.id("articles")).click();
+		driver.findElement(By.className("select_article")).click();
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.className("select_article")).sendKeys(Keys.ENTER);
+        driver.findElement(By.className("img_search_2")).click();
+        // Sleep until the div we want is visible or 5 seconds is over
+        long end = System.currentTimeMillis() + 5000;
+        while (System.currentTimeMillis() < end) {
+            WebElement resultsDiv = driver.findElement(By.className("element_description_container"));
+
+            // If results have been returned, the results are displayed in a drop down.
+            if (resultsDiv.isDisplayed()) {
+              break;
+            }
+        }
+//        // And now list the suggestions
+        List<WebElement> l = driver.findElements(By.className("element_description_container"));
+        
+        assertEquals("The values are not equals.", 2, l.size());
+
+        driver.quit();
+	}
 	
 	@Test
 	public void testSearchWrong() throws Exception{
