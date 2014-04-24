@@ -109,32 +109,8 @@ function appendArticle(name, discriminator, description, id) {
 
 function setUpDivs() {
 	var toAppend = "" +
-			"<div class='div_banner_search'>" +
-				"<img src='img/imagen_404.jpg' class='img_banner_search' alt='' />" +
-			"</div>" +
 			"<div id='container' class='content_articles_and_users'>" +
 			"</div>";
 	
-	$('.search_container').append(toAppend);
-}
-	
-function setUpPagination() {
-	
-	var toAppend = "" +
-		"<div class='container_nav_top'>" +
-			"<div class='nav_button'>" +
-				"<a href=''>Anterior</a>" +
-			"</div>" +
-			"<div class='nav_number'>" +
-				"<a href=''>1</a>" +
-			"</div>" +
-			"<div class='nav_point'>" +
-				"..." +
-			"</div>" +
-			"<div class='nav_button'>" +
-				"<a href=''>Siguiente</a>" +
-			"</div>" +
-		"</div>";
-
 	$('.search_container').append(toAppend);
 }
