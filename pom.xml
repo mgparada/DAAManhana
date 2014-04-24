@@ -101,11 +101,12 @@
     <!-- Testing dependencies -->
     
     <!-- Old Interface testing -->
-<!--     <dependency>  -->
-<!--         <groupId>org.seleniumhq.selenium</groupId> -->
-<!--         <artifactId>selenium-java</artifactId> -->
-<!--         <version>2.41.0</version> -->
-<!--     </dependency>   -->
+<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.39.0</version>
+			<scope>test</scope>
+		</dependency>
     
     <dependency>
       <groupId>junit</groupId>
@@ -137,6 +138,12 @@
       <version>2.5.1</version>
       <scope>test</scope>
     </dependency>
+    
+    <dependency> 
+    <groupId>xml-apis</groupId>
+    <artifactId>xml-apis</artifactId>
+    <version>1.4.01</version>
+</dependency>
   </dependencies>
   
 </project>
