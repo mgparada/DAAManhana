@@ -73,7 +73,7 @@ function setUpPagination() {
 	var options = {
             currentPage: 1,
             totalPages: count,
-            onPageClicked: function(e,originalEvent,type,page) {
+            onPageClicked: function(e,originalEvent,type,page) {            	
             	setUpSearchResultDiv();
             	setUpDivs();
             	
@@ -89,11 +89,19 @@ function setUpPagination() {
             				appendArticle(value["name"], value["discriminator"], value["description"], value["id"]);
             			});
             		});
+            },
+            onPageChanged: function(e,oldPage,newPage){
+            	var paginator = $(".pagination:first").clone(true);
+            	
+            	$(".pagination:eq(1)").remove();
+            	
+            	$(paginator).insertBefore(".search_container");
+            	$(paginator).insertAfter(".search_container");
             }
     	}
 
 	$('.paginator').bootstrapPaginator(options);
-	$('.paginator').bootstrapPaginator(options);
+	$('.pagination').clone(true).insertAfter(".search_container");
 }
 
 /*
