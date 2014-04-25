@@ -13,6 +13,8 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 
 @Entity
 @Table(name = "articles")
@@ -31,6 +33,7 @@ public class Article {
 	protected String name;
 	
 	@Column(nullable = false)
+	@Type(type = "date")
 	protected Date releaseDate;
 
 	@Column(nullable = true, length=65536)

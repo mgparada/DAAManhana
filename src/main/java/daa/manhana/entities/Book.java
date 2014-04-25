@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "books")
 @PrimaryKeyJoinColumn(name = "articleId")
@@ -24,6 +26,7 @@ public class Book extends Article {
 	private String editorial;
 	
 	@Column(nullable = false)
+	@Type(type = "date")
 	private Date editionDate;
 	
 	@Column(nullable = false, length = 70)
