@@ -421,6 +421,7 @@
                 itemContent.tooltip(tooltipOpts);
             } else {
                 itemContent.attr("title", title);
+              
             }
 
             return itemContainer;
