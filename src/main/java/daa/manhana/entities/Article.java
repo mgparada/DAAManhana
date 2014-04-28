@@ -25,7 +25,7 @@ import org.hibernate.annotations.Type;
 	)
 public class Article {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)	// default
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "articleId")
 	protected int id;
 	
@@ -39,6 +39,9 @@ public class Article {
 	@Column(nullable = true, length=65536)
 	protected String description;
 	
+	@Column(nullable = true)
+	protected String image;
+	
 	@Column(name = "discriminator", nullable = false)
 	protected String discriminator;
 	
@@ -46,10 +49,11 @@ public class Article {
 
 	}
 	
-	public Article(String name, Date releaseDate, String description) {
+	public Article(String name, Date releaseDate, String description, String image) {
 		this.name = name;
 		this.releaseDate = releaseDate;
 		this.description = description;
+		this.image = image;
 	}
 
 	public int getId() {

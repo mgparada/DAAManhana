@@ -32,19 +32,27 @@ public class Book extends Article {
 	@Column(nullable = false, length = 70)
 	private String isbn;
 	
+	@Column(nullable = false)
+	private String genre;
+	
+	@Column(nullable = false)
+	private String language;
+	
 	public Book() {
 		super();
 	}
 	
-	public Book(String name, Date releaseDate, String description, 
+	public Book(String name, Date releaseDate, String description, String image, 
 			int pages, String author, String editorial, 
-			Date editionDate, String isbn) {
-		super(name, releaseDate, description);
+			Date editionDate, String isbn, String genre, String language) {
+		super(name, releaseDate, description, image);
 		this.pages = pages;
 		this.author = author;
 		this.editorial = editorial;
 		this.editionDate = editionDate;
 		this.isbn = isbn;
+		this.genre = genre;
+		this.language = language;
 	}
 
 	public int getPages() {
@@ -85,6 +93,22 @@ public class Book extends Article {
 
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 	
