@@ -9,7 +9,6 @@ insert into actors (Movie_articleId, actors) values (1, "James Caan");
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("1994-03-26 21:34:23", "Cadena Perpetua", "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", "movie", "img/articles/cadenaperpetua.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("Frank Darabont", 2, "United States", 142, "Inglés", "Columbia Pictures / Castle Rock Entertainment");
-insert into movies (director, articleId, country, duration, language, producer) values ("Francis Ford Coppola", 1, "United States", 175, "Inglés", "Paramount Pictures / Albert S. Ruddy Production");
 insert into actors (Movie_articleId, actors) values (2, "Tim Robbins");
 insert into actors (Movie_articleId, actors) values (2, "Morgan Freeman");
 

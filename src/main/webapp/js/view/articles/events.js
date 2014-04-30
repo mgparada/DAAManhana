@@ -5,6 +5,7 @@ var actual_name;
 var actual_category;
 var count;
 var do_count;
+var show_ad;
 
 function initContext(category) {
 	do_count = true;
@@ -12,6 +13,7 @@ function initContext(category) {
 	page = 1;
 	actual_name = "";
 	count = 1;
+	$(".div_banner_search").css('display', '');
 	
 	totalPages();
 }
@@ -24,13 +26,25 @@ function totalPages() {
 	});
 }
 
-
-$(document).ready(function() {
+function showLastInsertedArticles() {
 	setUpSearchResultDiv();
 	initContext();
 	setUpDivs();
+	$(".div_banner_search").css('display', 'none');
 	findLastestArticles();
-	alert("peixe");
+}
+
+
+$(document).ready(function() {
+	showLastInsertedArticles();
+});
+
+$("#articles").on("click", function() {
+	showLastInsertedArticles();
+});
+
+$(".logo").on("click", function() {
+	showLastInsertedArticles();
 });
 
 /**
