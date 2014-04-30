@@ -122,6 +122,25 @@ public class GenericDAO<T> {
 		return toret;
 	}
 	
+	public List<T> getLastest(int page, int numResults) {
+		this.openTransaction();
+		
+		TypedQuery<T> q = createQuery(
+			"SELECT object(p) "
+			+ "FROM " + getClassName() + " AS p "
+			+ "ORDER BY p.id DESC"
+		);
+		
+		q.setFirstResult( (numResults * page - numResults) );
+		q.setMaxResults(numResults);
+		
+		List<T> toret = q.getResultList();
+		
+		this.closeTransaction();
+		
+		return toret;
+	}
+	
 	public T findConcreteObject (String name) {
 		this.openTransaction();
 		

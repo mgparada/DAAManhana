@@ -33,6 +33,15 @@ function totalPages(type) {
 			});
 }
 
+
+$(document).ready(function() {
+	setUpSearchResultDiv();
+	initContext();
+	setUpDivs();
+	findLastestArticles();
+	alert("peixe");
+});
+
 /**
  * Este evento se dispara cuando se hace click en alguno de los tipos de articulos (CD, Peliculas, Libros o Cómics).
  * Se obtiene el texto introducido en el input y la categoría en la que se disparó el evento
@@ -175,6 +184,15 @@ function findArticlesByName() {
 		});
 		setPaginationInfo(articles);
 	});
+}
+
+function findLastestArticles() {
+	findLastestArticlesByPage(page, num_results, function(articles){
+		$.each(articles, function(key, value) {
+			appendArticle(value["name"], value["discriminator"], value["description"], value["id"], value["image"]);
+		});
+		setPaginationInfo(articles);
+	});	
 }
 
 /*

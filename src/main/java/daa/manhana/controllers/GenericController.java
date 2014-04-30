@@ -28,6 +28,10 @@ public abstract class GenericController<T> {
 		return gDAO.findByName(name, page, numResults);
 	}
 	
+	public List<T> getLastest(int page, int numResults) {
+		return gDAO.getLastest(page, numResults);
+	}
+	
 	public int count(String name) {
 		return gDAO.count(name);
 	}
