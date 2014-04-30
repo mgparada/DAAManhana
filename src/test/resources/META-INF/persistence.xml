@@ -15,7 +15,8 @@
 		<class>daa.manhana.entities.Book</class>
 		<class>daa.manhana.entities.Movie</class>
 		<class>daa.manhana.entities.CD</class>
-		<class>daa.manhana.entities.User</class>
+		<class>daa.manhana.entities.Cartoonist</class>
+		<class>daa.manhana.entities.Track</class>		
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 		<properties>

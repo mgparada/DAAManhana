@@ -13,6 +13,14 @@ public class User {
 	@Column(length=200, nullable = false)
 	private String name;
 	
+	@Column(length=200, nullable = false)
+	private String email;
+	
+	@Column(length=200, nullable = false)
+	private String nam;
+	
+	
+	
 	public User() {
 		
 	}
