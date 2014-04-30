@@ -33,7 +33,6 @@ function changeContent(aux) {
 		
 	//Oculta todos para garantizar que solo se muestra el elegido (primero oculta, luego muestra)
 	document.getElementById('auxDiv').style.display = 'none';
-	document.getElementById('contentDiv').style.display = 'none';
 	document.getElementById('loginDiv').style.display = 'none';
 	document.getElementById('registerDiv').style.display = 'none';
 	document.getElementById('searchDiv').style.display = 'none';

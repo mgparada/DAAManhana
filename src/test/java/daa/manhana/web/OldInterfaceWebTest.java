@@ -49,7 +49,6 @@ public class OldInterfaceWebTest {
 	
 	@After
 	public void tearDown() throws Exception {
-//		TestUtils.clearTestDatabase();
 		TestUtils.closeEntityManagerFactory();
 
 		
@@ -59,6 +58,7 @@ public class OldInterfaceWebTest {
 			fail(verificationErrorString);
 		}
 	}
+	
 	@Test
 	public void testSearchNumberOfArticlesByName() throws Exception{
 

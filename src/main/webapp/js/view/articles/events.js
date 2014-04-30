@@ -14,6 +14,7 @@ function initContext(type) {
 	actual_name = "";
 	count = 1;
 	$(".div_banner_search").css('display', '');
+	$(".pagination").css('display', 'none');
 	
 	totalPages(type);
 }
@@ -101,7 +102,8 @@ $(".img_search_2").on("click",function() {
 	setUpPagination();
 });
 
-function setUpPagination() {	
+function setUpPagination() {
+	$(".pagination").css('display', '');
 	var options = {
             currentPage: 1,
             totalPages: count,
@@ -196,7 +198,6 @@ function findArticlesByName() {
 		$.each(articles, function(key, value) {
 			appendArticle(value["name"], value["discriminator"], value["description"], value["id"], value["image"]);
 		});
-		setPaginationInfo(articles);
 	});
 }
 
@@ -205,7 +206,6 @@ function findLastestArticles() {
 		$.each(articles, function(key, value) {
 			appendArticle(value["name"], value["discriminator"], value["description"], value["id"], value["image"]);
 		});
-		setPaginationInfo(articles);
 	});	
 }
 
