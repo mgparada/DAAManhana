@@ -6,8 +6,9 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 @WebListener
-public class PersistenceFactory implements ServletContextListener{
-	 private static final String PERSISTENCE_UNIT = "Grupo-Manhana";
+public class PersistenceFactory implements ServletContextListener {
+	private static final String PERSISTENCE_UNIT = "Grupo-Manhana";
+
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
 		DAOUtils.getEntityManagerFactory().close();
@@ -15,7 +16,7 @@ public class PersistenceFactory implements ServletContextListener{
 
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
-		DAOUtils.setEntityManagerFactory(Persistence.createEntityManagerFactory(PERSISTENCE_UNIT));		
+		DAOUtils.setEntityManagerFactory(Persistence.createEntityManagerFactory(PERSISTENCE_UNIT));
 	}
 
 }

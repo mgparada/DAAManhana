@@ -10,7 +10,6 @@ import javax.persistence.TransactionRequiredException;
 import javax.persistence.TypedQuery;
 
 public class GenericDAO<T> {
-	private EntityManager em;
 	
 	public GenericDAO() {
 	}
@@ -196,18 +195,14 @@ public class GenericDAO<T> {
 	}
 	
 	protected synchronized EntityManager getEntityManager() {
-		if (this.em == null) {
-			this.em = DAOUtils.createEntityManager();
-		}
-		
-		return this.em;
+		return EntityManagerRequestListener.getEntityManager();
 	}
 
-	protected void openTransaction() {
+	protected synchronized void openTransaction() {
 		this.getEntityManager().getTransaction().begin();
 	}
 	
-	public void closeTransaction() {
+	protected synchronized void closeTransaction() {
 		if (this.getEntityManager().getTransaction().isActive()) {
 			try {
 				this.getEntityManager().getTransaction().commit();
