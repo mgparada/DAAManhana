@@ -9,11 +9,10 @@ insert into actors (Movie_articleId, actors) values (1, "James Caan");
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("1994-03-26 21:34:23", "Cadena Perpetua", "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", "movie", "img/articles/cadenaperpetua.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("Frank Darabont", 2, "United States", 142, "Inglés", "Columbia Pictures / Castle Rock Entertainment");
-insert into movies (director, articleId, country, duration, language, producer) values ("Francis Ford Coppola", 1, "United States", 175, "Inglés", "Paramount Pictures / Albert S. Ruddy Production");
 insert into actors (Movie_articleId, actors) values (2, "Tim Robbins");
 insert into actors (Movie_articleId, actors) values (2, "Morgan Freeman");
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("1974-03-26 20:40:23", "El padrino. Parte II", "The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.", "movie");
+insert into articles (releaseDate, name, description, discriminator, image) values ("1974-03-26 20:40:23", "El padrino. Parte II", "The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.", "movie", "img/articles/elpadrinoparte2.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("Damian Chapa", 3, "Estados Unidos", 200, "Inglés", "Paramount Pictures presents a Francis Ford Coppola Production");
 insert into actors (Movie_articleId, actors) values (3, "Al Pacino");
 insert into actors (Movie_articleId, actors) values (3, "Robert de Niro");
@@ -21,7 +20,7 @@ insert into actors (Movie_articleId, actors) values (3, "James Caan");
 
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("1976-03-26 20:40:23", "Rocky", "Rocky Balboa es un desconocido boxeador a quien se le ofrece la posibilidad de pelear por el título mundial de los pesos pesados. Con una gran fuerza de voluntad, Rocky se prepara concienzudamente para el combate y también para los cambios que acabarán produciéndose en su vida.", "movie","img/articles/elpadrino.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("1976-03-26 20:40:23", "Rocky", "Rocky Balboa es un desconocido boxeador a quien se le ofrece la posibilidad de pelear por el título mundial de los pesos pesados. Con una gran fuerza de voluntad, Rocky se prepara concienzudamente para el combate y también para los cambios que acabarán produciéndose en su vida.", "movie","img/articles/rocky.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("John G. Avildsen", 4, "Estados Unidos",119,"Inglés","United Artist");
 insert into actors (Movie_articleId, actors) values (4, "Sylvester Stallone");
 insert into actors (Movie_articleId, actors) values (4, "Talia Shire");
