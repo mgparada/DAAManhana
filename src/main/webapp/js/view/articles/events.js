@@ -39,7 +39,6 @@ $(document).ready(function() {
 	initContext();
 	setUpDivs();
 	findLastestArticles();
-	alert("peixe");
 });
 
 /**
