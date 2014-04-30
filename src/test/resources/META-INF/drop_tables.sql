@@ -1,3 +1,6 @@
+drop table tracks;
+drop table actors;
+drop table cartoonists;
 drop table movies;
 drop table cds;
 drop table comics;

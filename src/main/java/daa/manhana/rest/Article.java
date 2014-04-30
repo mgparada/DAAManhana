@@ -46,6 +46,20 @@ public class Article<T extends daa.manhana.entities.Article> {
 	}
 	
 	@GET
+	@Path("/last/{results}/{page}")
+	public Response getLastest(
+			@PathParam("page") final int page, 
+			@PathParam("results") final int numResults
+			) {
+		try{
+			return Response.ok(this.artController.getLastest(page, numResults)).build();
+		}catch(Exception e) {
+			e.printStackTrace();
+			return Response.serverError().entity(e.getMessage()).build();
+		}
+	}
+	
+	@GET
 	@Path("/name/{name}/count")
 	public Response count(
 			@PathParam("name") final String name

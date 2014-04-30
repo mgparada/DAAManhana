@@ -319,7 +319,6 @@ function appendMovie(article) {
  * Función para añadir un artículo y sus datos al div principal
  */
 function appendArticle(name, discriminator, description, id, image) { 
-	alert(image);
 	var toAppend = "<div class='element_container'>" +
 			"<div class='element_img'>" +
 			"<img class='img_article' src='" + image + "' alt=''>" +
