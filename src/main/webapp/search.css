@@ -226,7 +226,7 @@ ul {
 
 /*********************/
 
-/* PESTAÑAS DE BÚSQUEDA */
+/* PESTAÃ‘AS DE BÃšSQUEDA */
 
 .container_div_search {
 	width:1000px; 
@@ -262,6 +262,7 @@ ul.tabs li {
   float: left;
   margin: 0 .25em 0 0;
   padding: .25em .5em;
+  background:#f0f0f0;
 }
 
 ul.tabs li a {
@@ -271,7 +272,7 @@ ul.tabs li a {
 }
 
 ul.tabs li.active {
-  background: #f0f0f0;
+  background: white;
 }
 
 .clr {
@@ -289,7 +290,7 @@ ul.tabs li.active {
 
 /*********************/
 
-/* BARRA DE BÚSQUEDA */
+/* BARRA DE BÃšSQUEDA */
 
 .search {
 	position:relative; 
@@ -397,8 +398,8 @@ ul.tabs li.active {
 	border-right-style:solid;
 	border-left-width:thin; 
 	border-right-width:thin;
-	border-color:#e0e0e0; 
 	margin-top:25px;
+	border-color:#e0e0e0;
 }
 
 .search_container {
@@ -407,9 +408,6 @@ ul.tabs li.active {
 	margin-top:20px;
 	margin-left:20px;
 	margin-right:20px;
-	border-bottom-style:solid;
-	border-bottom-width:1px;
-	border-color:#e0e0e0;
 }
 
 .content_articles_and_users {
@@ -428,9 +426,13 @@ ul.tabs li.active {
 .element_img {
 	position:relative;
 	float:left;
-	width:140px;
-	height:140px;
-	border:1px solid black;
+	width:142px;
+	height:142px;
+}
+
+.img_article {
+	width:142px;
+	height:142px;
 }
 
 .user_img {
@@ -570,7 +572,7 @@ ul.tabs li.active {
 	border:1px solid black;
 }
 
-/* BARRA DE PAGINACIÓN */
+/* BARRA DE PAGINACIÃ“N */
 
 .container_nav_top {
 	height:30px; 
@@ -679,7 +681,7 @@ ul.tabs li.active {
 	border:1px solid black;
 }
 
-/* VISUALIZAR ARTÍCULO */
+/* VISUALIZAR ARTÃ�CULO */
 
 /*Datos de un Articulo */
 

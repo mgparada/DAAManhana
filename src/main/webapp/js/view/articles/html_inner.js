@@ -55,6 +55,9 @@ function appendComic(article) {
 						"<div class='cd_atribute'>" +
 							"<b>Género:</b> <a href='#'>Comic</a>" +
 						"</div>" +
+						"<div class='cd_atribute'>" +
+							"<b>Colección:</b> FALTA" +
+						"</div>" +
 				"</div>" +
 				"<!-- Idioma + Numero + Coleccion -->" +
 				"<div class='cd_atributes_2'>" +
@@ -69,9 +72,6 @@ function appendComic(article) {
 						"</div>" +
 						"<div class='cd_atribute'>" +
 							"<b>ISBN: </b> " + article["isbn"] +
-						"</div>" +
-						"<div class='cd_atribute'>" +
-							"<b>Colección:</b> FALTA" +
 						"</div>" +
 				"</div>" +
 			"</div>" +
@@ -322,7 +322,7 @@ function appendArticle(name, discriminator, description, id, image) {
 	alert(image);
 	var toAppend = "<div class='element_container'>" +
 			"<div class='element_img'>" +
-			"<img style='width: 160px; height: 190px;' src='" + image + "' alt=''>" +
+			"<img class='img_article' src='" + image + "' alt=''>" +
 			"</div>" +
 			"<div class='element_description_container'>" +
 				"<div class='element_name'>" +

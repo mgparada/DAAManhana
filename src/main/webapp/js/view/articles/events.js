@@ -98,7 +98,7 @@ function setUpPagination() {
             	$(paginator).insertBefore(".search_container");
             	$(paginator).insertAfter(".search_container");
             }
-    	}
+    	};
 
 	if( $(".pagination").length <= 0 ) {
 		$('.paginator').bootstrapPaginator(options);
