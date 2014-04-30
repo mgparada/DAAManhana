@@ -245,12 +245,24 @@ function appendCd(article) {
 
 function appendMovie(article) {
 	var date = article['releaseDate'].split("-");
+	var actors = ""
+	
+	$.each(article['actors'], function(k, v) {
+		var toConcat = 
+			"<div class='actor_content_impar'>" +
+					"<div class='actor_name'>" +
+					"<a href='#'>" + v + "</a>" +
+				"</div>"+
+			"</div>";
+		
+		actors = actors.concat(toConcat)
+	})
 	
 	var toAppend = "" +
 		"<div class='article_content'>" +
 			"<div class='article_img'>" +
-			"<a class='image_link' href='img/Guia_del_autoestopista_galactico-447876128-large.jpg' data-lightbox='coso'>" +
-				"<img style='width:160px; height:190px;' src='img/Guia_del_autoestopista_galactico-447876128-large.jpg'/>" +
+			"<a class='image_link' href='" + article["image"] + "' data-lightbox='coso'>" +
+				"<img style='width:160px; height:190px;' src='" + article["image"] + "'/>" +
 			"</a>" +
 		"</div>" +
 		"<div class='article_atributes_content'>" +
@@ -271,43 +283,31 @@ function appendMovie(article) {
 					"<b>Director: </b>" + article['directors'] +
 				"</div>" +
 				"<div class='cd_atribute'>" +
-					"<b>Productora:</b> FALTA" +
-				"</div>" +
-				"<div class='cd_atribute'>" +
-					"<b>Estilo:</b> FALTA1, FALTA2" +
+					"<b>Productora:</b> " + article['producer'] +
 				"</div>" +
 		"</div>" +
 		"<div class='cd_atributes_2'>" +
 				"<div class='cd_atribute'>" +
-					"<b>País:</b> FALTA1" +
+					"<b>País:</b> " +  article['country'] +
 				"</div>" +
 				"<div class='cd_atribute'>" +
-					"<b>Idioma:</b> FALTA" +
+					"<b>Idioma:</b> " +  article['language'] +
 				"</div>" +
 				"<div class='cd_atribute'>" +
-					"<b>Duración:</b> FALTA" +
+					"<b>Duración:</b> " +  article['duration'] + " min" +
 				"</div>" +
 		"</div>" +
 		"</div>" +
 		"<div class='actors_content'>" +
-		"<div class='actor_head_content'>" +
-			"<div class='actor_name'>" +
-				"<b>Nombre</b>" +
-			"</div>" +
+			"<div class='actor_head_content'>" +
+				"<div class='actor_name'>" +
+					"<b>Nombre</b>" +
+				"</div>" +
 			"<div class='actor_paper'>" +
 				"<b>Papel</b>" +
 			"</div>" +
 		"</div>" +
-		"<div class='actor_content_impar'>" +
-			"<div class='actor_name'>" +
-				"<a href='#'>Martin Freeman</a>" +
-			"</div>" +
-			"<div class='actor_paper'>" +
-				"Arthur Dent" +
-			"</div>" +
-		"</div>" +
-		
-		"</div>" +
+			actors +
 		"<div class='article_banner_content'>" +
 			"<img src='img/imagen_404.jpg'  class='article_banner' alt='' />" +
 		"</div>";
@@ -318,11 +318,11 @@ function appendMovie(article) {
 /*
  * Función para añadir un artículo y sus datos al div principal
  */
-function appendArticle(name, discriminator, description, id) { 
-	
+function appendArticle(name, discriminator, description, id, image) { 
+	alert(image);
 	var toAppend = "<div class='element_container'>" +
 			"<div class='element_img'>" +
-			"<img src='' alt=''>" +
+			"<img style='width: 160px; height: 190px;' src='" + image + "' alt=''>" +
 			"</div>" +
 			"<div class='element_description_container'>" +
 				"<div class='element_name'>" +

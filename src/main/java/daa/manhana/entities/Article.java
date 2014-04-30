@@ -40,7 +40,7 @@ public class Article {
 	protected String description;
 	
 	@Column(nullable = true)
-	protected String image;
+	private String image;
 	
 	@Column(name = "discriminator", nullable = false)
 	protected String discriminator;
@@ -94,5 +94,13 @@ public class Article {
 	
 	public void setDiscriminator(String discriminator) {
 		this.discriminator = discriminator;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

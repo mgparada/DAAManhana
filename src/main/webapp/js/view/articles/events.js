@@ -80,13 +80,13 @@ function setUpPagination() {
             	if($("#search_articles").val() !== '')
 	            	findByName( $("#search_articles").val(), $(".select_article").val(), page, 10, function(articles){
 	            		$.each(articles, function(key, value) {
-	            			appendArticle(value["name"], value["discriminator"], value["description"], value["id"]);
+	            			appendArticle(value["name"], value["discriminator"], value["description"], value["id"], value["image"]);
 	            		});
 	            	});
             	else
             		findByCategory( $(".select_article").val(), page, 10, function(articles){
             			$.each(articles, function(key, value) {
-            				appendArticle(value["name"], value["discriminator"], value["description"], value["id"]);
+            				appendArticle(value["name"], value["discriminator"], value["description"], value["id"], value["image"]);
             			});
             		});
             },
@@ -100,8 +100,10 @@ function setUpPagination() {
             }
     	}
 
-	$('.paginator').bootstrapPaginator(options);
-	$('.pagination').clone(true).insertAfter(".search_container");
+	if( $(".pagination").length <= 0 ) {
+		$('.paginator').bootstrapPaginator(options);
+		$('.pagination').clone(true).insertAfter(".search_container");
+	}
 }
 
 /*
@@ -160,7 +162,7 @@ function setUpSearchResultDiv() {
 function findArticlesByName() {	
 	findByName(actual_name, actual_category, page, num_results, function(articles){
 		$.each(articles, function(key, value) {
-			appendArticle(value["name"], value["discriminator"], value["description"], value["id"]);
+			appendArticle(value["name"], value["discriminator"], value["description"], value["id"], value["image"]);
 		});
 		setPaginationInfo(articles);
 	});
@@ -173,7 +175,7 @@ function findArticlesByName() {
 function findAllArticlesByCategory() {	
 	findByCategory(actual_category, page, num_results, function(articles){
 		$.each(articles, function(key, value) {
-			appendArticle(value["name"], value["discriminator"], value["description"], value["id"]);
+			appendArticle(value["name"], value["discriminator"], value["description"], value["id"], value["image"]);
 		});
 	});
 }
