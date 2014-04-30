@@ -5,22 +5,18 @@ insert into actors (Movie_articleId, actors) values (1, "Marlon Brando");
 insert into actors (Movie_articleId, actors) values (1, "Al Pacino");
 insert into actors (Movie_articleId, actors) values (1, "James Caan");
 
-
-
 insert into articles (releaseDate, name, description, discriminator, image) values ("1994-03-26 21:34:23", "Cadena Perpetua", "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", "movie", "img/articles/cadenaperpetua.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("Frank Darabont", 2, "United States", 142, "Inglés", "Columbia Pictures / Castle Rock Entertainment");
 insert into actors (Movie_articleId, actors) values (2, "Tim Robbins");
 insert into actors (Movie_articleId, actors) values (2, "Morgan Freeman");
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("1974-03-26 20:40:23", "El padrino. Parte II", "The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.", "movie");
+insert into articles (releaseDate, name, description, discriminator, image) values ("1974-03-26 20:40:23", "El padrino. Parte II", "The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.", "movie", "img/articles/elpadrinoparte2.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("Damian Chapa", 3, "Estados Unidos", 200, "Inglés", "Paramount Pictures presents a Francis Ford Coppola Production");
 insert into actors (Movie_articleId, actors) values (3, "Al Pacino");
 insert into actors (Movie_articleId, actors) values (3, "Robert de Niro");
 insert into actors (Movie_articleId, actors) values (3, "James Caan");
 
-
-
-insert into articles (releaseDate, name, description, discriminator, image) values ("1976-03-26 20:40:23", "Rocky", "Rocky Balboa es un desconocido boxeador a quien se le ofrece la posibilidad de pelear por el título mundial de los pesos pesados. Con una gran fuerza de voluntad, Rocky se prepara concienzudamente para el combate y también para los cambios que acabarán produciéndose en su vida.", "movie","img/articles/elpadrino.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("1976-03-26 20:40:23", "Rocky", "Rocky Balboa es un desconocido boxeador a quien se le ofrece la posibilidad de pelear por el título mundial de los pesos pesados. Con una gran fuerza de voluntad, Rocky se prepara concienzudamente para el combate y también para los cambios que acabarán produciéndose en su vida.", "movie","img/articles/rocky.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("John G. Avildsen", 4, "Estados Unidos",119,"Inglés","United Artist");
 insert into actors (Movie_articleId, actors) values (4, "Sylvester Stallone");
 insert into actors (Movie_articleId, actors) values (4, "Talia Shire");
@@ -31,7 +27,7 @@ insert into actors (Movie_articleId, actors) values (5, "Tom Hanks");
 insert into actors (Movie_articleId, actors) values (5, "Robin Wright Penn");
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2003-03-26 20:40:23", "Big Fish", "William Bloom (Billy Crudup) no tiene muy buena relación con su padre (Albert Finney), pero tras enterarse de que padece una enfermedad terminal, regresa a su hogar para estar a su lado en sus últimos momentos. Una vez más, William se verá obligado a escucharlo mientras cuenta las interminables historias de su juventud. Pero, en esta ocasión, tratará de averiguar cosas que le permitan conocer mejor a su padre, aunque para ello tendrá que separar claramente realidad y fantasía, elementos que aparecen siempre mezclados en los relatos de su progenitor.", "movie","img/articles/bigfish.jpg");
-insert into movies (director, articleId, country, duration, language, producerd) values ("Tim Burton", 6,"Estados Unidos",126,"Inglés","Columbia Pictures" );
+insert into movies (director, articleId, country, duration, language, producer) values ("Tim Burton", 6,"Estados Unidos",126,"Inglés","Columbia Pictures" );
 insert into actors (Movie_articleId, actors) values (6, "Ewan McGregor");
 insert into actors (Movie_articleId, actors) values (6, "Albert Finney");
 
@@ -56,7 +52,7 @@ insert into actors (Movie_articleId, actors) values (10, "Martin Freeman");
 insert into actors (Movie_articleId, actors) values (10, "Ken Stott");
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2013-03-26 20:40:23", "El Hobbit: La desolación de Smaug", "El Hobbit: La Desolación de Smaug continua la aventura de Bilbo Bolsón en su viaje con el mago Gandalf y trece enanos liderados por Thorin Escudo de Roble en una búsqueda épica para reclamar el reino enano de Erebor. En su camino toparán con multitud de peligros y harán frente al temible dragón Smaug. ", "movie","img/articles/elhobbit2.jpg");
-insert into movies ((director, articleId, country, duration, language, producer) values ("Peter Jackson", 11,"Estados Unidos",160,"Inglés","MGM/New Line Cinema/Wingnut Films");
+insert into movies (director, articleId, country, duration, language, producer) values ("Peter Jackson", 11,"Estados Unidos",160,"Inglés","MGM/New Line Cinema/Wingnut Films");
 insert into actors (Movie_articleId, actors) values (11, "Martin Freeman"); 
 insert into actors (Movie_articleId, actors) values (11, "Ken Stott");
 

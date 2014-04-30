@@ -245,7 +245,7 @@ function appendCd(article) {
 
 function appendMovie(article) {
 	var date = article['releaseDate'].split("-");
-	var actors = ""
+	var actors = "";
 	
 	$.each(article['actors'], function(k, v) {
 		var toConcat = 
@@ -255,8 +255,8 @@ function appendMovie(article) {
 				"</div>"+
 			"</div>";
 		
-		actors = actors.concat(toConcat)
-	})
+		actors = actors.concat(toConcat);
+	});
 	
 	var toAppend = "" +
 		"<div class='article_content'>" +

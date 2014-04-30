@@ -7,7 +7,7 @@ var count;
 var do_count;
 var show_ad;
 
-function initContext(category) {
+function initContext(type) {
 	do_count = true;
 	num_results = 10;
 	page = 1;
@@ -15,15 +15,24 @@ function initContext(category) {
 	count = 1;
 	$(".div_banner_search").css('display', '');
 	
-	totalPages();
+	totalPages(type);
 }
 
 
-function totalPages() {
-	countArticles($("#search_articles").val(), $(".select_article").val(), 
-		function(a){
-			count = Math.ceil(a/10);
-	});
+function totalPages(type) {
+	type = typeof type !== 'undefined' ? type : "articles";
+	
+	if(type == "articles") 
+		countArticles($("#search_articles").val(), $(".select_article").val(), 
+			function(a){
+				count = Math.ceil(a/10);
+		});
+	else
+		if(type == "users") 
+			countUsers(
+				function(a){
+					count = Math.ceil(a/10);
+			});
 }
 
 function showLastInsertedArticles() {
@@ -58,15 +67,15 @@ $(".subart").on("click", function(){
 	setUpSearchResultDiv();
 	initContext();
 	setUpDivs();
-	
+
 	actual_name = getInputText();
 	actual_category = $(this).data("category");
-	
+
 	if( actual_name != "" ) {
 		findArticlesByName();
 	}else
 		findAllArticlesByCategory();
-	
+
 	setUpPagination();
 });
 
@@ -78,9 +87,9 @@ $(".subart").on("click", function(){
  */
 $(".img_search_2").on("click",function() {
 	setUpSearchResultDiv();
-	initContext(actual_category);
+	initContext();
 	setUpDivs();
-	
+
 	actual_name = getInputText();
 	actual_category = $(".select_article").val();
 
@@ -88,7 +97,7 @@ $(".img_search_2").on("click",function() {
 		findArticlesByName();
 	} else
 		findAllArticlesByCategory();
-	
+
 	setUpPagination();
 });
 
@@ -134,9 +143,9 @@ function setUpPagination() {
  */
 function show_element(that) {
 	$('#auxDiv').empty();
-	
+
 	setElementDetails($(that).data("category"), $(that).attr("id"));
-	
+
 	changeContent(7);
 }
 
@@ -146,15 +155,15 @@ function setElementDetails(category, id) {
 		case 'movie': 
 				setMovieDetails(id);
 			break;
-			
+
 		case 'cd':
 				setCdDetails(id);
 			break;
-			
+
 		case 'comic':
 				setComicDetails(id);
 			break;
-			
+
 		case 'book':
 				setBookDetails(id);
 			break;
@@ -211,47 +220,3 @@ function findAllArticlesByCategory() {
 		});
 	});
 }
-
-
-function setPaginationInfo(articles) {
-	upper_bound = page * num_results - (num_results - articles.length);
-	
-	if ( articles.length != 0 ) {
-		lower_bound = page * num_results - (num_results - 1);
-	} else {
-		lower_bound = 0;
-	}
-	
-	if (page > 1) {
-		$('.search_result_count').append(
-		'<div id="pagination_left" style="float:left; display:inline;">'
-		+ '<a id="previous_page" href="#">Anterior</a>'
-		+ '</div>'
-		);
-	}
-	
-	if (upper_bound < count) {
-		$('.search_result_count').append(
-				'<div id="pagination_right" style="float: right; display: inline;">'
-				+ '<a id="next_page" href="#">Siguiente</a>'
-				+ '</div>'
-		);
-	}
-	
-	if ( articles.length != 0) {
-		$('.search_result_count').append(
-				'<div style="text-align: center;">'
-				+ '<span> Se muestran articulos del '
-				+ lower_bound + " al " + upper_bound + 
-				" de un total de " + count + ".</span></div>"	
-		);	
-	} else {
-		$('.search_result_count').append(
-				'<div style="text-align: center;">'
-				+ '<span> No se han encontrado artículos.</span>'
-				+ '</span></div>'
-		);
-	}
-}
-
-
