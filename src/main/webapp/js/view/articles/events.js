@@ -44,7 +44,6 @@ function showLastInsertedArticles() {
 	findLastestArticles();
 }
 
-
 $(document).ready(function() {
 	showLastInsertedArticles();
 });
@@ -69,6 +68,8 @@ $(".subart").on("click", function(){
 	initContext();
 	setUpDivs();
 
+	totalPages();
+	
 	actual_name = getInputText();
 	actual_category = $(this).data("category");
 

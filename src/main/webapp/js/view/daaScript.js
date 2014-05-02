@@ -43,7 +43,7 @@ function changeContent(aux) {
 	
 	switch (aux) {
 		case 0:
-			document.getElementById('searchDiv').style.display = 'block';
+			document.getElementById('searchDiv').style.display = 'block';	
 			break;
 		case 1:
 			document.getElementById('aboutDiv').style.display = 'block';
@@ -67,7 +67,7 @@ function changeContent(aux) {
 			document.getElementById('auxDiv').style.display = 'block';
 			break;
 		default:
-			document.getElementById('contentDiv').style.display = 'block';
+			document.getElementById('searchDiv').style.display = 'block';
 	}			
 }
 /*-----------------------------*/
