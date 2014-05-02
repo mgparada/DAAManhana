@@ -17,8 +17,6 @@ public class MovieDAOTest extends ConfigTest {
 	
 	@Before
 	public void createEntityManager() {
-//		System.setProperty("persistenceUnit", "DAA-test");
-		
 		movieDAO = new MovieDAO();
 	}	
 	
@@ -51,7 +49,7 @@ public class MovieDAOTest extends ConfigTest {
 		
 		assertEquals("Length is not 2", 2, test.size());
 		
-		assertEquals("Id is different than 2", 2, test.get(0).getId() );
+		assertEquals("Id is different than 23", 23, test.get(0).getId() );
 	}
 	
 	@Test
@@ -83,7 +81,7 @@ public class MovieDAOTest extends ConfigTest {
 		List<Movie> test = movieDAO.getAll();
 		assertNotNull("Find by id is not null", test);
 		
-		assertEquals("Length is not 3", 3, test.size());
+		assertEquals("Length is not 33", 33, test.size());
 	}
 
 }

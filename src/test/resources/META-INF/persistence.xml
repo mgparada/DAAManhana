@@ -18,6 +18,7 @@
 		<class>daa.manhana.entities.Cartoonist</class>
 		<class>daa.manhana.entities.Track</class>
 		<class>daa.manhana.entities.Actor</class>
+		<class>daa.manhana.entities.User</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 		<properties>

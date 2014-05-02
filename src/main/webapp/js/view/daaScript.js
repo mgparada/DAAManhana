@@ -2,6 +2,36 @@
 /***************************************************************************/
 
 /*-----------------------------*/
+//Cortar descripción de articulo y ajustarlo 
+function cutDescription(description) {	
+	if( description.length >= 200 )
+		description = description.substr(0, 197) + '...';
+	
+	return description;
+}
+
+/*-----------------------------*/
+//Limpiar contenido al cambiar de pestañas (Articulos, Usuarios)
+$('.tabs li a').on('click', function() {
+	$('.pagination').remove();
+	$('#search_articles').val("");
+	$('#search_users').val("");
+	$('#auxDiv').empty();
+
+	if( $(this).attr('id') == 'articles' ) {
+		showLastInsertedArticles();
+	}
+});
+
+$(document).ready(function() {
+	showLastInsertedArticles();
+});
+
+$(".logo").on("click", function() {
+	showLastInsertedArticles();
+});
+
+/*-----------------------------*/
 //Cambio de pestaña de busqueda
 function changeTab(aux) {
 	document.getElementById('tab1').style.display = 'none';
@@ -12,8 +42,7 @@ function changeTab(aux) {
 	$('ul.tabs li:first').addClass('active');
 	$('ul.tabs li').on('click',function(){
 		$('ul.tabs li').removeClass('active');
-		$(this).addClass('active')
-		var activeTab = $(this).find('a').attr('href');
+		$(this).addClass('active');
 	});
 	
 	switch (aux) {
@@ -30,7 +59,6 @@ function changeTab(aux) {
 /*-----------------------------*/
 //Intercambia los tabs de forma din�mica
 function changeContent(aux) {
-		
 	//Oculta todos para garantizar que solo se muestra el elegido (primero oculta, luego muestra)
 	document.getElementById('auxDiv').style.display = 'none';
 	document.getElementById('loginDiv').style.display = 'none';

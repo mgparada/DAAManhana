@@ -5,47 +5,18 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.RollbackException;
-
-import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
+import daa.manhana.ConfigTest;
 import daa.manhana.entities.User;
 
-public class UserDAOTest {
-	private EntityManagerFactory emf;
-	
+public class UserDAOTest extends ConfigTest {
 	private UserDAO userDAO;
-	private EntityManager entityManager;
-	
-	@BeforeClass
-	public static void setPersistenceUnit() {
-		System.setProperty("persistenceUnit", "DAA-test");
-	}
 	
 	@Before
-	public void createEntityManager() {		
+	public void createEntityManager() {
 		userDAO = new UserDAO();
-
-		entityManager.getTransaction().begin();
-	}
-	
-	@After
-	public void closeEntityManager() {
-		if (entityManager.getTransaction().isActive()) {
-			try {
-				entityManager.getTransaction().commit();
-			} catch (RollbackException re) {
-				entityManager.getTransaction().rollback();
-			}
-		}
-		entityManager.close();
-		
-//		emf.close();
 	}	
 	
 	@Test
@@ -67,7 +38,7 @@ public class UserDAOTest {
 	public void testingFindAll()
 	{		
 		List<User> test = userDAO.getAll();
-		assertNotNull("Find by id is not null", test);
+		assertNotNull("Find by id is null", test);
 		
 		for ( User a : test) {
 			assertNotNull(a);
@@ -75,33 +46,9 @@ public class UserDAOTest {
 	}
 	
 	@Test
-	public void testingFindUser()
-	{		
-
+	public void testingFindUser() {		
 		User test = userDAO.findById("aalopez");
 		assertNotNull("Find User is not null", test.getName());
 		
 	}
-	
-	@Test
-	public void testingCreateUser()
-	{		
-
-		userDAO.save(new User ("mauro"));
-		List<User> something = userDAO.getAll();
-		something.contains(new User ("mauro"));	
-		
-	}
-	
-	@Test
-	public void testingDeleteUser()
-	{		
-		userDAO.delete(new User ("mauro"));
-		List<User> something = userDAO.getAll();
-		something.contains(new User ("mauro"));
-		
-	}
-
-	
-	
 }

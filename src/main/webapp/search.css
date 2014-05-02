@@ -438,8 +438,6 @@ ul.tabs li.active {
 .user_img {
 	position:relative;
 	float:left;
-	width:140px;
-	height:140px;
 }
 
 .img_radius {
@@ -455,8 +453,7 @@ ul.tabs li.active {
 .element_description_container{
 	position:relative;
 	float:left;
-	width:486px;
-	height:142px;
+	width:350px;
 	padding-left:20px;
 	text-align:left;
 }

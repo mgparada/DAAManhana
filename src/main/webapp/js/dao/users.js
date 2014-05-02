@@ -1,8 +1,8 @@
-function findUserByName(name, page, num_results, done, fail) {
+function findUserByName(name, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 
-	url = 'rest/users/name/' + name + '/' + num_results + '/' + page;
+	url = 'rest/users/name/' + name;
 
 	$.ajax({
 		dataType: "json",
@@ -32,11 +32,11 @@ function findAllUsers(page, num_results, done, fail) {
 	.fail(fail);
 }
 
-function findUserById(user_id, num_results, done, fail) {
+function findUserByNickname(user_nickname, done, fail) {
 	done = typeof done !== 'undefined' ? done : function() {};
 	fail = typeof fail !== 'undefined' ? fail : function() {};
 
-	url = 'rest/users/' + user_id;
+	url = 'rest/users/' + user_nickname;
 
 	$.ajax({
 		dataType: "json",

@@ -11,23 +11,16 @@ $(".img_search").on("click",function(){
 	actual_name = $("#search_users").val();
 	
 	if(actual_name != "") {
-		userByName(actual_name);
+		searchUserByName(actual_name);
 	} else
 		allUsers();
+	
+	changeContent(0);
 });
 
-function userByName(name) {
-	findUserByName(name, page, num_results, function(users) {
-		$.each(users, function(key, value) {
-			appendUser(value["name"]);
-		});
-	});
-}
 
-function allUsers() {
-	findAllUsers(page, num_results, function(users) {
-		$.each(users, function(key, value) {
-			appendUser(value["name"]);
-		});
-	});
-}
+$(document).on("click", ".usr_name", function() {
+	userByNickname( $(this).text() );
+	
+	changeContent(7);
+});

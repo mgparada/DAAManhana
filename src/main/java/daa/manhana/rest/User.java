@@ -86,7 +86,7 @@ public class User {
 	@GET
 	@Path("/{id}")
 	public Response concreteArticle(
-			@PathParam("id") final int id) {
+			@PathParam("id") final String id) {
 		try{
 			return Response.ok(this.userController.findById(id)).build();
 		}catch(Exception e) {

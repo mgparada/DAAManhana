@@ -3,7 +3,7 @@ var num_results;
 var page;
 var actual_name;
 var actual_category;
-var count;
+var count_articles;
 var do_count;
 var show_ad;
 
@@ -12,7 +12,7 @@ function initContext(type) {
 	num_results = 10;
 	page = 1;
 	actual_name = "";
-	count = 1;
+	count_articles = 1;
 	$(".div_banner_search").css('display', '');
 	$(".pagination").css('display', 'none');
 	
@@ -26,13 +26,13 @@ function totalPages(type) {
 	if(type == "articles") 
 		countArticles($("#search_articles").val(), $(".select_article").val(), 
 			function(a){
-				count = Math.ceil(a/10);
+				count_articles = Math.ceil(a/10);
 		});
 	else
 		if(type == "users") 
 			countUsers(
 				function(a){
-					count = Math.ceil(a/10);
+					count_articles = Math.ceil(a/10);
 			});
 }
 
@@ -42,19 +42,9 @@ function showLastInsertedArticles() {
 	setUpDivs();
 	$(".div_banner_search").css('display', 'none');
 	findLastestArticles();
+	
+	changeContent(0);
 }
-
-$(document).ready(function() {
-	showLastInsertedArticles();
-});
-
-$("#articles").on("click", function() {
-	showLastInsertedArticles();
-});
-
-$(".logo").on("click", function() {
-	showLastInsertedArticles();
-});
 
 /**
  * Este evento se dispara cuando se hace click en alguno de los tipos de articulos (CD, Peliculas, Libros o Cómics).
@@ -104,10 +94,10 @@ $(".img_search_2").on("click",function() {
 });
 
 function setUpPagination() {
-	$(".pagination").css('display', '');
+	$(".pagination").remove();
 	var options = {
             currentPage: 1,
-            totalPages: count,
+            totalPages: count_articles,
             onPageClicked: function(e,originalEvent,type,page) {            	
             	setUpSearchResultDiv();
             	setUpDivs();
@@ -135,10 +125,11 @@ function setUpPagination() {
             }
     	};
 
-	if( $(".pagination").length <= 0 ) {
-		$('.paginator').bootstrapPaginator(options);
-		$('.pagination').clone(true).insertAfter(".search_container");
-	}
+	
+	$("<div class='pagination'></div>").insertBefore(".search_container");
+
+	$('.pagination').bootstrapPaginator(options);
+	$('.pagination').clone(true).insertAfter(".search_container");
 }
 
 /*

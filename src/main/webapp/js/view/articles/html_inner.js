@@ -328,7 +328,7 @@ function appendArticle(name, discriminator, description, id, image) {
 					"<a id="+ id +" class='element_link' data-category=" + discriminator + " href='#' onclick='show_element(this)'>" + name + "</a>" +
 				"</div>"+
 				"<div class='element_cat'><img src='img/" + discriminator + ".png' class='img_cat'/></div>"+
-				"<div class='element_description'>" + description + "</div>"+
+				"<div class='element_description'>" + cutDescription(description) + "</div>"+
 			"</div>"+
 		"</div>";
 	
