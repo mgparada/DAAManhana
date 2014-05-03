@@ -684,12 +684,12 @@ ul.tabs li.active {
 
 .article_content {
 	width:748px;
-	height:220px;
+	min-height:220px;
 }
 
 .article_atributes_content {
 	width:498px;
-	height:190px;
+	min-height:190px;
 	position:relative;
 	float:left;
 }
@@ -723,7 +723,7 @@ ul.tabs li.active {
 .article_description {
 	text-align:left;
 	width:498px;
-	height:165px;
+	min-height:165px;
 	padding-top:40px;
 }
 
@@ -732,6 +732,8 @@ ul.tabs li.active {
 .cd_content{
 	width:748px;
 	min-height:100px;
+	clear:both;
+	padding-top:20px;
 }
 
 .cd_atributes_1 {
@@ -766,6 +768,7 @@ ul.tabs li.active {
 	border-bottom-width:thin;
 	border-top-width:thin;
 	border-color:#e0e0e0;
+	clear:both;
 }
 
 .task_head_content {
