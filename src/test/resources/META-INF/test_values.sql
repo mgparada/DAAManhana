@@ -481,3 +481,25 @@ insert into articles (releaseDate, name, description, discriminator, image) valu
 insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles", "Scott Snyder", "2014-02-14 18:14:25", "DC Comics", "1401237789", 208, 72);
 insert into comics (chapter, number, collection, articleId) values (2,2,5, 72);
 insert into cartoonists (name, work, comic_articleId) values ("Rafael Albuquerque", "Illustrator", 72);
+
+
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2011-10-28 19:35:27", "Cometas en el cielo", "Empeñado en demostrarle a su padre que ya es todo un hombre, el joven Amir se propone ganar la competición anual de cometas de la forma que sea, incluso a costa de su inseparable Hassan, un hazara de clase inferior que ha sido su sirviente y compañero de juegos desde la más tierna infancia. Después de tantos años de haberse defendido mutuamente de todos los peligros imaginables, Amir se aprovecha de la fidelidad de su amigo, poniendo en riesgo uno de los tesoros más preciados del ser humano: la amistad. Cometas en el cielo, uno de los éxitos más resonantes de los últimos tiempos, es la conmovedora historia de dos padres y dos hijos, de su amistad y de cómo la casualidad puede marcar un hito inesperado en nuestro destino.", "comic","img/articles/cometasenelcielo.jpg");
+insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion","Español","Khaled Hosseini", "2011-10-28 8:12:01", "PUBLICACIONES Y EDICIONES SALAMANDRA S.A.", "8498383986", 136, 73);
+insert into comics (chapters, number, collection, articleId) values (10,1,"Novela Gráfica",73);
+insert into cartoonists (name, work, comic_articleId) values ("Fito López","Illustrator", 73);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-07-26 19:35:27", "Final Fantasy: La Leyenda de Los Cristales", "Sin descripción de momento", "comic","img/articles/finalfantasy.jpg");
+insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion","Español","Pablo González Taboada", "2011-07-26 8:12:01", "Dolmen", "8415296959", 256, 74);
+insert into comics (chapters, number, collection, articleId) values (20,1,"Unknown",74);
+insert into cartoonists (name, work, comic_articleId) values ("Guity  elRey","Illustrator", 74);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-09-16 19:35:27", "Historias Perversas de Demonios: Antología", "Es un proyecto Solidario. El dinero se destinará a Felinos Bilbao. Historias Perversas de Demonios es una antología de relatos que os hará experimentar más de una sensación, que buscada o no, os revolverá vuestro ser por completo. Con una extensa temática, os llevará desde el terror hasta el género erótico, pasando por momentos de locura, celos, posesión, amor sin fin y siniestras relaciones. Ya que este libro que estáis a punto de abrir viene cargado con altas dosis de sensualidad, de misterio, de sexo... Cuando lo terminéis, ya no seréis los mismos, y miraréis cada esquina oscura, cada rincón apartado... deseando que un ser de otro plano os lleve hasta los límites de la resistencia humana. Os damos la bienvenida desde la pista central de este circo de los deseos... ¿Preparado para experimentar oscuros placeres? *** Pero sobre todo, de ilusión. De la ilusión de un variopinto grupo de creadores, que bajo la batuta de la escritora bilbaína Maialen Alonso, han aunado fuerzas en un altruista intento de mejorar la vida de cientos de animales. Ya que esta antología nace bajo la directriz de que cada céntimo recaudado se destine a la protectora Felinos Bilbao. Por lo que desde estas páginas, y a priori, os agradecemos sinceramente la adquisición de esta obra. Autores: Maialen Alonso, Enrique García Díaz, Carlos Rodón, Amy García, Roberto Malo, Déborah F. Muñoz, Inmaculada Ruiz, D.W. Nichols, Chabi Angulo, David Ruiz del Portal, Isabel García Delgado, Sergio Fdéz. A. Ilustraciones: Kike Alapont, Agarwen, Pablo Brenes Guillén, Inmaculada Ruiz, Love Macabre, Daniel Medina Ramos, Dagam (David García). ...Os dan la bienvenida a este extraño mundo en donde todo va a ser posible. Respirad hondo, henchir vuestros corazones de valor y empezad el viaje.", "comic","img/articles/historiasperversas.jpg");
+insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion","Español","Maialen Alonso", "2013-09-16 8:12:01", "Createspace", "1492198552", 270, 75);
+insert into comics (chapters, number, collection, articleId) values (10,1,"Unknown",75);
+insert into cartoonists (name, work, comic_articleId) values ("Kike Alapont","Illustrator", 75);
+insert into cartoonists (name, work, comic_articleId) values ("Agarwen Art","Illustrator", 75);
+insert into cartoonists (name, work, comic_articleId) values ("Pablo Brenes","Illustrator", 75);
