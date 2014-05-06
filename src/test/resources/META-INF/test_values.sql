@@ -236,3 +236,181 @@ insert into books (author, editionDate, editorial, isbn, pages, articleId) value
 insert into articles (releaseDate, name, description, discriminator, image) values ("2011-02-16 8:12:01", "La vuelta de los 25", "Una ecologista china, una madre de familia del sur de África, un chamán peruano, un pescador filipino, una maorí de Nueva Zelanda, una futura cosmonauta rusa Y todos de la misma edad. ¿Qué tienen en común? ¿Qué les preocupa? ¿Cómo viven? ¿Cómo afrontan el futuro? Éstas son las preguntas que durante un año el periodista Ma rc Serena ha planteado a 25 jóvenes durante un viaje que le llevó a dar la vuelta al mundo y a convivir con chicos de su misma edad, 25 años, de 25 países diferentes. Jóvenes pobres, ricos, con estudios, sin estudios, revolucionarios, conformistas, de grandes ciudades, de pequeños pueblos Perfiles muy diferentes, pero todos actuales, sorprendentes, llenos de matices, que ofrecen nuevos puntos de vista sobre el mundo en que vivimos. El resultado es una crónica amena, sincera y divertida, que conforma un retrato generacional.", "book","img/articles/lavueltadelos25.jpg");
 insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Marc Serena Casaldaglia", "2011-02-16 8:12:01", "EDB FICCION", "8466646647", 352, 56);
 
+
+-- Insert articles and cds --
+insert into articles (releaseDate, name, description, discriminator, image) values ("2012-09-03 19:35:27", "Tetra", "Primer álbum del grupo electrónico francés C2C", "cd","tetra.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("C2C", "B008MMFC56", 1, 61, 14,  57);
+insert into tracks (title, duration, cd) values ("The Cell", 5, 57);
+insert into tracks (title, duration, cd) values ("Down the Road", 3, 57);
+insert into tracks (title, duration, cd) values ("Kings Season (feat. Blitz the Ambassador and Ledeunff and Moongai)", 4, 57);
+insert into tracks (title, duration, cd) values ("Because of You (feat. Pigeon John)", 4, 57);
+insert into tracks (title, duration, cd) values ("Delta", 4, 57);
+insert into tracks (title, duration, cd) values ("Who Are You (feat. Olivier Daysoul)", 5, 57);
+insert into tracks (title, duration, cd) values ("Happy (feat. Derek Martin)" , 4, 57);
+insert into tracks (title, duration, cd) values ("Give Up the Ghost (feat. Jay-Jay Johanson)", 5, 57);
+insert into tracks (title, duration, cd) values ("Genius (feat. Gush)", 4, 57);
+insert into tracks (title, duration, cd) values ("Together (feat. Blitz the Ambassador and Ledeunff)" , 5, 57);
+insert into tracks (title, duration, cd) values ("Arcades", 4, 57);
+insert into tracks (title, duration, cd) values ("Le Banquet (feat. Kentaro and Netik and Rafik and Tigerstyle and Vajra)", 5, 57);
+insert into tracks (title, duration, cd) values ("F-U-Y-A", 5, 57);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2007-09-03 19:35:27", "Take The Heat Off Me", "Primer álbum del grupo vocal alemán Boney M", "cd","taketheheatoffme.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Boney M", "B000NJLXLI", 1, 36, 8,  58);
+insert into tracks (title, duration, cd) values ("Daddy Cool", 4, 58);
+insert into tracks (title, duration, cd) values ("Take The Heat Off Me", 5, 58);
+insert into tracks (title, duration, cd) values ("Sunny", 4, 58);
+insert into tracks (title, duration, cd) values ("Baby Do You Wanna Bump", 7, 58);
+insert into tracks (title, duration, cd) values ("No Woman, No Cry", 5, 58);
+insert into tracks (title, duration, cd) values ("Fever", 5, 58);
+insert into tracks (title, duration, cd) values ("Got a Man On My Mind", 3, 58);
+insert into tracks (title, duration, cd) values ("Lovin' Or Leavin", 5, 58);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-05-21 19:35:27", "Random Access Memories", "Cuarto álbum del famoso dúo francés Daft Punk", "cd","randomaccessmemories.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Daft Punk", "B00C061I3K", 1, 74, 13, 59);
+insert into tracks (title, duration, cd) values ("Give Life Back to Music", 5, 59);
+insert into tracks (title, duration, cd) values ("The Game of Love", 5, 59);
+insert into tracks (title, duration, cd) values ("Giorgio by Moroder", 9, 59);
+insert into tracks (title, duration, cd) values ("Within", 4, 59);
+insert into tracks (title, duration, cd) values ("Instant Crush", 6, 59);
+insert into tracks (title, duration, cd) values ("Lose Yourself to Dance", 8, 59);
+insert into tracks (title, duration, cd) values ("Touch", 6, 59);
+insert into tracks (title, duration, cd) values ("Get Lucky", 5, 59);
+insert into tracks (title, duration, cd) values ("Beyond", 6, 59);
+insert into tracks (title, duration, cd) values ("Motherboard", 5, 59);
+insert into tracks (title, duration, cd) values ("Fragments of Time", 5, 59);
+insert into tracks (title, duration, cd) values ("Doin'it Right", 4, 59);
+insert into tracks (title, duration, cd) values ("Contact", 6, 59);
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("1990-09-03 19:35:27", "Painkiller", "Álbum de la banda británica de heavy metal Judas Priest", "cd","painkiller.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Judas Priest", "B00005Y0S3", 1, 55, 12, 60);
+insert into tracks (title, duration, cd) values ("Painkiller", 6, 60);
+insert into tracks (title, duration, cd) values ("Hell Patrol", 4, 60);
+insert into tracks (title, duration, cd) values ("All Guns Blazing", 4, 60);
+insert into tracks (title, duration, cd) values ("Leather Rebel", 4, 60);
+insert into tracks (title, duration, cd) values ("Metal Meltdown", 5, 60);
+insert into tracks (title, duration, cd) values ("Night Crawler", 6, 60);
+insert into tracks (title, duration, cd) values ("Between the Hammer & the Anvil", 5, 60);
+insert into tracks (title, duration, cd) values ("A Touch of Evil", 6, 60);
+insert into tracks (title, duration, cd) values ("Battle Hymn", 1, 60);
+insert into tracks (title, duration, cd) values ("One Shot Glory", 7, 60);
+insert into tracks (title, duration, cd) values ("Living Bad Dremas", 5, 60);
+insert into tracks (title, duration, cd) values ("Leather Rebel(Live)", 5, 60);
+insert into tracks (title, duration, cd) values ("Painkiller", 5, 60);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2003-12-09 19:35:27", "Splinter", "Séptimo álbum de la banda americana de punk rock The Offspring", "cd","splinter.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("The Offspring", "B0000CC4X6", 1, 32, 12, 61);
+insert into tracks (title, duration, cd) values ("Neocon", 1, 61);
+insert into tracks (title, duration, cd) values ("The Noose", 3, 61);
+insert into tracks (title, duration, cd) values ("Long Way Home", 2, 61);
+insert into tracks (title, duration, cd) values ("Hit That", 3, 61);
+insert into tracks (title, duration, cd) values ("Race Against Myself", 4, 61);
+insert into tracks (title, duration, cd) values ("(Can't Get My) Head Around You", 2, 61);
+insert into tracks (title, duration, cd) values ("The Worst Hangover Ever", 3, 61);
+insert into tracks (title, duration, cd) values ("Never Gonna Find Me", 3, 61);
+insert into tracks (title, duration, cd) values ("Lightning Rodrigues", 3, 61);
+insert into tracks (title, duration, cd) values ("Spare Me the Details", 4, 61);
+insert into tracks (title, duration, cd) values ("Da Hui", 2, 61);
+insert into tracks (title, duration, cd) values ("When You're in Prison", 3, 61);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2007-11-12 19:35:27", "Mothership", "Álbum recopilación de los mayores éxitos de la grupo de rock inglés Led Zeppelin", "cd","painkiller.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Led Zeppelin", "B000VLE3IS", 3, 135, 44, 62);
+insert into tracks (title, duration, cd) values ("Good Times Bad Times", 3, 62);
+insert into tracks (title, duration, cd) values ("Communication Breakdown" , 3, 62);
+insert into tracks (title, duration, cd) values ("Dazed and Confused", 7, 62);
+insert into tracks (title, duration, cd) values ("Babe I'm Gonna Leave You", 7, 62);
+insert into tracks (title, duration, cd) values ("Whole Lotta Love", 6, 62);
+insert into tracks (title, duration, cd) values ("Ramble On", 4, 62);
+insert into tracks (title, duration, cd) values ("Heartbreaker", 4, 62);
+insert into tracks (title, duration, cd) values ("Immigrant Song", 3, 62);
+insert into tracks (title, duration, cd) values ("Since I've Been Loving You", 8, 62);
+insert into tracks (title, duration, cd) values ("Rock and Roll", 4, 62);
+insert into tracks (title, duration, cd) values ("Black Dog", 5, 62);
+insert into tracks (title, duration, cd) values ("When the Levee Breaks", 7, 62);
+insert into tracks (title, duration, cd) values ("Stairway to Heaven", 8, 62);
+
+insert into tracks (title, duration, cd) values ("The Song Remains the Same", 6, 62);
+insert into tracks (title, duration, cd) values ("Over the Hills and Far Away", 5, 62);
+insert into tracks (title, duration, cd) values ("D'yer Mak'er", 4, 62);
+insert into tracks (title, duration, cd) values ("No Quarter", 7, 62);
+insert into tracks (title, duration, cd) values ("Trampled Under Foot", 6, 62);
+insert into tracks (title, duration, cd) values ("Houses of the Holy", 4, 62);
+insert into tracks (title, duration, cd) values ("Kashmir", 9, 62);
+insert into tracks (title, duration, cd) values ("Nobody's Fault but Mine", 7, 62);
+insert into tracks (title, duration, cd) values ("Achilles Last Stand", 10, 62);
+insert into tracks (title, duration, cd) values ("In the Evening", 7, 62);
+insert into tracks (title, duration, cd) values ("All My Love", 6, 62);
+
+insert into tracks (title, duration, cd) values ("We're Gonna Groove", 3, 62);
+insert into tracks (title, duration, cd) values ("I Can't Quit You Baby", 7, 62);
+insert into tracks (title, duration, cd) values ("Dazed and Confused (Part)", 16, 62);
+insert into tracks (title, duration, cd) values ("White Summer (Part)", 12, 62);
+insert into tracks (title, duration, cd) values ("What Is and What Should Never Be", 5, 62);
+insert into tracks (title, duration, cd) values ("Moby Dick (Ending)", 4, 62);
+insert into tracks (title, duration, cd) values ("Whole Lotta Love", 7, 62);
+insert into tracks (title, duration, cd) values ("Communication Breakdown", 4, 62);
+insert into tracks (title, duration, cd) values ("Bring It on Home", 7, 62);
+insert into tracks (title, duration, cd) values ("Immigrant Song", 4, 62);
+insert into tracks (title, duration, cd) values ("Black Dog", 6, 62);
+insert into tracks (title, duration, cd) values ("Misty Mountain Hop", 5, 62);
+insert into tracks (title, duration, cd) values ("The Ocean", 4, 62);
+insert into tracks (title, duration, cd) values ("Going to California", 5, 62);
+insert into tracks (title, duration, cd) values ("In My Time of Dying", 11, 62);
+insert into tracks (title, duration, cd) values ("Stairway to Heaven", 11, 62);
+insert into tracks (title, duration, cd) values ("Rock and Roll", 4, 62);
+insert into tracks (title, duration, cd) values ("Nobody's Fault but Mine", 6, 62);
+insert into tracks (title, duration, cd) values ("Kashmir", 9, 62);
+insert into tracks (title, duration, cd) values ("Whole Lotta Love", 7, 62);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-01-17 19:35:27", "In a Time Lapse", "In a Time Lapse fue compuesto durante un periodo de dos años y grabado en octubre de 2012 en un monasterio cercano a Verona. Los catorce nuevos originales que conforman In a Time Lapse contienen piano, cuerdas, percusiones y electrónica, y toman vida en forma de suite que está concebida para ser escuchada #como los capítulos de un libro#.", "cd","inatimelapse.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Ludovico Einaudi", "B00AIQVLV8", 1, 65, 14, 63);
+insert into tracks (title, duration, cd) values ("Corale", 2, 63);
+insert into tracks (title, duration, cd) values ("Time Lapse", 6, 63);
+insert into tracks (title, duration, cd) values ("Life", 4, 63);
+insert into tracks (title, duration, cd) values ("Walk", 3, 63);
+insert into tracks (title, duration, cd) values ("Discovery at Night", 4, 63);
+insert into tracks (title, duration, cd) values ("Run", 6, 63);
+insert into tracks (title, duration, cd) values ("Brothers", 5, 63);
+insert into tracks (title, duration, cd) values ("Orbits", 3, 63);
+insert into tracks (title, duration, cd) values ("Two Trees", 6, 63);
+insert into tracks (title, duration, cd) values ("Newton's Cradle", 8, 63);
+insert into tracks (title, duration, cd) values ("Waterways", 4, 63);
+insert into tracks (title, duration, cd) values ("Experience", 4, 63);
+insert into tracks (title, duration, cd) values ("Underwood", 5, 63);
+insert into tracks (title, duration, cd) values ("Burning", 5, 63);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2011-04-12 19:35:27", "Wasting Light", "Último álbum de la banda creada por el ex batería de Nirvana", "cd","wastinlight.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Foo Fighters", "B004LUHQ1G", 1, 47, 11, 64);
+insert into tracks (title, duration, cd) values ("Bridge Burning", 5, 64);
+insert into tracks (title, duration, cd) values ("Rope", 4, 64);
+insert into tracks (title, duration, cd) values ("Dear Rosemary", 4, 64);
+insert into tracks (title, duration, cd) values ("White Limo", 3, 64);
+insert into tracks (title, duration, cd) values ("Arlandria", 4, 64);
+insert into tracks (title, duration, cd) values ("These Days", 5, 64);
+insert into tracks (title, duration, cd) values ("Back & Forth", 4, 64);
+insert into tracks (title, duration, cd) values ("A Matter Of Time", 5, 64);
+insert into tracks (title, duration, cd) values ("Miss The Misery", 4, 64);
+insert into tracks (title, duration, cd) values ("I Should Have Known", 4, 64);
+insert into tracks (title, duration, cd) values ("Walk", 4, 64);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("1973-03-01 19:35:27", "Wasting Light", "Octavo álbum de la banda de rock progresivo Pink Floyd", "cd","thedarksideofthemoon.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Pink Floyd", "B00008CLOA", 1, 43, 10, 65);
+insert into tracks (title, duration, cd) values ("Speak To Me", 2, 65);
+insert into tracks (title, duration, cd) values ("Breathe (Breathe In The Air)", 3, 65);
+insert into tracks (title, duration, cd) values ("Time", 4, 65);
+insert into tracks (title, duration, cd) values ("The Great Gig In The Sky", 7, 65);
+insert into tracks (title, duration, cd) values ("Money", 5, 65);
+insert into tracks (title, duration, cd) values ("Us And Them", 6, 65);
+insert into tracks (title, duration, cd) values ("Any Colour You Like", 8, 65);
+insert into tracks (title, duration, cd) values ("Brain Damage", 3, 65);
+insert into tracks (title, duration, cd) values ("Eclipse", 4, 65);
+insert into tracks (title, duration, cd) values ("On The Run", 2, 65);
+
+
+-- Insert articles and comics --
