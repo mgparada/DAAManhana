@@ -1,5 +1,3 @@
--- use DAAManhana;
-
 -- Insert articles and movies --
 insert into articles (releaseDate, name, description, discriminator, image) values ("1972-03-26 00:34:04", "El padrino", "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", "movie", "img/articles/elpadrino.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("Francis Ford Coppola", 1, "United States", 175, "Inglés", "Paramount Pictures / Albert S. Ruddy Production");
@@ -414,19 +412,72 @@ insert into tracks (title, duration, cd_articleId) values ("Brain Damage", 3, 65
 insert into tracks (title, duration, cd_articleId) values ("Eclipse", 4, 65);
 insert into tracks (title, duration, cd_articleId) values ("On The Run", 2, 65);
 
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-11-25 19:35:27", "Frozen", "Walt Disney Animation Studios' 'Frozen' features eight original songs from Kristen Anderson-Lopez ('In Transit,' 'Winnie the Pooh') and Tony Award-winning songwriter Robert Lopez ('Avenue Q,' 'The Book of Mormon'), plus a phenomenal score by the composer of last year's Oscar-winning short 'Paperman,' Christophe Beck. The original motion picture soundtrack, which features the end-credit recording of 'Let It Go' by Demi Lovato as well as performances by Kristen Bell, Idina Menzel, Josh Gad, Jonathan Groff and more, is available for sale on Nov. 25, 2013. Directed by Chris Buck ('Tarzan,' 'Surf's Up') and Jennifer Lee (screenwriter, 'Wreck-It Ralph'), who also wrote the screenplay, and produced by Peter Del Vecho ('Winnie the Pooh,' 'The Princess and the Frog') 'Frozen' hits theaters in 3D on Nov. 27, 2013.", "cd","img/articles/frozen.jpg");
+insert into cds (groupName, asin, discsNumber, duration, articleId) values ("Demi Lovato", "B00EDY5KTA", 2, 42, 66);
+insert into tracks (title, duration, cd_articleId) values ("Cast - Frozen - Corazón de Hielo", 2, 66);
+insert into tracks (title, duration, cd_articleId) values ("Emma Amselem - Hazme un Muñeco de Nieve", 2, 66);
+insert into tracks (title, duration, cd_articleId) values ("Carmen López - Por Primera Vez en Años", 2, 66);
+insert into tracks (title, duration, cd_articleId) values ("Carmen López - La Puerta Hacia el Amor", 2, 66);
+insert into tracks (title, duration, cd_articleId) values ("Gisela - ¡Sueltalo!", 2, 66);
+insert into tracks (title, duration, cd_articleId) values ("Erick Cruz - Renos Mejor Que Personas", 2, 66);
+insert into tracks (title, duration, cd_articleId) values ("Miguel Antelo - En Verano", 2, 66);
+insert into tracks (title, duration, cd_articleId) values ("Carmen López - Por Primera Vez en Años ", 2, 66);
+insert into tracks (title, duration, cd_articleId) values ("Cast - Frozen - Solo Tiene Que Mejorar un Poco ", 2, 66);
+insert into tracks (title, duration, cd_articleId) values ("Demi Lovato - Let It Go", 2, 66);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-13 19:35:27", "Frozen", "Exclusive Mr. Brainwash poster – Michael Jackson was an early admirer of Mr. Brainwash and they became friends. Now he has created an original piece of art which has been included as a poster with the CD version.", "cd","img/articles/xscape.jpg");
+insert into cds (groupName, asin, discsNumber, duration, articleId) values ("Michael Jackson", "B00JDB4PEY", 1, 42, 67);
+insert into tracks (title, duration, cd_articleId) values ("Love Never Felt So Good", 2, 67);
+insert into tracks (title, duration, cd_articleId) values ("Chicago", 2, 67);
+insert into tracks (title, duration, cd_articleId) values ("Loving You", 2, 67);
+insert into tracks (title, duration, cd_articleId) values ("A Place With No Name", 2, 67);
+insert into tracks (title, duration, cd_articleId) values ("Slave to the Rhythm", 2, 67);
+insert into tracks (title, duration, cd_articleId) values ("Do You Know Where Your Children Are", 2, 67);
+insert into tracks (title, duration, cd_articleId) values ("Blue Gangsta", 2, 67);
+insert into tracks (title, duration, cd_articleId) values ("Xscape", 2, 67);
+insert into tracks (title, duration, cd_articleId) values ("Love Never Felt So Good (Original Version)", 2, 67);
+insert into tracks (title, duration, cd_articleId) values ("Chicago (Original Version)", 2, 67);
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-19 19:35:27", "XSCApE", "Sin descripcion por el momento", "cd","img/articles/ghoststories.jpg");
+insert into cds (groupName, asin, discsNumber, duration, articleId) values ("Coldplay", "B00IQE4NUK", 1, 42, 68);
+insert into tracks (title, duration, cd_articleId) values ("Always In My Head", 3, 68);
+insert into tracks (title, duration, cd_articleId) values ("Magic", 3, 68);
+insert into tracks (title, duration, cd_articleId) values ("Ink", 3, 68);
+insert into tracks (title, duration, cd_articleId) values ("True Love", 4, 68);
+insert into tracks (title, duration, cd_articleId) values ("Midnight", 4, 68);
+insert into tracks (title, duration, cd_articleId) values ("Another's Arms", 5, 68);
+insert into tracks (title, duration, cd_articleId) values ("Oceans", 4, 68);
+insert into tracks (title, duration, cd_articleId) values ("A Sky Full Of Stars", 4, 68);
+insert into tracks (title, duration, cd_articleId) values ("O", 3, 68);
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-06 19:35:27", "Frozen", "In a press release, McLachlan revealed that the album was inspired by her father's passing and her own appreciation of life: This album is about moving through the second half of my life in a more mindful and meaningful way, recognizing that every day, every moment is precious and though we all have our issues and problems, our damages, we all have the ability to continue to learn, grow from our experiences, thrive and shine on. Many of the songs are inspired at least partially or wholly by my father's passing three years ago and the profound effect losing him had on me. I had to find my footing again without the anchor of his unconditional love.", "cd","img/articles/shineon.jpg");
+insert into cds (groupName, asin, discsNumber, duration, articleId) values ("Sarah McLachlan", "B00I86JUSG", 1, 42, 69);
+insert into tracks (title, duration, cd_articleId) values ("In Your Shoes", 3, 69);
+insert into tracks (title, duration, cd_articleId) values ("Flesh And Blood", 3, 69);
+insert into tracks (title, duration, cd_articleId) values ("Monsters", 3, 69);
+insert into tracks (title, duration, cd_articleId) values ("Broken Heart", 4, 69);
+insert into tracks (title, duration, cd_articleId) values ("Surrender And Certainty", 4, 69);
+insert into tracks (title, duration, cd_articleId) values ("Song For My Father", 5, 69);
+insert into tracks (title, duration, cd_articleId) values ("Turn The Lights Down Low", 4, 69);
+insert into tracks (title, duration, cd_articleId) values ("Love Beside Me", 4, 69);
+insert into tracks (title, duration, cd_articleId) values ("Brink Of Destruction", 3, 69);
+insert into tracks (title, duration, cd_articleId) values (" Beautiful Girl", 4, 69);
+insert into tracks (title, duration, cd_articleId) values ("The Sound That Love Makes", 4, 69);
+
 
 -- Insert articles and comics --
 insert into articles (releaseDate, name, description, discriminator, image) values ("2008-03-19 18:14:25", "Marvels Captain America: The Winter Soldier: The Art of the Movie Slipcase", "A comic masterpiece.", "comic","captainamerica.jpg");
-insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles"," Alan Moore", "2008-03-19 18:14:25", "DC Comics", "1401216676", 64,  66);
-insert into comics (chapter, number, collection, articleId) values (1, 1, 16, 66);
-insert into cartoonists (name, work, comic_articleId) values ("Brian Bolland","Writer",66);
+insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles"," Alan Moore", "2008-03-19 18:14:25", "DC Comics", "1401216676", 64,  70);
+insert into comics (chapter, number, collection, articleId) values (1, 1, 16, 70);
+insert into cartoonists (name, work, comic_articleId) values ("Brian Bolland","Writer",70);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2014-02-14 18:14:25", "Watchmen ", "This Hugo Award-winning graphic novel chronicles the fall from grace of a group of super-heroes plagued by all-too-human failings. Along the way, the concept of the super-hero is dissected as the heroes are stalked by an unknown assassin.", "comic","watchmen.jpg");
-insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles", "Alan Moore", "2014-02-14 18:14:25", "DC Comics", "9788401342547", 416, 67);
-insert into comics (chapter, number, collection, articleId) values (1,1,20, 67);
-insert into cartoonists (name, work, comic_articleId) values ("Dave Gibbons", "Illustrator", 67);
+insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles", "Alan Moore", "2014-02-14 18:14:25", "DC Comics", "9788401342547", 416, 71);
+insert into comics (chapter, number, collection, articleId) values (1,1,20, 71);
+insert into cartoonists (name, work, comic_articleId) values ("Dave Gibbons", "Illustrator", 71);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2013-10-15 18:14:25", "Batman Vol. 2: The City of Owls", "NIGHT OF THE OWLS continues here! Batman must stop the TALONS that have breeched the Batcave in order to save an innocent life ... and Gotham City! In the backup story, learn more about the PENNYWORTH family and the secrets they've kept from the Wayne family! Collects BATMAN #8-12 and BATMAN ANNUAL #1.", "comic","batmanvol2.jpg");
-insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles", "Scott Snyder", "2014-02-14 18:14:25", "DC Comics", "1401237789", 208, 68);
-insert into comics (chapter, number, collection, articleId) values (2,2,5, 68);
-insert into cartoonists (name, work, comic_articleId) values ("Rafael Albuquerque", "Illustrator", 68);
+insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles", "Scott Snyder", "2014-02-14 18:14:25", "DC Comics", "1401237789", 208, 72);
+insert into comics (chapter, number, collection, articleId) values (2,2,5, 72);
+insert into cartoonists (name, work, comic_articleId) values ("Rafael Albuquerque", "Illustrator", 72);
