@@ -247,6 +247,7 @@ insert into tracks (title, duration, cd) values ("Because of You (feat. Pigeon J
 insert into tracks (title, duration, cd) values ("Delta", 4, 57);
 insert into tracks (title, duration, cd) values ("Who Are You (feat. Olivier Daysoul)", 5, 57);
 insert into tracks (title, duration, cd) values ("Happy (feat. Derek Martin)" , 4, 57);
+	
 insert into tracks (title, duration, cd) values ("Give Up the Ghost (feat. Jay-Jay Johanson)", 5, 57);
 insert into tracks (title, duration, cd) values ("Genius (feat. Gush)", 4, 57);
 insert into tracks (title, duration, cd) values ("Together (feat. Blitz the Ambassador and Ledeunff)" , 5, 57);
@@ -413,4 +414,56 @@ insert into tracks (title, duration, cd) values ("Eclipse", 4, 65);
 insert into tracks (title, duration, cd) values ("On The Run", 2, 65);
 
 
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-11-25 19:35:27", "Frozen", "Walt Disney Animation Studios' 'Frozen' features eight original songs from Kristen Anderson-Lopez ('In Transit,' 'Winnie the Pooh') and Tony Award-winning songwriter Robert Lopez ('Avenue Q,' 'The Book of Mormon'), plus a phenomenal score by the composer of last year's Oscar-winning short 'Paperman,' Christophe Beck. The original motion picture soundtrack, which features the end-credit recording of 'Let It Go' by Demi Lovato as well as performances by Kristen Bell, Idina Menzel, Josh Gad, Jonathan Groff and more, is available for sale on Nov. 25, 2013. Directed by Chris Buck ('Tarzan,' 'Surf's Up') and Jennifer Lee (screenwriter, 'Wreck-It Ralph'), who also wrote the screenplay, and produced by Peter Del Vecho ('Winnie the Pooh,' 'The Princess and the Frog') 'Frozen' hits theaters in 3D on Nov. 27, 2013.", "cd","img/articles/frozen.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Demi Lovato", "B00EDY5KTA", 2, 42, 10, 66);
+insert into tracks (title, duration, cd) values ("Cast - Frozen - Corazón de Hielo", 2, 66);
+insert into tracks (title, duration, cd) values ("Emma Amselem - Hazme un Muñeco de Nieve", 2, 66);
+insert into tracks (title, duration, cd) values ("Carmen López - Por Primera Vez en Años", 2, 66);
+insert into tracks (title, duration, cd) values ("Carmen López - La Puerta Hacia el Amor", 2, 66);
+insert into tracks (title, duration, cd) values ("Gisela - ¡Sueltalo!", 2, 66);
+insert into tracks (title, duration, cd) values ("Erick Cruz - Renos Mejor Que Personas", 2, 66);
+insert into tracks (title, duration, cd) values ("Miguel Antelo - En Verano", 2, 66);
+insert into tracks (title, duration, cd) values ("Carmen López - Por Primera Vez en Años ", 2, 66);
+insert into tracks (title, duration, cd) values ("Cast - Frozen - Solo Tiene Que Mejorar un Poco ", 2, 66);
+insert into tracks (title, duration, cd) values ("Demi Lovato - Let It Go", 2, 66);
+
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-13 19:35:27", "Frozen", "Exclusive Mr. Brainwash poster – Michael Jackson was an early admirer of Mr. Brainwash and they became friends. Now he has created an original piece of art which has been included as a poster with the CD version.", "cd","img/articles/xscape.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Michael Jackson", "B00JDB4PEY", 1, 42, 10, 67);
+insert into tracks (title, duration, cd) values ("Love Never Felt So Good", 2, 67);
+insert into tracks (title, duration, cd) values ("Chicago", 2, 67);
+insert into tracks (title, duration, cd) values ("Loving You", 2, 67);
+insert into tracks (title, duration, cd) values ("A Place With No Name", 2, 67);
+insert into tracks (title, duration, cd) values ("Slave to the Rhythm", 2, 67);
+insert into tracks (title, duration, cd) values ("Do You Know Where Your Children Are", 2, 67);
+insert into tracks (title, duration, cd) values ("Blue Gangsta", 2, 67);
+insert into tracks (title, duration, cd) values ("Xscape", 2, 67);
+insert into tracks (title, duration, cd) values ("Love Never Felt So Good (Original Version)", 2, 67);
+insert into tracks (title, duration, cd) values ("Chicago (Original Version)", 2, 67);
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-19 19:35:27", "XSCApE", "Sin descripcion por el momento", "cd","img/articles/ghoststories.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Coldplay", "B00IQE4NUK", 1, 42, 9, 68);
+insert into tracks (title, duration, cd) values ("Always In My Head", 3, 68);
+insert into tracks (title, duration, cd) values ("Magic", 3, 68);
+insert into tracks (title, duration, cd) values ("Ink", 3, 68);
+insert into tracks (title, duration, cd) values ("True Love", 4, 68);
+insert into tracks (title, duration, cd) values ("Midnight", 4, 68);
+insert into tracks (title, duration, cd) values ("Another's Arms", 5, 68);
+insert into tracks (title, duration, cd) values ("Oceans", 4, 68);
+insert into tracks (title, duration, cd) values ("A Sky Full Of Stars", 4, 68);
+insert into tracks (title, duration, cd) values ("O", 3, 68);
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-06 19:35:27", "Frozen", "In a press release, McLachlan revealed that the album was inspired by her father's passing and her own appreciation of life: This album is about moving through the second half of my life in a more mindful and meaningful way, recognizing that every day, every moment is precious and though we all have our issues and problems, our damages, we all have the ability to continue to learn, grow from our experiences, thrive and shine on. Many of the songs are inspired at least partially or wholly by my father's passing three years ago and the profound effect losing him had on me. I had to find my footing again without the anchor of his unconditional love.", "cd","img/articles/shineon.jpg");
+insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Sarah McLachlan", "B00I86JUSG", 1, 42, 11, 69);
+insert into tracks (title, duration, cd) values ("In Your Shoes", 3, 69);
+insert into tracks (title, duration, cd) values ("Flesh And Blood", 3, 69);
+insert into tracks (title, duration, cd) values ("Monsters", 3, 69);
+insert into tracks (title, duration, cd) values ("Broken Heart", 4, 69);
+insert into tracks (title, duration, cd) values ("Surrender And Certainty", 4, 69);
+insert into tracks (title, duration, cd) values ("Song For My Father", 5, 69);
+insert into tracks (title, duration, cd) values ("Turn The Lights Down Low", 4, 69);
+insert into tracks (title, duration, cd) values ("Love Beside Me", 4, 69);
+insert into tracks (title, duration, cd) values ("Brink Of Destruction", 3, 69);
+insert into tracks (title, duration, cd) values (" Beautiful Girl", 4, 69);
+insert into tracks (title, duration, cd) values ("The Sound That Love Makes", 4, 69);
 -- Insert articles and comics --
