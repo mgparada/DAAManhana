@@ -100,5 +100,13 @@ public class Movie extends Article {
 	public void setDuration(int duration) {
 		this.duration = duration;
 	}
+
+	public String getDirector() {
+		return director;
+	}
+
+	public void setDirector(String director) {
+		this.director = director;
+	}
 	
 }

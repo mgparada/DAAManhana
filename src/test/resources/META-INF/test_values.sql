@@ -1,3 +1,5 @@
+use DAAManhana;
+
 -- Insert articles and movies --
 insert into articles (releaseDate, name, description, discriminator, image) values ("1972-03-26 00:34:04", "El padrino", "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", "movie", "img/articles/elpadrino.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("Francis Ford Coppola", 1, "United States", 175, "Inglés", "Paramount Pictures / Albert S. Ruddy Production");
@@ -21,7 +23,7 @@ insert into movies (director, articleId, country, duration, language, producer) 
 insert into actors (Movie_articleId, actors) values (4, "Sylvester Stallone");
 insert into actors (Movie_articleId, actors) values (4, "Talia Shire");
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("1994-03-26 20:40:23", "Forrest Gump", "Forrest Gump (Tom Hanks) es un chico que sufre un cierto retraso mental. A pesar de todo, gracias a su tenacidad y a su buen corazón será protagonista de acontecimientos cruciales de su país. Jenny, su gran amor desde la infancia, será la persona más importante de su vida.", "movie","img/articles/forestgump.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("1994-03-26 20:40:23", "Forrest Gump", "Forrest Gump (Tom Hanks) es un chico que sufre un cierto retraso mental. A pesar de todo, gracias a su tenacidad y a su buen corazón será protagonista de acontecimientos cruciales de su país. Jenny, su gran amor desde la infancia, será la persona más importante de su vida.", "movie","img/articles/forrestgump.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("Robert Zemeckis", 5,"Estados Unidos",142,"Inglés", "Paramount pictures");
 insert into actors (Movie_articleId, actors) values (5, "Tom Hanks");
 insert into actors (Movie_articleId, actors) values (5, "Robin Wright Penn");
@@ -167,13 +169,13 @@ insert into actors (Movie_articleId, actors) values (33, "Matthew Modine");
 insert into actors (Movie_articleId, actors) values (33, "Vincent D'Onofrio");
 
 -- Insert articles and books --
-insert into articles (releaseDate, name, description, discriminator, image) values ("2014-02-14 18:14:25", "EL JUEGO DE RIPPER", "Mi madre todavía está viva, pero la matará el Viernes Santo a medianoche, le advirtió Amanda Martín al inspector jefe y éste no lo puso en duda.", "book","eljuegoderipper.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-02-14 18:14:25", "EL JUEGO DE RIPPER", "Mi madre todavía está viva, pero la matará el Viernes Santo a medianoche, le advirtió Amanda Martín al inspector jefe y éste no lo puso en duda.", "book","img/articles/eljuegoderipper.jpg");
 insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Isabel Allende", "2014-02-14 18:14:25", "PLAZA & JANES EDITORES", "9788401342547", 480, "","", 34);
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2012-02-11 18:14:25", "Divergent Book 1", "In Beatrice Prior’s dystopian Chicago world, society is divided into five factions, each dedicated to the cultivation of a particular virtue—Candor (the honest), Abnegation (the selfless), Dauntless (the brave), Amity (the peaceful), and Erudite (the intelligent).", "book","divergentbook1.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2012-02-11 18:14:25", "Divergent Book 1", "In Beatrice Prior’s dystopian Chicago world, society is divided into five factions, each dedicated to the cultivation of a particular virtue—Candor (the honest), Abnegation (the selfless), Dauntless (the brave), Amity (the peaceful), and Erudite (the intelligent).", "book","img/articles/divergentbook1.jpg");
 insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Veronica Roth", "2012-02-11 18:14:25", "Katherine Tegen Books", "42343", 487,"","", 35);
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2012-05-1 8:12:01", "Divergent Book 2", "One choice can transform you—or it can destroy you. But every choice has consequences, and as unrest surges in the factions all around her, Tris Prior must continue trying to save those she loves—and herself—while grappling with haunting questions of grief and forgiveness, identity and loyalty, politics and love.", "book","divergentbook2.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2012-05-1 8:12:01", "Divergent Book 2", "One choice can transform you—or it can destroy you. But every choice has consequences, and as unrest surges in the factions all around her, Tris Prior must continue trying to save those she loves—and herself—while grappling with haunting questions of grief and forgiveness, identity and loyalty, politics and love.", "book","img/articles/divergentbook2.jpg");
 insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Veronica Roth", "2012-05-1 8:12:01", "Katherine Tegen Books", "952852842", 544,"","", 36);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2013-11-11 8:12:01", "La vida es suero: Historias de una Enfermera Saturada", "¿Alguna vez te has preguntado si existe el apósito del tamaño adecuado? o ¿De dónde surge la leyenda urbana del aire en el suero? Si no tienes claro si una enfermera que pincha en el turno de noche, es una DJ. Si estás convencido de que la persona que inventa el tamaño de las pastillas, no es buena persona, crees firmemente que llamarle pijama a la ropa de trabajo no es serio, no soportas a las señoras que te dicen en qué vena tienes que pincharlas y alguna vez te has quedado mirando las venas de alguien en el metro, éste es tu libro. Bienvenido al mundo de Enfermera Saturada. Un mundo donde el delirio se mezcla con el humor, a veces negro y siempre muy fino, pero donde el día a día del hospital siempre supera a la ficción. Os lo juro por Florence Nightingale.", "book","img/articles/lavidaessuero.jpg");
@@ -191,7 +193,7 @@ insert into books (author, editionDate, editorial, isbn, pages, genre, language,
 insert into articles (releaseDate, name, description, discriminator, image) values ("2014-04-29 8:12:01", "Los muertos vivientes: Guerra sin cuartel", "El mayor arco argumental de Los Muertos Vivientes comienza en este volumen. Rick y su némesis se enfrentan en una batalla sin tregua en la que nadie puede elegir la neutralidad. Si todavía no conoces a Ezequiel, Jesus o Negan, ¡no te pierdas esta saga! Y si los conoces... ni te imaginas lo que Robert Kirkman tiene preparado para ellos...Sinopsis de la serie: Una epidemia de proporciones apocalípticas ha barrido la Tierra haciendo que los muertos se levanten y se alimenten de los vivos. En una historia de zombies sin fin, un grupo de supervivientes intentan marcar la diferencia y, sobre todo, seguir existiendo. Este es el argumento central de la exitosa colección creada por Robert Kirkman. El autor nos ofrece un relato que nos hace reflexionar sobre el mundo en el que vivimos y en qué lo estamos convirtiendo.  La exitosa serie de TV, que bate récords de audiencia a nivel mundial, está directamente supervisada por el propio Kirkman.Título original: The Walking Dead # 115-120", "book","img/articles/losmuertosvivientes.jpg");
 insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Robert Kirkman, Charlie Adlard ", "2014-04-29 8:12:01", "Planeta DeAgostini", "8468477729", 144,"","", 41);
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2013-09-09 8:12:01", "Canción de hielo y fuego: Danza de dragones", "Canción de hielo y fuego: Libro quinto La novela río más espectacular jamás escrita Daenerys Targaryen intenta mitigar el rastro de sangre y fuego que dejó en las Ciudades Libres y se empeña en erradicar la esclavitud en Meereen. Mientras, un enano parricida, un príncipe de incógnito, un capitán implacable y un enigmático caballero acuden a la llamada de los dragones desde el otro lado del mar Angosto, ajenos al peligro que se cierne sobre el Norte, y que solo las menguadas huestes de uno de los reyes en discordia y la Guardia de la Noche se aprestan a afrontar. George R. R. Martin sigue añadiendo sutiles e intrincadas tramas a su impresionante retablo de intrigas y pasiones, y sumando admiradores incondicionales. Rebasa las barreras de los géneros como si nunca hubieran existido: Danza de dragones marca su consagración definitiva entre los más grandes creadores de la historia de la literatura, más allá de cualquier distinción de etiquetas «Tolkien ha muerto. Larga vida a George Martin.» Dana Jennings, The New York Times El preludio de una danza de dragones que regresa, después de siglos, a los Siete Reinos. Tras un largo e infructuoso peregrinaje por las Ciudades Libres para recabar recursos que le permitan reclamar el Trono de Hierro, Daenerys de la Tormenta decide asentarse en Meereen y gobernar la ciudad. Pero esa labor tampoco está exenta de peligros: sus enemigos proliferan, y en los Siete Reinos se tejen redes de conspiraciones de variada índole, todas atraídas por el inmenso poder de los dragones. Mientras tanto, en el Norte, asolado tras la guerra y abandonado a los salvajes que cruzaron el Muro, Jon Nieve se ve obligado a ejercer una delicada diplomacia para preservar la vigilia de la Guardia de la Noche frente a la amenaza que se aproxima implacable y ominosa hacia Poniente. George R. R. Martin demuestra de nuevo su genio narrativo al retomar personajes y tramas, e hilvanar con todos estos elementos una entrega que, pese a su tremenda complejidad, no decae un ápice en interés ni intensidad. Danza de dragones jalona hasta el momento una saga que, gracias a su impecable adaptación televisiva, pero sustentada en todo momento por sus propios méritos, ha logrado trascender las barreras de los géneros y se ha convertido en un fenómeno mundial y en una de las obras de referencia de la literatura contemporánea. Mientras el trono de Poniente sigue en el aire, Martin se ha erigido ya en soberano indiscutido de verdaderas huestes de lectores de toda ralea. Una saga que está cautivando, a fuerza de tesón y talento, a toda una generación.", "book","img/articles/canciondehieloyfuego5.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-09-09 8:12:01", "Canción de hielo y fuego: Danza de dragones", "Canción de hielo y fuego: Libro quinto La novela río más espectacular jamás escrita Daenerys Targaryen intenta mitigar el rastro de sangre y fuego que dejó en las Ciudades Libres y se empeña en erradicar la esclavitud en Meereen. Mientras, un enano parricida, un príncipe de incógnito, un capitán implacable y un enigmático caballero acuden a la llamada de los dragones desde el otro lado del mar Angosto, ajenos al peligro que se cierne sobre el Norte, y que solo las menguadas huestes de uno de los reyes en discordia y la Guardia de la Noche se aprestan a afrontar. George R. R. Martin sigue añadiendo sutiles e intrincadas tramas a su impresionante retablo de intrigas y pasiones, y sumando admiradores incondicionales. Rebasa las barreras de los géneros como si nunca hubieran existido: Danza de dragones marca su consagración definitiva entre los más grandes creadores de la historia de la literatura, más allá de cualquier distinción de etiquetas «Tolkien ha muerto. Larga vida a George Martin.» Dana Jennings, The New York Times El preludio de una danza de dragones que regresa, después de siglos, a los Siete Reinos. Tras un largo e infructuoso peregrinaje por las Ciudades Libres para recabar recursos que le permitan reclamar el Trono de Hierro, Daenerys de la Tormenta decide asentarse en Meereen y gobernar la ciudad. Pero esa labor tampoco está exenta de peligros: sus enemigos proliferan, y en los Siete Reinos se tejen redes de conspiraciones de variada índole, todas atraídas por el inmenso poder de los dragones. Mientras tanto, en el Norte, asolado tras la guerra y abandonado a los salvajes que cruzaron el Muro, Jon Nieve se ve obligado a ejercer una delicada diplomacia para preservar la vigilia de la Guardia de la Noche frente a la amenaza que se aproxima implacable y ominosa hacia Poniente. George R. R. Martin demuestra de nuevo su genio narrativo al retomar personajes y tramas, e hilvanar con todos estos elementos una entrega que, pese a su tremenda complejidad, no decae un ápice en interés ni intensidad. Danza de dragones jalona hasta el momento una saga que, gracias a su impecable adaptación televisiva, pero sustentada en todo momento por sus propios méritos, ha logrado trascender las barreras de los géneros y se ha convertido en un fenómeno mundial y en una de las obras de referencia de la literatura contemporánea. Mientras el trono de Poniente sigue en el aire, Martin se ha erigido ya en soberano indiscutido de verdaderas huestes de lectores de toda ralea. Una saga que está cautivando, a fuerza de tesón y talento, a toda una generación.", "book","img/articles/canciondehiloyfuego5.jpg");
 insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("George R.R. Martin", "2013-09-09 8:12:01", "Ediciones Gigamesh", "8496208672", 1280,"","", 42);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-10-05 8:12:01", "Canción de hielo y fuego: Juego de tronos", "Canción de hielo y fuego: Libro primero La novela río más espectacular jamás escrita Tras el largo verano, el invierno se acerca a los Siete Reinos. Lord Eddard Stark, señor de Invernalia, deja sus dominios para unirse a la corte de su amigo el rey Robert Baratheon, llamado el Usurpador, hombre díscolo y otrora guerrero audaz cuyas mayores aficiones son comer, beber y engendrar bastardos. Eddard Stark ocupará el cargo de Mano del Rey e intentará desentrañar una maraña de intrigas que pondrá en peligro su vida y la de todos los suyos. En un mundo cuyas estaciones pueden durar decenios y en el que retazos de una magia inmemorial y olvidada surgen en los rincones más sombríos y maravillosos, la traición y la lealtad, la compasión y la sed de venganza, el amor y el poder hacen del juego de tronos una poderosa trampa que atrapará en sus fauces a los personajes... y al lector.", "book","img/articles/canciondehieloyfuego1.jpg");
@@ -238,7 +240,7 @@ insert into books (author, editionDate, editorial, isbn, pages, genre, language,
 
 
 -- Insert articles and cds --
-insert into articles (releaseDate, name, description, discriminator, image) values ("2012-09-03 19:35:27", "Tetra", "Primer álbum del grupo electrónico francés C2C", "cd","tetra.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2012-09-03 19:35:27", "Tetra", "Primer álbum del grupo electrónico francés C2C", "cd","img/articles/tetra.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("C2C", "B008MMFC56", 1, 61, 57);
 insert into tracks (title, duration, cd_articleId) values ("The Cell", 5, 57);
 insert into tracks (title, duration, cd_articleId) values ("Down the Road", 3, 57);
@@ -255,7 +257,7 @@ insert into tracks (title, duration, cd_articleId) values ("Le Banquet (feat. Ke
 insert into tracks (title, duration, cd_articleId) values ("F-U-Y-A", 5, 57);
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2007-09-03 19:35:27", "Take The Heat Off Me", "Primer álbum del grupo vocal alemán Boney M", "cd","taketheheatoffme.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2007-09-03 19:35:27", "Take The Heat Off Me", "Primer álbum del grupo vocal alemán Boney M", "cd","img/articles/taketheheatoffme.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Boney M", "B000NJLXLI", 1, 36,  58);
 insert into tracks (title, duration, cd_articleId) values ("Daddy Cool", 4, 58);
 insert into tracks (title, duration, cd_articleId) values ("Take The Heat Off Me", 5, 58);
@@ -267,7 +269,7 @@ insert into tracks (title, duration, cd_articleId) values ("Got a Man On My Mind
 insert into tracks (title, duration, cd_articleId) values ("Lovin' Or Leavin", 5, 58);
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2013-05-21 19:35:27", "Random Access Memories", "Cuarto álbum del famoso dúo francés Daft Punk", "cd","randomaccessmemories.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-05-21 19:35:27", "Random Access Memories", "Cuarto álbum del famoso dúo francés Daft Punk", "cd","img/src/randomaccessmemories.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Daft Punk", "B00C061I3K", 1, 74, 59);
 insert into tracks (title, duration, cd_articleId) values ("Give Life Back to Music", 5, 59);
 insert into tracks (title, duration, cd_articleId) values ("The Game of Love", 5, 59);
@@ -283,7 +285,7 @@ insert into tracks (title, duration, cd_articleId) values ("Fragments of Time", 
 insert into tracks (title, duration, cd_articleId) values ("Doin'it Right", 4, 59);
 insert into tracks (title, duration, cd_articleId) values ("Contact", 6, 59);
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("1990-09-03 19:35:27", "Painkiller", "Álbum de la banda británica de heavy metal Judas Priest", "cd","painkiller.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("1990-09-03 19:35:27", "Painkiller", "Álbum de la banda británica de heavy metal Judas Priest", "cd","img/articles/painkiller.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Judas Priest", "B00005Y0S3", 1, 55, 60);
 insert into tracks (title, duration, cd_articleId) values ("Painkiller", 6, 60);
 insert into tracks (title, duration, cd_articleId) values ("Hell Patrol", 4, 60);
@@ -300,7 +302,7 @@ insert into tracks (title, duration, cd_articleId) values ("Leather Rebel(Live)"
 insert into tracks (title, duration, cd_articleId) values ("Painkiller", 5, 60);
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2003-12-09 19:35:27", "Splinter", "Séptimo álbum de la banda americana de punk rock The Offspring", "cd","splinter.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2003-12-09 19:35:27", "Splinter", "Séptimo álbum de la banda americana de punk rock The Offspring", "cd","img/articles/splinter.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("The Offspring", "B0000CC4X6", 1, 32, 61);
 insert into tracks (title, duration, cd_articleId) values ("Neocon", 1, 61);
 insert into tracks (title, duration, cd_articleId) values ("The Noose", 3, 61);
@@ -316,7 +318,7 @@ insert into tracks (title, duration, cd_articleId) values ("Da Hui", 2, 61);
 insert into tracks (title, duration, cd_articleId) values ("When You're in Prison", 3, 61);
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2007-11-12 19:35:27", "Mothership", "Álbum recopilación de los mayores éxitos de la grupo de rock inglés Led Zeppelin", "cd","painkiller.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2007-11-12 19:35:27", "Mothership", "Álbum recopilación de los mayores éxitos de la grupo de rock inglés Led Zeppelin", "cd","img/articles/mothership.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Led Zeppelin", "B000VLE3IS", 3, 135, 62);
 insert into tracks (title, duration, cd_articleId) values ("Good Times Bad Times", 3, 62);
 insert into tracks (title, duration, cd_articleId) values ("Communication Breakdown" , 3, 62);
@@ -366,7 +368,7 @@ insert into tracks (title, duration, cd_articleId) values ("Kashmir", 9, 62);
 insert into tracks (title, duration, cd_articleId) values ("Whole Lotta Love", 7, 62);
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2013-01-17 19:35:27", "In a Time Lapse", "In a Time Lapse fue compuesto durante un periodo de dos años y grabado en octubre de 2012 en un monasterio cercano a Verona. Los catorce nuevos originales que conforman In a Time Lapse contienen piano, cuerdas, percusiones y electrónica, y toman vida en forma de suite que está concebida para ser escuchada #como los capítulos de un libro#.", "cd","inatimelapse.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-01-17 19:35:27", "In a Time Lapse", "In a Time Lapse fue compuesto durante un periodo de dos años y grabado en octubre de 2012 en un monasterio cercano a Verona. Los catorce nuevos originales que conforman In a Time Lapse contienen piano, cuerdas, percusiones y electrónica, y toman vida en forma de suite que está concebida para ser escuchada #como los capítulos de un libro#.", "cd","img/articles/inatimelapse.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Ludovico Einaudi", "B00AIQVLV8", 1, 65, 63);
 insert into tracks (title, duration, cd_articleId) values ("Corale", 2, 63);
 insert into tracks (title, duration, cd_articleId) values ("Time Lapse", 6, 63);
@@ -384,7 +386,7 @@ insert into tracks (title, duration, cd_articleId) values ("Underwood", 5, 63);
 insert into tracks (title, duration, cd_articleId) values ("Burning", 5, 63);
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2011-04-12 19:35:27", "Wasting Light", "Último álbum de la banda creada por el ex batería de Nirvana", "cd","wastinlight.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2011-04-12 19:35:27", "Wasting Light", "Último álbum de la banda creada por el ex batería de Nirvana", "cd","img/articles/wastinlight.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Foo Fighters", "B004LUHQ1G", 1, 47, 64);
 insert into tracks (title, duration, cd_articleId) values ("Bridge Burning", 5, 64);
 insert into tracks (title, duration, cd_articleId) values ("Rope", 4, 64);
@@ -399,7 +401,7 @@ insert into tracks (title, duration, cd_articleId) values ("I Should Have Known"
 insert into tracks (title, duration, cd_articleId) values ("Walk", 4, 64);
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("1973-03-01 19:35:27", "Wasting Light", "Octavo álbum de la banda de rock progresivo Pink Floyd", "cd","thedarksideofthemoon.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("1973-03-01 19:35:27", "Wasting Light", "Octavo álbum de la banda de rock progresivo Pink Floyd", "cd","img/articles/thedarksideofthemoon.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Pink Floyd", "B00008CLOA", 1, 43, 65);
 insert into tracks (title, duration, cd_articleId) values ("Speak To Me", 2, 65);
 insert into tracks (title, duration, cd_articleId) values ("Breathe (Breathe In The Air)", 3, 65);
@@ -467,17 +469,17 @@ insert into tracks (title, duration, cd_articleId) values ("The Sound That Love 
 
 
 -- Insert articles and comics --
-insert into articles (releaseDate, name, description, discriminator, image) values ("2008-03-19 18:14:25", "Marvels Captain America: The Winter Soldier: The Art of the Movie Slipcase", "A comic masterpiece.", "comic","captainamerica.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2008-03-19 18:14:25", "Marvels Captain America: The Winter Soldier: The Art of the Movie Slipcase", "A comic masterpiece.", "comic","img/articles/captainamerica.jpg");
 insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles"," Alan Moore", "2008-03-19 18:14:25", "DC Comics", "1401216676", 64,  70);
 insert into comics (chapter, number, collection, articleId) values (1, 1, 16, 70);
 insert into cartoonists (name, work, comic_articleId) values ("Brian Bolland","Writer",70);
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2014-02-14 18:14:25", "Watchmen ", "This Hugo Award-winning graphic novel chronicles the fall from grace of a group of super-heroes plagued by all-too-human failings. Along the way, the concept of the super-hero is dissected as the heroes are stalked by an unknown assassin.", "comic","watchmen.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-02-14 18:14:25", "Watchmen ", "This Hugo Award-winning graphic novel chronicles the fall from grace of a group of super-heroes plagued by all-too-human failings. Along the way, the concept of the super-hero is dissected as the heroes are stalked by an unknown assassin.", "comic","img/articles/watchmen.jpg");
 insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles", "Alan Moore", "2014-02-14 18:14:25", "DC Comics", "9788401342547", 416, 71);
 insert into comics (chapter, number, collection, articleId) values (1,1,20, 71);
 insert into cartoonists (name, work, comic_articleId) values ("Dave Gibbons", "Illustrator", 71);
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2013-10-15 18:14:25", "Batman Vol. 2: The City of Owls", "NIGHT OF THE OWLS continues here! Batman must stop the TALONS that have breeched the Batcave in order to save an innocent life ... and Gotham City! In the backup story, learn more about the PENNYWORTH family and the secrets they've kept from the Wayne family! Collects BATMAN #8-12 and BATMAN ANNUAL #1.", "comic","batmanvol2.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-10-15 18:14:25", "Batman Vol. 2: The City of Owls", "NIGHT OF THE OWLS continues here! Batman must stop the TALONS that have breeched the Batcave in order to save an innocent life ... and Gotham City! In the backup story, learn more about the PENNYWORTH family and the secrets they've kept from the Wayne family! Collects BATMAN #8-12 and BATMAN ANNUAL #1.", "comic","img/articles/batmanvol2.jpg");
 insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles", "Scott Snyder", "2014-02-14 18:14:25", "DC Comics", "1401237789", 208, 72);
 insert into comics (chapter, number, collection, articleId) values (2,2,5, 72);
 insert into cartoonists (name, work, comic_articleId) values ("Rafael Albuquerque", "Illustrator", 72);
@@ -487,19 +489,19 @@ insert into cartoonists (name, work, comic_articleId) values ("Rafael Albuquerqu
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2011-10-28 19:35:27", "Cometas en el cielo", "Empeñado en demostrarle a su padre que ya es todo un hombre, el joven Amir se propone ganar la competición anual de cometas de la forma que sea, incluso a costa de su inseparable Hassan, un hazara de clase inferior que ha sido su sirviente y compañero de juegos desde la más tierna infancia. Después de tantos años de haberse defendido mutuamente de todos los peligros imaginables, Amir se aprovecha de la fidelidad de su amigo, poniendo en riesgo uno de los tesoros más preciados del ser humano: la amistad. Cometas en el cielo, uno de los éxitos más resonantes de los últimos tiempos, es la conmovedora historia de dos padres y dos hijos, de su amistad y de cómo la casualidad puede marcar un hito inesperado en nuestro destino.", "comic","img/articles/cometasenelcielo.jpg");
 insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion","Español","Khaled Hosseini", "2011-10-28 8:12:01", "PUBLICACIONES Y EDICIONES SALAMANDRA S.A.", "8498383986", 136, 73);
-insert into comics (chapters, number, collection, articleId) values (10,1,"Novela Gráfica",73);
+insert into comics (chapter, number, collection, articleId) values (10,1,"Novela Gráfica",73);
 insert into cartoonists (name, work, comic_articleId) values ("Fito López","Illustrator", 73);
 
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2013-07-26 19:35:27", "Final Fantasy: La Leyenda de Los Cristales", "Sin descripción de momento", "comic","img/articles/finalfantasy.jpg");
 insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion","Español","Pablo González Taboada", "2011-07-26 8:12:01", "Dolmen", "8415296959", 256, 74);
-insert into comics (chapters, number, collection, articleId) values (20,1,"Unknown",74);
+insert into comics (chapter, number, collection, articleId) values (20,1,"Unknown",74);
 insert into cartoonists (name, work, comic_articleId) values ("Guity  elRey","Illustrator", 74);
 
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2013-09-16 19:35:27", "Historias Perversas de Demonios: Antología", "Es un proyecto Solidario. El dinero se destinará a Felinos Bilbao. Historias Perversas de Demonios es una antología de relatos que os hará experimentar más de una sensación, que buscada o no, os revolverá vuestro ser por completo. Con una extensa temática, os llevará desde el terror hasta el género erótico, pasando por momentos de locura, celos, posesión, amor sin fin y siniestras relaciones. Ya que este libro que estáis a punto de abrir viene cargado con altas dosis de sensualidad, de misterio, de sexo... Cuando lo terminéis, ya no seréis los mismos, y miraréis cada esquina oscura, cada rincón apartado... deseando que un ser de otro plano os lleve hasta los límites de la resistencia humana. Os damos la bienvenida desde la pista central de este circo de los deseos... ¿Preparado para experimentar oscuros placeres? *** Pero sobre todo, de ilusión. De la ilusión de un variopinto grupo de creadores, que bajo la batuta de la escritora bilbaína Maialen Alonso, han aunado fuerzas en un altruista intento de mejorar la vida de cientos de animales. Ya que esta antología nace bajo la directriz de que cada céntimo recaudado se destine a la protectora Felinos Bilbao. Por lo que desde estas páginas, y a priori, os agradecemos sinceramente la adquisición de esta obra. Autores: Maialen Alonso, Enrique García Díaz, Carlos Rodón, Amy García, Roberto Malo, Déborah F. Muñoz, Inmaculada Ruiz, D.W. Nichols, Chabi Angulo, David Ruiz del Portal, Isabel García Delgado, Sergio Fdéz. A. Ilustraciones: Kike Alapont, Agarwen, Pablo Brenes Guillén, Inmaculada Ruiz, Love Macabre, Daniel Medina Ramos, Dagam (David García). ...Os dan la bienvenida a este extraño mundo en donde todo va a ser posible. Respirad hondo, henchir vuestros corazones de valor y empezad el viaje.", "comic","img/articles/historiasperversas.jpg");
 insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion","Español","Maialen Alonso", "2013-09-16 8:12:01", "Createspace", "1492198552", 270, 75);
-insert into comics (chapters, number, collection, articleId) values (10,1,"Unknown",75);
+insert into comics (chapter, number, collection, articleId) values (10,1,"Unknown",75);
 insert into cartoonists (name, work, comic_articleId) values ("Kike Alapont","Illustrator", 75);
 insert into cartoonists (name, work, comic_articleId) values ("Agarwen Art","Illustrator", 75);
 insert into cartoonists (name, work, comic_articleId) values ("Pablo Brenes","Illustrator", 75);

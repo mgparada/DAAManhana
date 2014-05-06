@@ -1,23 +1,23 @@
 function setMovieDetails(id) {
-	findArticleById(id, function(article){
+	findArticleById(id, "movies", function(article){
 		appendMovie(article);
 	});
 }
 
 function setCdDetails(id) {
-	findArticleById(id, function(article){
+	findArticleById(id, "cds", function(article){
 		appendCd(article);
 	});
 }
 
 function setBookDetails(id) {
-	findArticleById(id, function(article){
+	findArticleById(id, "books", function(article){
 		appendBook(article);
 	});
 }
 
 function setComicDetails(id) {
-	findArticleById(id, function(article){
+	findArticleById(id, "comics", function(article){
 		appendComic(article);
 	});
 }
@@ -28,8 +28,8 @@ function appendComic(article) {
 	
 	var toAppend = "<div class='article_content'>" +
 				"<div class='article_img'>" +
-					"<a class='image_link' href='img/comics_amazing_spider_man_700_variant.jpg' data-lightbox='coso'>" +
-						"<img style='width:180px; height:190px;' src='img/comics_amazing_spider_man_700_variant.jpg'/>" +
+					"<a class='image_link' href='" + article["image"] + "' data-lightbox='coso'>" +
+						"<img style='width:180px; height:190px;' src='" + article["image"] + "'/>" +
 					"</a>" +
 				"</div>" +
 				"<div class='article_atributes_content'>" +
@@ -47,22 +47,19 @@ function appendComic(article) {
 			"<div class='cd_content'>" +
 				"<div class='cd_atributes_1'>" +
 						"<div class='cd_atribute'>" +
-							"<b>Autor:</b> <a href='#'>" + article["author"] + "</a> y <a href='#'>¿MAIS?</a>" +
+							"<b>Autor:</b> " + article["author"] +
 						"</div>" +
 						"<div class='cd_atribute'>" +
 							"<b>Editorial:</b> " + article["editorial"] +
 						"</div>" +
 						"<div class='cd_atribute'>" +
-							"<b>Género:</b> <a href='#'>Comic</a>" +
-						"</div>" +
-						"<div class='cd_atribute'>" +
-							"<b>Colección:</b> FALTA" +
+							"<b>Género:</b> " + article["genre"] +
 						"</div>" +
 				"</div>" +
 				"<!-- Idioma + Numero + Coleccion -->" +
 				"<div class='cd_atributes_2'>" +
 						"<div class='cd_atribute'>" +
-							"<b>Idioma:</b> FALTA" +
+							"<b>Idioma:</b> " + article["language"] +
 						"</div>" +
 						"<div class='cd_atribute'>" +
 							"<b>Número: ¿Capitulo? </b> " + article["chapter"] +
@@ -111,8 +108,8 @@ function appendBook(article) {
 	
 	var toAppend = "<div class='article_content'>" +
 		"<div class='article_img'>" +
-			"<a class='image_link' href='img/Esdla-libro.jpg' data-lightbox='coso'>" +
-				"<img style='width:150px; height:190px;' src='img/Esdla-libro.jpg'/>" +
+			"<a class='image_link' href='" + articles["image"] + "' data-lightbox='coso'>" +
+				"<img style='width:150px; height:190px;' src='" + articles["image"] + "'/>" +
 			"</a>" +
 		"</div>" +
 		"<div class='article_atributes_content'>" +
@@ -136,10 +133,10 @@ function appendBook(article) {
 					"<b>Editorial:</b> " + article["editorial"] +
 				"</div>" +
 				"<div class='cd_atribute'>" +
-					"<b>Género:</b> <a href='#'>FALTA</a>" +
+					"<b>Género:</b> <a href='#'>" + articles["genre"] + "</a>" +
 				"</div>" +
 				"<div class='cd_atribute'>" +
-					"<b>Estilo:</b> FALTA1, FALTA2" +
+					"<b>Estilo:</b> -" +
 				"</div>" +
 		"</div>" +
 		"<div class='cd_atributes_2'>" +
@@ -147,7 +144,7 @@ function appendBook(article) {
 					"<b>ISBN:</b> " + article["isbn"] +
 				"</div>" +
 				"<div class='cd_atribute'>" +
-					"<b>Idioma:</b> FALTA" + 
+					"<b>Idioma:</b>" + articles["language"] + 
 				"</div>" +
 				"<div class='cd_atribute'>" +
 					"<b>Páginas:</b> " + article["pages"] +
@@ -166,17 +163,36 @@ function appendBook(article) {
 }
 
 function appendCd(article) {
+	var cont = 1;
+	$.each(cont, article['tracks'], function(k, v) {
+		var toConcat = 
+			"<div class='task_content_impar'>" +
+			"<div class='task_number'>" +
+				cont + "." +
+			"</div>" +
+			"<div class='task_name'>" +
+				"Hells Bells" +
+			"</div>" +
+			"<div class='task_legth'>" +
+				"5:13" +
+			"</div>" +
+		"</div>";
+		cont++;
+		
+		actors = actors.concat(toConcat);
+	});
+	
 	var date = article['releaseDate'].split("-");
 	
 	var toAppend = "<div class='article_content'>" +
 			"<div class='article_img'>" +
-				"<a class='image_link' href='img/tumblr_n3tfcvdwpB1qduclao1_500.jpg' data-lightbox='coso'>" +
-					"<img style='width:200px; height:190px;' src='img/tumblr_n3tfcvdwpB1qduclao1_500.jpg'/>" +
+				"<a class='image_link' href='" + article["image"] + "' data-lightbox='coso'>" +
+					"<img style='width:200px; height:190px;' src='" + article["image"] + "'/>" +
 				"</a>" +
 			"</div>" +
 			"<div class='article_atributes_content'>" +
 				"<div class='article_tittle'>" +
-					"<a href='#' class='article_autor'>NOMBRE_GRUPO</a><b>" + article["name"] + "</b>" +
+					"<a href='#' class='article_autor'></a><b>" + article["name"] + "</b>" +
 				"</div>" +
 				"<div class='article_date'>" +
 					date[2] + "-" + date[1] + "-" + date[0] +
@@ -189,21 +205,21 @@ function appendCd(article) {
 		"<div class='cd_content'>" +
 			"<div class='cd_atributes_1'>" +
 					"<div class='cd_atribute'>" +
-						"<b>Discográfica:</b> FALTA" +
+						"<b>Discográfica:</b> -" +
 					"</div>" +
 					"<div class='cd_atribute'>" +
-						"<b>ASIN:</b> FALTA" +
+						"<b>ASIN:</b> " + article["asin"] +
 					"</div>" +
 					"<div class='cd_atribute'>" +
-						"<b>Estilo:</b> FALTA1, FALTA2.." +
+						"<b>Estilo:</b> -" +
 					"</div>" +
 			"</div>" +
 			"<div class='cd_atributes_2'>" +
 					"<div class='cd_atribute'>" +
-						"<b>Nº Discos:</b> FALTA" +
+						"<b>Nº Discos:</b> " + article["discsNumber"] +
 					"</div>" +
 					"<div class='cd_atribute'>" +
-						"<b>Nº Pistas:</b> FALTA" +
+						"<b>Nº Pistas:</b> -" +
 					"</div>" +
 					"<div class='cd_atribute'>" +
 					"<b>Duración:</b> " + article["duration"] + " minutos" +
@@ -225,15 +241,7 @@ function appendCd(article) {
 			"</div>" +
 			
 			"<div class='task_content_impar'>" +
-				"<div class='task_number'>" +
-					"1." +
-				"</div>" +
-				"<div class='task_name'>" +
-					"Hells Bells" +
-				"</div>" +
-				"<div class='task_legth'>" +
-					"5:13" +
-				"</div>" +
+//				actors +
 			"</div>" +
 		"</div>" +
 		"<div class='article_banner_content'>" +

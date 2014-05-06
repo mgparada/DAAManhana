@@ -51,4 +51,28 @@ public class Comic extends Book {
 		this.chapter = chapter;
 	}
 
+//	public List<Cartoonist> getCartoonists() {
+//		return cartoonists;
+//	}
+//
+//	public void setCartoonists(List<Cartoonist> cartoonists) {
+//		this.cartoonists = cartoonists;
+//	}
+
+	public int getCollection() {
+		return collection;
+	}
+
+	public void setCollection(int collection) {
+		this.collection = collection;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
 }
