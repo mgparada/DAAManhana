@@ -1,3 +1,5 @@
+-- use DAAManhana;
+
 -- Insert articles and movies --
 insert into articles (releaseDate, name, description, discriminator, image) values ("1972-03-26 00:34:04", "El padrino", "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", "movie", "img/articles/elpadrino.jpg");
 insert into movies (director, articleId, country, duration, language, producer) values ("Francis Ford Coppola", 1, "United States", 175, "Inglés", "Paramount Pictures / Albert S. Ruddy Production");
@@ -168,249 +170,263 @@ insert into actors (Movie_articleId, actors) values (33, "Vincent D'Onofrio");
 
 -- Insert articles and books --
 insert into articles (releaseDate, name, description, discriminator, image) values ("2014-02-14 18:14:25", "EL JUEGO DE RIPPER", "Mi madre todavía está viva, pero la matará el Viernes Santo a medianoche, le advirtió Amanda Martín al inspector jefe y éste no lo puso en duda.", "book","eljuegoderipper.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Isabel Allende", "2014-02-14 18:14:25", "PLAZA & JANES EDITORES", "9788401342547", 480,  34);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Isabel Allende", "2014-02-14 18:14:25", "PLAZA & JANES EDITORES", "9788401342547", 480, "","", 34);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-02-11 18:14:25", "Divergent Book 1", "In Beatrice Prior’s dystopian Chicago world, society is divided into five factions, each dedicated to the cultivation of a particular virtue—Candor (the honest), Abnegation (the selfless), Dauntless (the brave), Amity (the peaceful), and Erudite (the intelligent).", "book","divergentbook1.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Veronica Roth", "2012-02-11 18:14:25", "Katherine Tegen Books", "42343", 487, 35);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Veronica Roth", "2012-02-11 18:14:25", "Katherine Tegen Books", "42343", 487,"","", 35);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-05-1 8:12:01", "Divergent Book 2", "One choice can transform you—or it can destroy you. But every choice has consequences, and as unrest surges in the factions all around her, Tris Prior must continue trying to save those she loves—and herself—while grappling with haunting questions of grief and forgiveness, identity and loyalty, politics and love.", "book","divergentbook2.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Veronica Roth", "2012-05-1 8:12:01", "Katherine Tegen Books", "952852842", 544, 36);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Veronica Roth", "2012-05-1 8:12:01", "Katherine Tegen Books", "952852842", 544,"","", 36);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2013-11-11 8:12:01", "La vida es suero: Historias de una Enfermera Saturada", "¿Alguna vez te has preguntado si existe el apósito del tamaño adecuado? o ¿De dónde surge la leyenda urbana del aire en el suero? Si no tienes claro si una enfermera que pincha en el turno de noche, es una DJ. Si estás convencido de que la persona que inventa el tamaño de las pastillas, no es buena persona, crees firmemente que llamarle pijama a la ropa de trabajo no es serio, no soportas a las señoras que te dicen en qué vena tienes que pincharlas y alguna vez te has quedado mirando las venas de alguien en el metro, éste es tu libro. Bienvenido al mundo de Enfermera Saturada. Un mundo donde el delirio se mezcla con el humor, a veces negro y siempre muy fino, pero donde el día a día del hospital siempre supera a la ficción. Os lo juro por Florence Nightingale.", "book","img/articles/lavidaessuero.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Enfermera Saturada", "2013-11-11 8:12:01", "Createspace", "1494331918", 116, 37);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Enfermera Saturada", "2013-11-11 8:12:01", "Createspace", "1494331918", 116,"","", 37);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2011-01-11 8:12:01", "La ladrona de libros", "En el pueblo vivía una niña que quería leer, un hombre que tocaba el acordeón y un joven judío que escribía bellos cuentos para escapar del horror de la guerra. Al cabo de un tiempo, la niña se convirtió en una ladrona que robaba libros y regalaba palabras. Con estas palabras se escribió una historia hermosa y cruel que ahora ya es una novela inolvidable. «La ladrona de libros deslumbra por sus extraordinarios personajes, su capacidad de emocionar sin clichés y, ante todo, por su omnipresente refl exión sobre el valor de las palabras.» RICARD RUIZ GARZÓN, El Periódico de Catalunya «Cuenta una historia en la que los libros se convierten en tesoros. [...] Un sentimiento como este es indiscutible.» The New York Times", "book","img/articles/laladronadelibros.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Markus Zusak", "2011-01-11 8:12:01", "Debolsillo", "8499088074", 544, 38);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Markus Zusak", "2011-01-11 8:12:01", "Debolsillo", "8499088074", 544,"","", 38);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2014-04-25 8:12:01", "La mirada de los ángeles ", "Tras la muerte accidental de su hijo pequeño, Ebba y Mårten se trasladan a la isla de Valö para rehacer su vida. Ahí, se instalan en una granja enla que vivió la familia de Ebba hace muchos años. Pero la tragedia los sigue acechando, y un incendio, a todas luces provocado, saca a relucir la historia siniestra que pesa sobre la granja. Hace treinta años toda la familia de Ebba desapareció sin dejar rastro. Solo se salvó ella, entonces un bebé de un año, a quien encontraron sola en la casa. Desde ese momento, recibe una misteriosa felicitación el día de su cumpleaños, rmada con una simple G…Patrik abre una investigación, y Erica, siempre en busca de material narrativo, empieza a tirar del hilo de la historia de la granja por su cuenta. Un acto impulsivo de Anna, la hermana de Erica, aún afectada por la pérdida del bebé que esperaba, revelará la verdad de golpe.", "book","img/articles/lamiradadelosangeles.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Camilla Läckberg ", "2014-04-25 8:12:01", "Maeva Ediciones", "8415893388", 448, 39);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Camilla Läckberg ", "2014-04-25 8:12:01", "Maeva Ediciones", "8415893388", 448,"","", 39);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2014-03-25 8:12:01", "Una revolución liberal para España: Anatomía de un país libre y próspero: ¿cómo sería y qué beneficios obtendríamos?", "Todos deseamos disfrutar de un excelente sistema sanitario y educativo; todos aspiramos a que las pensiones y los salarios sean lo más elevados posible; todos queremos vivir en una comunidad innovadora, culturalmente vanguardista, respetuosa con el medio ambiente y solidaria con los más necesitados. La mayoría de ciudadanos cree que la manera de alcanzar todos estos loables objetivos pasa por aumentar el tamaño del Estado a pesar de que éste ya se halla en máximos históricos. El conocido economista Juan Ramón Rallo ofrece en este libro una propuesta radicalmente distinta a la habitual: el camino a la prosperidad colectiva no pasa por incrementar todavía más el intervencionismo estatal, sino por reducirlo a su mínima expresión; es decir, su propuesta pasa por que sea la propia sociedad, y no los políticos y los burócratas, la que se haga cargo de servicios tan esenciales como la educación, la sanidad, las pensiones o la protección del medio ambiente. Eso es justamente lo que encontrará en esta obra: una rigurosa y documentada explicación de por qué el bienestar de todos los ciudadanos mejoraría muy notablemente con menos impuestos, menos gasto público y menos regulaciones.", "book","img/articles/unarevolucionliberalparaespanha.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Juan Ramón Rallo Julián", "2014-03-25 8:12:01", "Deusto", "8423418537", 400, 40);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Juan Ramón Rallo Julián", "2014-03-25 8:12:01", "Deusto", "8423418537", 400,"","", 40);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2014-04-29 8:12:01", "Los muertos vivientes: Guerra sin cuartel", "El mayor arco argumental de Los Muertos Vivientes comienza en este volumen. Rick y su némesis se enfrentan en una batalla sin tregua en la que nadie puede elegir la neutralidad. Si todavía no conoces a Ezequiel, Jesus o Negan, ¡no te pierdas esta saga! Y si los conoces... ni te imaginas lo que Robert Kirkman tiene preparado para ellos...Sinopsis de la serie: Una epidemia de proporciones apocalípticas ha barrido la Tierra haciendo que los muertos se levanten y se alimenten de los vivos. En una historia de zombies sin fin, un grupo de supervivientes intentan marcar la diferencia y, sobre todo, seguir existiendo. Este es el argumento central de la exitosa colección creada por Robert Kirkman. El autor nos ofrece un relato que nos hace reflexionar sobre el mundo en el que vivimos y en qué lo estamos convirtiendo.  La exitosa serie de TV, que bate récords de audiencia a nivel mundial, está directamente supervisada por el propio Kirkman.Título original: The Walking Dead # 115-120", "book","img/articles/losmuertosvivientes.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Robert Kirkman, Charlie Adlard ", "2014-04-29 8:12:01", "Planeta DeAgostini", "8468477729", 144, 41);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Robert Kirkman, Charlie Adlard ", "2014-04-29 8:12:01", "Planeta DeAgostini", "8468477729", 144,"","", 41);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2013-09-09 8:12:01", "Canción de hielo y fuego: Danza de dragones", "Canción de hielo y fuego: Libro quinto La novela río más espectacular jamás escrita Daenerys Targaryen intenta mitigar el rastro de sangre y fuego que dejó en las Ciudades Libres y se empeña en erradicar la esclavitud en Meereen. Mientras, un enano parricida, un príncipe de incógnito, un capitán implacable y un enigmático caballero acuden a la llamada de los dragones desde el otro lado del mar Angosto, ajenos al peligro que se cierne sobre el Norte, y que solo las menguadas huestes de uno de los reyes en discordia y la Guardia de la Noche se aprestan a afrontar. George R. R. Martin sigue añadiendo sutiles e intrincadas tramas a su impresionante retablo de intrigas y pasiones, y sumando admiradores incondicionales. Rebasa las barreras de los géneros como si nunca hubieran existido: Danza de dragones marca su consagración definitiva entre los más grandes creadores de la historia de la literatura, más allá de cualquier distinción de etiquetas «Tolkien ha muerto. Larga vida a George Martin.» Dana Jennings, The New York Times El preludio de una danza de dragones que regresa, después de siglos, a los Siete Reinos. Tras un largo e infructuoso peregrinaje por las Ciudades Libres para recabar recursos que le permitan reclamar el Trono de Hierro, Daenerys de la Tormenta decide asentarse en Meereen y gobernar la ciudad. Pero esa labor tampoco está exenta de peligros: sus enemigos proliferan, y en los Siete Reinos se tejen redes de conspiraciones de variada índole, todas atraídas por el inmenso poder de los dragones. Mientras tanto, en el Norte, asolado tras la guerra y abandonado a los salvajes que cruzaron el Muro, Jon Nieve se ve obligado a ejercer una delicada diplomacia para preservar la vigilia de la Guardia de la Noche frente a la amenaza que se aproxima implacable y ominosa hacia Poniente. George R. R. Martin demuestra de nuevo su genio narrativo al retomar personajes y tramas, e hilvanar con todos estos elementos una entrega que, pese a su tremenda complejidad, no decae un ápice en interés ni intensidad. Danza de dragones jalona hasta el momento una saga que, gracias a su impecable adaptación televisiva, pero sustentada en todo momento por sus propios méritos, ha logrado trascender las barreras de los géneros y se ha convertido en un fenómeno mundial y en una de las obras de referencia de la literatura contemporánea. Mientras el trono de Poniente sigue en el aire, Martin se ha erigido ya en soberano indiscutido de verdaderas huestes de lectores de toda ralea. Una saga que está cautivando, a fuerza de tesón y talento, a toda una generación.", "book","img/articles/canciondehieloyfuego5.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("George R.R. Martin", "2013-09-09 8:12:01", "Ediciones Gigamesh", "8496208672", 1280, 42);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("George R.R. Martin", "2013-09-09 8:12:01", "Ediciones Gigamesh", "8496208672", 1280,"","", 42);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-10-05 8:12:01", "Canción de hielo y fuego: Juego de tronos", "Canción de hielo y fuego: Libro primero La novela río más espectacular jamás escrita Tras el largo verano, el invierno se acerca a los Siete Reinos. Lord Eddard Stark, señor de Invernalia, deja sus dominios para unirse a la corte de su amigo el rey Robert Baratheon, llamado el Usurpador, hombre díscolo y otrora guerrero audaz cuyas mayores aficiones son comer, beber y engendrar bastardos. Eddard Stark ocupará el cargo de Mano del Rey e intentará desentrañar una maraña de intrigas que pondrá en peligro su vida y la de todos los suyos. En un mundo cuyas estaciones pueden durar decenios y en el que retazos de una magia inmemorial y olvidada surgen en los rincones más sombríos y maravillosos, la traición y la lealtad, la compasión y la sed de venganza, el amor y el poder hacen del juego de tronos una poderosa trampa que atrapará en sus fauces a los personajes... y al lector.", "book","img/articles/canciondehieloyfuego1.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("George R.R. Martin", "2012-10-05 8:12:01", "Ediciones Gigamesh", "8496208923", 800, 43);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("George R.R. Martin", "2012-10-05 8:12:01", "Ediciones Gigamesh", "8496208923", 800,"","", 43);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-03-15 8:12:01", "Sinsajo", "Katnis Everdeen ha sobrevivido dos veces a Los juegos del hambre, pero no está a salvo. La revolución se extiende y, al parecer, todos han tenido algo que ver en el meticuloso plan, todos excepto Katniss. Aun así su papel en la batalla final es el más importante de todos. Katniss debe convertirse en el Sinsajo, en el símbolo de la rebelión... a cualquier precio. ¡Que empiecen los septuagésimo sextos juegos del hambre!", "book","img/articles/sinsajo.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Suzanne Collins", "2012-03-15 8:12:01", "Molino", "8427202148", 432, 44);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Suzanne Collins", "2012-03-15 8:12:01", "Molino", "8427202148", 432,"","", 44);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-03-15 8:12:01", "Juegos del hambre", "GANAR SIGNIFICA FAMA Y RIQUEZA. PERDER SIGNIFICA UNA MUERTE SEGURA. En una oscura versión del futuro próximo, doce chicos y doce chicas se ven obligados a participar en un reality show llamado Los juegos del hambre. Solo hay una regla: matar o morir. Cuando Katniss Everdeen, una joven de dieciséis años se presenta voluntaria para ocupar el lugar de su hermana en los juegos, lo entiende como una condena a muerte. Sin embargo Katniss ya ha visto la muerte de cerca y la supervivencia forma parte de su naturaleza. ¡Que empiecen los septuagésimo cuartos juegos del hambre!", "book","img/articles/losjuegosdelhambre.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Suzanne Collins", "2012-03-15 8:12:01", "Molino", "8427202121", 400, 45);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Suzanne Collins", "2012-03-15 8:12:01", "Molino", "8427202121", 400,"","", 45);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-03-15 8:12:01", "En llamas", "Katniss Everdeen ha sobrevivido a Los juegos del hambre. Pero el Capitolio quiere venganza. Contra todo pronóstico, Katniss Everdeen y Peeta Mellark siguen vivos. Aunque Katniss debería sentirse aliviada, se rumorea que existe una rebelión contra el Capitolio, una rebelión que puede que Katniss y Peeta hayan ayudado a inspirar. La nación les observa y hay mucho en juego. Un movimiento en falso y las consecuencias serán inimaginables.", "book","img/articles/enllamas.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Suzanne Collins", "2012-03-15 8:12:01", "Molino", "842720213X", 416, 46);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Suzanne Collins", "2012-03-15 8:12:01", "Molino", "842720213X", 416,"","", 46);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-06-28 8:12:01", "Fahrenheit 451", "Fahrenheit 451: la temperatura a la que el papel se enciende y arde. Guy Montag es un bombero y el trabajo de un bombero es quemar libros, que están prohibidos porque son causa de discordia y sufrimiento. El Sabueso Mecánico del Departamento de Incendios, armado con una letal inyección hipodérmica, escoltado por helicópteros, está preparado para rastrear a los disidentes que aún conservan y leen libros. Como 1984, de George Orwell, como Un mundo feliz, de Aldous Huxley, Fahrenheit 451 describe una civilización occidental esclavizada por los medios, los tranquilizantes y el conformismo. La visión de Bradbury es asombrosamente profética: pantallas de televisión que ocupan paredes y exhiben folletines interactivos; avenidas donde los coches corren a 150 kilómetros por hora persiguiendo a peatones; una población que no escucha otra cosa que una insípida corriente de música y noticias transmitidas por unos diminutos auriculares insertados en las orejas.", "book","img/articles/fahrenheit.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Ray Bradbury", "2012-06-28 8:12:01", "Debolsillo", "8490321477", 192, 47);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Ray Bradbury", "2012-06-28 8:12:01", "Debolsillo", "8490321477", 192,"","", 47);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2004-09-13 8:12:01", "Cien años de soledad", "1967. En Buenos Aires aparece la novela de un escritor colombiano de cuarenta años. No queda hoy lengua literaria a la que no haya sido traducida.  Cien años de soledad  no sólo cautiva a los lectores de cualquier condición: su impulso poderoso ha levantado las letras castellanas de todo un continente. Desvelar la magia de su prosa, acotar las arenas movedizas de su particular quehacer literario son tareas tan imposibles como dañinas; sí agradecerá el lector, en cambio, la aclaración de ciertas alusiones, la comprobación de la densidad que subyace a un texto aparentemente diáfano. No nos engañemos: son millones las páginas que han engendrado las de la novela, pero ante ella al lector no le queda otra actitud que la misma lectura devoradora y deslumbrada del último de los Aurelianos.", "book","img/articles/100anhosdesoledad.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Gabriel García Márquez", "2004-09-13 8:12:01", "Cátedra", "843760494X", 560, 48);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Gabriel García Márquez", "2004-09-13 8:12:01", "Cátedra", "843760494X", 560,"","", 48);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2009-09-04 8:12:01", "Ruido de fondo", "El profesor universitario Jack Gladney, vive en una pequeña ciudad americana con su esposa y sus hijos. Marcados por el consumismo y el miedo a la muerte, los Gladney tratan de llevar una vida familiar tranquila hasta que un accidente industrial pone en peligro la ciudad. En palabras de DeLillo: «Una historia sobre el miedo, la muerte y la tecnología. Una comedia, por supuesto.»", "book","img/articles/ruidodefondo.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Don DeLillo", "2009-09-04 8:12:01", "Austral", "8432248444", 432, 49);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Don DeLillo", "2009-09-04 8:12:01", "Austral", "8432248444", 432,"","", 49);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2014-03-04 8:12:01", "Estoy bien: El más allá nunca estuvo tan cerca", "Si creía conocer las investigaciones de J. J. Benítez, se equivoca. Estoy bien es otra vuelta de tuerca en la producción literaria del autor navarro.Veamos algunos pensamientos de Juanjo Benítez sobre el delicado asunto de los «resucitados»,como llama él a los muertos que han vuelto: «Estoy bien es tan increíble como cierto.»«Se trata de 160 casos “al sur de la razón”.»«Quizá este libro sea mucho más de lo que parece.»«Estoy bien debe ser leído despacio, muy despacio.»«El padre Azul (y su “gente”) se han sentado conmigo a la hora de escribirlo.»«Si usted tiene miedo a la muerte, éste es su libro; si no es así, con más razón.»«Algún día seremos esféricos.»«Al abrir Estoy bien, usted debería ver una luz.»«El concepto “vivo” necesita ser revisado.»", "book","img/articles/estoybien.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("J. J. Benítez", "2014-03-04 8:12:01", " Editorial Planeta", "8408120166", 576, 50);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("J. J. Benítez", "2014-03-04 8:12:01", " Editorial Planeta", "8408120166", 576,"","", 50);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2014-03-06 8:12:01", "Qué hacer cuando en la pantalla aparece THE END", "Un libro sobre finales que llegan, sin avisar, que nos parten en dos mitades, que se arrastran durante años y que nunca se acaban porque confunden orgullo con recuerdo. Y entonces cogemos trenes, reservamos habitaciones de hotel en pueblos olvidados, vivimos enganchados a pantallas esperando que alguien decida hablarnos para informarnos del siguiente movimiento, el que nos acercará conscientemente a un final que hace años que buscamos. Pero ese final no llega. Y de repente un día nos despertamos y sentimos el vacío: en la pantalla aparece THE END y decidimos empezar otra historia. Una en la que nunca tengamos que fingir que no nos conocemos.", "book","img/articles/quehacercuando.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Paula Bonet", "2014-03-06 8:12:01", "Lunwerg Editores", "8415888503", 200, 51);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Paula Bonet", "2014-03-06 8:12:01", "Lunwerg Editores", "8415888503", 200,"","", 51);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-10-04 8:12:01", "El espejo del mar", "Las crónicas que conforman este libro repasan las vivencias marítimas de Conrad, primero como marinero en Francia y más adelante en la marina mercante británica. Estos textos componen un vivísimo retrato de la relación entre el hombre y el mar en una época en que la llegada del vapor supuso el fin de la hegemonía de los barcos de vela. Considerado como el cruce entre un cantar de gesta sobre la navegación a vela y la biblia del oleaje, El espejo del mar es la insuperable reminiscencia de una forma de vida y una obra imprescindible para comprender a su autor. «Todo el libro es Conrad cien por cien, y, además, el mejor Conrad, el que sabía dibujar un hecho del mar con la más perfecta forma literaria, y el que sabía ilustrar un acontecimiento narrativo con la más acertada imagen marinera.» Juan Benet", "book","img/articles/elespejodelmar.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Joseph Conrad", "2012-10-04 8:12:01", "Debolsillo", "8499897274", 288, 52);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Joseph Conrad", "2012-10-04 8:12:01", "Debolsillo", "8499897274", 288,"","", 52);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-03-08 8:12:01", "El espacio vacío: Arte y técnica del teatro ", "«Un incomprensible equívoco persigue a este libro desde su aparición. Pese a tratarse de una obra tan clara y profunda como entretenida, mucha gente todavía cree, a tenor de su título, que El espacio vacío es un texto sobre esencialismos escenográficos o, peor todavía, un tratado abstruso y teórico sobre teatro experimental según el signo de los tiempos: el caótico pero vivísimo final de la década de 1960.» Con estas palabras arranca el prólogo de esta nueva edición de El espacio vacío. Nada más justo y cierto. Nos encontramos con un texto, que apareció en 1968, que es mucho más que un tratado sobre el teatro. El autor mira el mundo con una intensidad inusitada (dentro y fuera del ámbito teatral) y en su aproximación a la realidad nos vemos reflejados. Dice Brook: «una obra de teatro es un juego.» Juguemos (y aprendamos) con los libros buenos, imprescindibles. Sin miedo.Los editores", "book","img/articles/elespaciovacio.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Peter Brook", "2012-03-08 8:12:01", "Ediciones Península", "8499421423", 192, 53);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Peter Brook", "2012-03-08 8:12:01", "Ediciones Península", "8499421423", 192,"","", 53);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2005-04-05 8:12:01", "Historia de un alemán", "¿Qué condujo a Alemania a la locura del nazismo? Desde la propia historia del autor, un reencuentro con las emociones y contradicciones del pueblo alemán que nos ayuda a comprender los complejos procesos que permitieron la aparición y consolidación del movimiento nazi en la sociedad alemana entre los años 1914 y 1933, y el ascenso de Hitler al poder.", "book","img/articles/historiadeunaleman.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Sebastian Haffner", "2005-04-05 8:12:01", "Booket", "8423338045", 320, 54);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Sebastian Haffner", "2005-04-05 8:12:01", "Booket", "8423338045", 320,"","", 54);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2013-10-09 8:12:01", "Clase de literatura", "Berkeley, California, otoño de 1980. En la cima de su carrera y después de años de negativas, Julio Cortázar acepta dar un curso universitario de dos meses en los Estados Unidos. Como cabía esperar, no se tratará de conferencias magistrales sino de una serie de charlas sobre literatura, y sobre todo acerca de su experiencia de escritor y la génesis de sus obras. Las clases tratan gran diversidad de temas: aspectos del cuento fantástico; la musicalidad, el humor, el erotismo y lo lúdico en la literatura; la imaginación y el realismo, la literatura social y las trampas del lenguaje, todos ellos encarnados en lecturas y ejemplos tomados de la cultura universal. Las clases llegan a su punto máximo de interés cuando Cortázar, ya en la edad de los balances, se refiere a su evolución de escritor y analiza su obra: cómo nacieron los cronopios y cuentos insuperables como La noche boca arriba o Continuidad de los parques; el sentido de Rayuela y su proceso de escritura; el desafío de Libro de Manuel. Quien lea la minuciosa y fiel transcripción de trece horas de grabaciones, al cabo de este encuentro con el Cortázar oral, valorará lo mismo que en sus textos: la soltura y cercanía, la vastedad de lecturas, la honestidad intelectual, la imaginación y el rigor de tamaño profesor. El Cortázar que nos quedaba por conocer, este que ya entra en el aula y sonríe.", "book","img/articles/clasesdeliteratura.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Julio Cortázar", "2013-10-09 8:12:01", "Alfaguara", "8420415162", 320, 55);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Julio Cortázar", "2013-10-09 8:12:01", "Alfaguara", "8420415162", 320,"","", 55);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2011-02-16 8:12:01", "La vuelta de los 25", "Una ecologista china, una madre de familia del sur de África, un chamán peruano, un pescador filipino, una maorí de Nueva Zelanda, una futura cosmonauta rusa Y todos de la misma edad. ¿Qué tienen en común? ¿Qué les preocupa? ¿Cómo viven? ¿Cómo afrontan el futuro? Éstas son las preguntas que durante un año el periodista Ma rc Serena ha planteado a 25 jóvenes durante un viaje que le llevó a dar la vuelta al mundo y a convivir con chicos de su misma edad, 25 años, de 25 países diferentes. Jóvenes pobres, ricos, con estudios, sin estudios, revolucionarios, conformistas, de grandes ciudades, de pequeños pueblos Perfiles muy diferentes, pero todos actuales, sorprendentes, llenos de matices, que ofrecen nuevos puntos de vista sobre el mundo en que vivimos. El resultado es una crónica amena, sincera y divertida, que conforma un retrato generacional.", "book","img/articles/lavueltadelos25.jpg");
-insert into books (author, editionDate, editorial, isbn, pages, articleId) values ("Marc Serena Casaldaglia", "2011-02-16 8:12:01", "EDB FICCION", "8466646647", 352, 56);
+insert into books (author, editionDate, editorial, isbn, pages, genre, language, articleId) values ("Marc Serena Casaldaglia", "2011-02-16 8:12:01", "EDB FICCION", "8466646647", 352,"","", 56);
 
 
 -- Insert articles and cds --
 insert into articles (releaseDate, name, description, discriminator, image) values ("2012-09-03 19:35:27", "Tetra", "Primer álbum del grupo electrónico francés C2C", "cd","tetra.jpg");
-insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("C2C", "B008MMFC56", 1, 61, 14,  57);
-insert into tracks (title, duration, cd) values ("The Cell", 5, 57);
-insert into tracks (title, duration, cd) values ("Down the Road", 3, 57);
-insert into tracks (title, duration, cd) values ("Kings Season (feat. Blitz the Ambassador and Ledeunff and Moongai)", 4, 57);
-insert into tracks (title, duration, cd) values ("Because of You (feat. Pigeon John)", 4, 57);
-insert into tracks (title, duration, cd) values ("Delta", 4, 57);
-insert into tracks (title, duration, cd) values ("Who Are You (feat. Olivier Daysoul)", 5, 57);
-insert into tracks (title, duration, cd) values ("Happy (feat. Derek Martin)" , 4, 57);
-insert into tracks (title, duration, cd) values ("Give Up the Ghost (feat. Jay-Jay Johanson)", 5, 57);
-insert into tracks (title, duration, cd) values ("Genius (feat. Gush)", 4, 57);
-insert into tracks (title, duration, cd) values ("Together (feat. Blitz the Ambassador and Ledeunff)" , 5, 57);
-insert into tracks (title, duration, cd) values ("Arcades", 4, 57);
-insert into tracks (title, duration, cd) values ("Le Banquet (feat. Kentaro and Netik and Rafik and Tigerstyle and Vajra)", 5, 57);
-insert into tracks (title, duration, cd) values ("F-U-Y-A", 5, 57);
+insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("C2C", "B008MMFC56", 1, 61, 57);
+insert into tracks (title, duration, cd_articleId) values ("The Cell", 5, 57);
+insert into tracks (title, duration, cd_articleId) values ("Down the Road", 3, 57);
+insert into tracks (title, duration, cd_articleId) values ("Kings Season (feat. Blitz the Ambassador and Ledeunff and Moongai)", 4, 57);
+insert into tracks (title, duration, cd_articleId) values ("Because of You (feat. Pigeon John)", 4, 57);
+insert into tracks (title, duration, cd_articleId) values ("Delta", 4, 57);
+insert into tracks (title, duration, cd_articleId) values ("Who Are You (feat. Olivier Daysoul)", 5, 57);
+insert into tracks (title, duration, cd_articleId) values ("Happy (feat. Derek Martin)" , 4, 57);
+insert into tracks (title, duration, cd_articleId) values ("Give Up the Ghost (feat. Jay-Jay Johanson)", 5, 57);
+insert into tracks (title, duration, cd_articleId) values ("Genius (feat. Gush)", 4, 57);
+insert into tracks (title, duration, cd_articleId) values ("Together (feat. Blitz the Ambassador and Ledeunff)" , 5, 57);
+insert into tracks (title, duration, cd_articleId) values ("Arcades", 4, 57);
+insert into tracks (title, duration, cd_articleId) values ("Le Banquet (feat. Kentaro and Netik and Rafik and Tigerstyle and Vajra)", 5, 57);
+insert into tracks (title, duration, cd_articleId) values ("F-U-Y-A", 5, 57);
 
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2007-09-03 19:35:27", "Take The Heat Off Me", "Primer álbum del grupo vocal alemán Boney M", "cd","taketheheatoffme.jpg");
-insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Boney M", "B000NJLXLI", 1, 36, 8,  58);
-insert into tracks (title, duration, cd) values ("Daddy Cool", 4, 58);
-insert into tracks (title, duration, cd) values ("Take The Heat Off Me", 5, 58);
-insert into tracks (title, duration, cd) values ("Sunny", 4, 58);
-insert into tracks (title, duration, cd) values ("Baby Do You Wanna Bump", 7, 58);
-insert into tracks (title, duration, cd) values ("No Woman, No Cry", 5, 58);
-insert into tracks (title, duration, cd) values ("Fever", 5, 58);
-insert into tracks (title, duration, cd) values ("Got a Man On My Mind", 3, 58);
-insert into tracks (title, duration, cd) values ("Lovin' Or Leavin", 5, 58);
+insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Boney M", "B000NJLXLI", 1, 36,  58);
+insert into tracks (title, duration, cd_articleId) values ("Daddy Cool", 4, 58);
+insert into tracks (title, duration, cd_articleId) values ("Take The Heat Off Me", 5, 58);
+insert into tracks (title, duration, cd_articleId) values ("Sunny", 4, 58);
+insert into tracks (title, duration, cd_articleId) values ("Baby Do You Wanna Bump", 7, 58);
+insert into tracks (title, duration, cd_articleId) values ("No Woman, No Cry", 5, 58);
+insert into tracks (title, duration, cd_articleId) values ("Fever", 5, 58);
+insert into tracks (title, duration, cd_articleId) values ("Got a Man On My Mind", 3, 58);
+insert into tracks (title, duration, cd_articleId) values ("Lovin' Or Leavin", 5, 58);
 
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2013-05-21 19:35:27", "Random Access Memories", "Cuarto álbum del famoso dúo francés Daft Punk", "cd","randomaccessmemories.jpg");
-insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Daft Punk", "B00C061I3K", 1, 74, 13, 59);
-insert into tracks (title, duration, cd) values ("Give Life Back to Music", 5, 59);
-insert into tracks (title, duration, cd) values ("The Game of Love", 5, 59);
-insert into tracks (title, duration, cd) values ("Giorgio by Moroder", 9, 59);
-insert into tracks (title, duration, cd) values ("Within", 4, 59);
-insert into tracks (title, duration, cd) values ("Instant Crush", 6, 59);
-insert into tracks (title, duration, cd) values ("Lose Yourself to Dance", 8, 59);
-insert into tracks (title, duration, cd) values ("Touch", 6, 59);
-insert into tracks (title, duration, cd) values ("Get Lucky", 5, 59);
-insert into tracks (title, duration, cd) values ("Beyond", 6, 59);
-insert into tracks (title, duration, cd) values ("Motherboard", 5, 59);
-insert into tracks (title, duration, cd) values ("Fragments of Time", 5, 59);
-insert into tracks (title, duration, cd) values ("Doin'it Right", 4, 59);
-insert into tracks (title, duration, cd) values ("Contact", 6, 59);
+insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Daft Punk", "B00C061I3K", 1, 74, 59);
+insert into tracks (title, duration, cd_articleId) values ("Give Life Back to Music", 5, 59);
+insert into tracks (title, duration, cd_articleId) values ("The Game of Love", 5, 59);
+insert into tracks (title, duration, cd_articleId) values ("Giorgio by Moroder", 9, 59);
+insert into tracks (title, duration, cd_articleId) values ("Within", 4, 59);
+insert into tracks (title, duration, cd_articleId) values ("Instant Crush", 6, 59);
+insert into tracks (title, duration, cd_articleId) values ("Lose Yourself to Dance", 8, 59);
+insert into tracks (title, duration, cd_articleId) values ("Touch", 6, 59);
+insert into tracks (title, duration, cd_articleId) values ("Get Lucky", 5, 59);
+insert into tracks (title, duration, cd_articleId) values ("Beyond", 6, 59);
+insert into tracks (title, duration, cd_articleId) values ("Motherboard", 5, 59);
+insert into tracks (title, duration, cd_articleId) values ("Fragments of Time", 5, 59);
+insert into tracks (title, duration, cd_articleId) values ("Doin'it Right", 4, 59);
+insert into tracks (title, duration, cd_articleId) values ("Contact", 6, 59);
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("1990-09-03 19:35:27", "Painkiller", "Álbum de la banda británica de heavy metal Judas Priest", "cd","painkiller.jpg");
-insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Judas Priest", "B00005Y0S3", 1, 55, 12, 60);
-insert into tracks (title, duration, cd) values ("Painkiller", 6, 60);
-insert into tracks (title, duration, cd) values ("Hell Patrol", 4, 60);
-insert into tracks (title, duration, cd) values ("All Guns Blazing", 4, 60);
-insert into tracks (title, duration, cd) values ("Leather Rebel", 4, 60);
-insert into tracks (title, duration, cd) values ("Metal Meltdown", 5, 60);
-insert into tracks (title, duration, cd) values ("Night Crawler", 6, 60);
-insert into tracks (title, duration, cd) values ("Between the Hammer & the Anvil", 5, 60);
-insert into tracks (title, duration, cd) values ("A Touch of Evil", 6, 60);
-insert into tracks (title, duration, cd) values ("Battle Hymn", 1, 60);
-insert into tracks (title, duration, cd) values ("One Shot Glory", 7, 60);
-insert into tracks (title, duration, cd) values ("Living Bad Dremas", 5, 60);
-insert into tracks (title, duration, cd) values ("Leather Rebel(Live)", 5, 60);
-insert into tracks (title, duration, cd) values ("Painkiller", 5, 60);
+insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Judas Priest", "B00005Y0S3", 1, 55, 60);
+insert into tracks (title, duration, cd_articleId) values ("Painkiller", 6, 60);
+insert into tracks (title, duration, cd_articleId) values ("Hell Patrol", 4, 60);
+insert into tracks (title, duration, cd_articleId) values ("All Guns Blazing", 4, 60);
+insert into tracks (title, duration, cd_articleId) values ("Leather Rebel", 4, 60);
+insert into tracks (title, duration, cd_articleId) values ("Metal Meltdown", 5, 60);
+insert into tracks (title, duration, cd_articleId) values ("Night Crawler", 6, 60);
+insert into tracks (title, duration, cd_articleId) values ("Between the Hammer & the Anvil", 5, 60);
+insert into tracks (title, duration, cd_articleId) values ("A Touch of Evil", 6, 60);
+insert into tracks (title, duration, cd_articleId) values ("Battle Hymn", 1, 60);
+insert into tracks (title, duration, cd_articleId) values ("One Shot Glory", 7, 60);
+insert into tracks (title, duration, cd_articleId) values ("Living Bad Dremas", 5, 60);
+insert into tracks (title, duration, cd_articleId) values ("Leather Rebel(Live)", 5, 60);
+insert into tracks (title, duration, cd_articleId) values ("Painkiller", 5, 60);
 
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2003-12-09 19:35:27", "Splinter", "Séptimo álbum de la banda americana de punk rock The Offspring", "cd","splinter.jpg");
-insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("The Offspring", "B0000CC4X6", 1, 32, 12, 61);
-insert into tracks (title, duration, cd) values ("Neocon", 1, 61);
-insert into tracks (title, duration, cd) values ("The Noose", 3, 61);
-insert into tracks (title, duration, cd) values ("Long Way Home", 2, 61);
-insert into tracks (title, duration, cd) values ("Hit That", 3, 61);
-insert into tracks (title, duration, cd) values ("Race Against Myself", 4, 61);
-insert into tracks (title, duration, cd) values ("(Can't Get My) Head Around You", 2, 61);
-insert into tracks (title, duration, cd) values ("The Worst Hangover Ever", 3, 61);
-insert into tracks (title, duration, cd) values ("Never Gonna Find Me", 3, 61);
-insert into tracks (title, duration, cd) values ("Lightning Rodrigues", 3, 61);
-insert into tracks (title, duration, cd) values ("Spare Me the Details", 4, 61);
-insert into tracks (title, duration, cd) values ("Da Hui", 2, 61);
-insert into tracks (title, duration, cd) values ("When You're in Prison", 3, 61);
+insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("The Offspring", "B0000CC4X6", 1, 32, 61);
+insert into tracks (title, duration, cd_articleId) values ("Neocon", 1, 61);
+insert into tracks (title, duration, cd_articleId) values ("The Noose", 3, 61);
+insert into tracks (title, duration, cd_articleId) values ("Long Way Home", 2, 61);
+insert into tracks (title, duration, cd_articleId) values ("Hit That", 3, 61);
+insert into tracks (title, duration, cd_articleId) values ("Race Against Myself", 4, 61);
+insert into tracks (title, duration, cd_articleId) values ("(Can't Get My) Head Around You", 2, 61);
+insert into tracks (title, duration, cd_articleId) values ("The Worst Hangover Ever", 3, 61);
+insert into tracks (title, duration, cd_articleId) values ("Never Gonna Find Me", 3, 61);
+insert into tracks (title, duration, cd_articleId) values ("Lightning Rodrigues", 3, 61);
+insert into tracks (title, duration, cd_articleId) values ("Spare Me the Details", 4, 61);
+insert into tracks (title, duration, cd_articleId) values ("Da Hui", 2, 61);
+insert into tracks (title, duration, cd_articleId) values ("When You're in Prison", 3, 61);
 
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2007-11-12 19:35:27", "Mothership", "Álbum recopilación de los mayores éxitos de la grupo de rock inglés Led Zeppelin", "cd","painkiller.jpg");
-insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Led Zeppelin", "B000VLE3IS", 3, 135, 44, 62);
-insert into tracks (title, duration, cd) values ("Good Times Bad Times", 3, 62);
-insert into tracks (title, duration, cd) values ("Communication Breakdown" , 3, 62);
-insert into tracks (title, duration, cd) values ("Dazed and Confused", 7, 62);
-insert into tracks (title, duration, cd) values ("Babe I'm Gonna Leave You", 7, 62);
-insert into tracks (title, duration, cd) values ("Whole Lotta Love", 6, 62);
-insert into tracks (title, duration, cd) values ("Ramble On", 4, 62);
-insert into tracks (title, duration, cd) values ("Heartbreaker", 4, 62);
-insert into tracks (title, duration, cd) values ("Immigrant Song", 3, 62);
-insert into tracks (title, duration, cd) values ("Since I've Been Loving You", 8, 62);
-insert into tracks (title, duration, cd) values ("Rock and Roll", 4, 62);
-insert into tracks (title, duration, cd) values ("Black Dog", 5, 62);
-insert into tracks (title, duration, cd) values ("When the Levee Breaks", 7, 62);
-insert into tracks (title, duration, cd) values ("Stairway to Heaven", 8, 62);
+insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Led Zeppelin", "B000VLE3IS", 3, 135, 62);
+insert into tracks (title, duration, cd_articleId) values ("Good Times Bad Times", 3, 62);
+insert into tracks (title, duration, cd_articleId) values ("Communication Breakdown" , 3, 62);
+insert into tracks (title, duration, cd_articleId) values ("Dazed and Confused", 7, 62);
+insert into tracks (title, duration, cd_articleId) values ("Babe I'm Gonna Leave You", 7, 62);
+insert into tracks (title, duration, cd_articleId) values ("Whole Lotta Love", 6, 62);
+insert into tracks (title, duration, cd_articleId) values ("Ramble On", 4, 62);
+insert into tracks (title, duration, cd_articleId) values ("Heartbreaker", 4, 62);
+insert into tracks (title, duration, cd_articleId) values ("Immigrant Song", 3, 62);
+insert into tracks (title, duration, cd_articleId) values ("Since I've Been Loving You", 8, 62);
+insert into tracks (title, duration, cd_articleId) values ("Rock and Roll", 4, 62);
+insert into tracks (title, duration, cd_articleId) values ("Black Dog", 5, 62);
+insert into tracks (title, duration, cd_articleId) values ("When the Levee Breaks", 7, 62);
+insert into tracks (title, duration, cd_articleId) values ("Stairway to Heaven", 8, 62);
 
-insert into tracks (title, duration, cd) values ("The Song Remains the Same", 6, 62);
-insert into tracks (title, duration, cd) values ("Over the Hills and Far Away", 5, 62);
-insert into tracks (title, duration, cd) values ("D'yer Mak'er", 4, 62);
-insert into tracks (title, duration, cd) values ("No Quarter", 7, 62);
-insert into tracks (title, duration, cd) values ("Trampled Under Foot", 6, 62);
-insert into tracks (title, duration, cd) values ("Houses of the Holy", 4, 62);
-insert into tracks (title, duration, cd) values ("Kashmir", 9, 62);
-insert into tracks (title, duration, cd) values ("Nobody's Fault but Mine", 7, 62);
-insert into tracks (title, duration, cd) values ("Achilles Last Stand", 10, 62);
-insert into tracks (title, duration, cd) values ("In the Evening", 7, 62);
-insert into tracks (title, duration, cd) values ("All My Love", 6, 62);
+insert into tracks (title, duration, cd_articleId) values ("The Song Remains the Same", 6, 62);
+insert into tracks (title, duration, cd_articleId) values ("Over the Hills and Far Away", 5, 62);
+insert into tracks (title, duration, cd_articleId) values ("D'yer Mak'er", 4, 62);
+insert into tracks (title, duration, cd_articleId) values ("No Quarter", 7, 62);
+insert into tracks (title, duration, cd_articleId) values ("Trampled Under Foot", 6, 62);
+insert into tracks (title, duration, cd_articleId) values ("Houses of the Holy", 4, 62);
+insert into tracks (title, duration, cd_articleId) values ("Kashmir", 9, 62);
+insert into tracks (title, duration, cd_articleId) values ("Nobody's Fault but Mine", 7, 62);
+insert into tracks (title, duration, cd_articleId) values ("Achilles Last Stand", 10, 62);
+insert into tracks (title, duration, cd_articleId) values ("In the Evening", 7, 62);
+insert into tracks (title, duration, cd_articleId) values ("All My Love", 6, 62);
 
-insert into tracks (title, duration, cd) values ("We're Gonna Groove", 3, 62);
-insert into tracks (title, duration, cd) values ("I Can't Quit You Baby", 7, 62);
-insert into tracks (title, duration, cd) values ("Dazed and Confused (Part)", 16, 62);
-insert into tracks (title, duration, cd) values ("White Summer (Part)", 12, 62);
-insert into tracks (title, duration, cd) values ("What Is and What Should Never Be", 5, 62);
-insert into tracks (title, duration, cd) values ("Moby Dick (Ending)", 4, 62);
-insert into tracks (title, duration, cd) values ("Whole Lotta Love", 7, 62);
-insert into tracks (title, duration, cd) values ("Communication Breakdown", 4, 62);
-insert into tracks (title, duration, cd) values ("Bring It on Home", 7, 62);
-insert into tracks (title, duration, cd) values ("Immigrant Song", 4, 62);
-insert into tracks (title, duration, cd) values ("Black Dog", 6, 62);
-insert into tracks (title, duration, cd) values ("Misty Mountain Hop", 5, 62);
-insert into tracks (title, duration, cd) values ("The Ocean", 4, 62);
-insert into tracks (title, duration, cd) values ("Going to California", 5, 62);
-insert into tracks (title, duration, cd) values ("In My Time of Dying", 11, 62);
-insert into tracks (title, duration, cd) values ("Stairway to Heaven", 11, 62);
-insert into tracks (title, duration, cd) values ("Rock and Roll", 4, 62);
-insert into tracks (title, duration, cd) values ("Nobody's Fault but Mine", 6, 62);
-insert into tracks (title, duration, cd) values ("Kashmir", 9, 62);
-insert into tracks (title, duration, cd) values ("Whole Lotta Love", 7, 62);
+insert into tracks (title, duration, cd_articleId) values ("We're Gonna Groove", 3, 62);
+insert into tracks (title, duration, cd_articleId) values ("I Can't Quit You Baby", 7, 62);
+insert into tracks (title, duration, cd_articleId) values ("Dazed and Confused (Part)", 16, 62);
+insert into tracks (title, duration, cd_articleId) values ("White Summer (Part)", 12, 62);
+insert into tracks (title, duration, cd_articleId) values ("What Is and What Should Never Be", 5, 62);
+insert into tracks (title, duration, cd_articleId) values ("Moby Dick (Ending)", 4, 62);
+insert into tracks (title, duration, cd_articleId) values ("Whole Lotta Love", 7, 62);
+insert into tracks (title, duration, cd_articleId) values ("Communication Breakdown", 4, 62);
+insert into tracks (title, duration, cd_articleId) values ("Bring It on Home", 7, 62);
+insert into tracks (title, duration, cd_articleId) values ("Immigrant Song", 4, 62);
+insert into tracks (title, duration, cd_articleId) values ("Black Dog", 6, 62);
+insert into tracks (title, duration, cd_articleId) values ("Misty Mountain Hop", 5, 62);
+insert into tracks (title, duration, cd_articleId) values ("The Ocean", 4, 62);
+insert into tracks (title, duration, cd_articleId) values ("Going to California", 5, 62);
+insert into tracks (title, duration, cd_articleId) values ("In My Time of Dying", 11, 62);
+insert into tracks (title, duration, cd_articleId) values ("Stairway to Heaven", 11, 62);
+insert into tracks (title, duration, cd_articleId) values ("Rock and Roll", 4, 62);
+insert into tracks (title, duration, cd_articleId) values ("Nobody's Fault but Mine", 6, 62);
+insert into tracks (title, duration, cd_articleId) values ("Kashmir", 9, 62);
+insert into tracks (title, duration, cd_articleId) values ("Whole Lotta Love", 7, 62);
 
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2013-01-17 19:35:27", "In a Time Lapse", "In a Time Lapse fue compuesto durante un periodo de dos años y grabado en octubre de 2012 en un monasterio cercano a Verona. Los catorce nuevos originales que conforman In a Time Lapse contienen piano, cuerdas, percusiones y electrónica, y toman vida en forma de suite que está concebida para ser escuchada #como los capítulos de un libro#.", "cd","inatimelapse.jpg");
-insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Ludovico Einaudi", "B00AIQVLV8", 1, 65, 14, 63);
-insert into tracks (title, duration, cd) values ("Corale", 2, 63);
-insert into tracks (title, duration, cd) values ("Time Lapse", 6, 63);
-insert into tracks (title, duration, cd) values ("Life", 4, 63);
-insert into tracks (title, duration, cd) values ("Walk", 3, 63);
-insert into tracks (title, duration, cd) values ("Discovery at Night", 4, 63);
-insert into tracks (title, duration, cd) values ("Run", 6, 63);
-insert into tracks (title, duration, cd) values ("Brothers", 5, 63);
-insert into tracks (title, duration, cd) values ("Orbits", 3, 63);
-insert into tracks (title, duration, cd) values ("Two Trees", 6, 63);
-insert into tracks (title, duration, cd) values ("Newton's Cradle", 8, 63);
-insert into tracks (title, duration, cd) values ("Waterways", 4, 63);
-insert into tracks (title, duration, cd) values ("Experience", 4, 63);
-insert into tracks (title, duration, cd) values ("Underwood", 5, 63);
-insert into tracks (title, duration, cd) values ("Burning", 5, 63);
+insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Ludovico Einaudi", "B00AIQVLV8", 1, 65, 63);
+insert into tracks (title, duration, cd_articleId) values ("Corale", 2, 63);
+insert into tracks (title, duration, cd_articleId) values ("Time Lapse", 6, 63);
+insert into tracks (title, duration, cd_articleId) values ("Life", 4, 63);
+insert into tracks (title, duration, cd_articleId) values ("Walk", 3, 63);
+insert into tracks (title, duration, cd_articleId) values ("Discovery at Night", 4, 63);
+insert into tracks (title, duration, cd_articleId) values ("Run", 6, 63);
+insert into tracks (title, duration, cd_articleId) values ("Brothers", 5, 63);
+insert into tracks (title, duration, cd_articleId) values ("Orbits", 3, 63);
+insert into tracks (title, duration, cd_articleId) values ("Two Trees", 6, 63);
+insert into tracks (title, duration, cd_articleId) values ("Newton's Cradle", 8, 63);
+insert into tracks (title, duration, cd_articleId) values ("Waterways", 4, 63);
+insert into tracks (title, duration, cd_articleId) values ("Experience", 4, 63);
+insert into tracks (title, duration, cd_articleId) values ("Underwood", 5, 63);
+insert into tracks (title, duration, cd_articleId) values ("Burning", 5, 63);
 
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("2011-04-12 19:35:27", "Wasting Light", "Último álbum de la banda creada por el ex batería de Nirvana", "cd","wastinlight.jpg");
-insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Foo Fighters", "B004LUHQ1G", 1, 47, 11, 64);
-insert into tracks (title, duration, cd) values ("Bridge Burning", 5, 64);
-insert into tracks (title, duration, cd) values ("Rope", 4, 64);
-insert into tracks (title, duration, cd) values ("Dear Rosemary", 4, 64);
-insert into tracks (title, duration, cd) values ("White Limo", 3, 64);
-insert into tracks (title, duration, cd) values ("Arlandria", 4, 64);
-insert into tracks (title, duration, cd) values ("These Days", 5, 64);
-insert into tracks (title, duration, cd) values ("Back & Forth", 4, 64);
-insert into tracks (title, duration, cd) values ("A Matter Of Time", 5, 64);
-insert into tracks (title, duration, cd) values ("Miss The Misery", 4, 64);
-insert into tracks (title, duration, cd) values ("I Should Have Known", 4, 64);
-insert into tracks (title, duration, cd) values ("Walk", 4, 64);
+insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Foo Fighters", "B004LUHQ1G", 1, 47, 64);
+insert into tracks (title, duration, cd_articleId) values ("Bridge Burning", 5, 64);
+insert into tracks (title, duration, cd_articleId) values ("Rope", 4, 64);
+insert into tracks (title, duration, cd_articleId) values ("Dear Rosemary", 4, 64);
+insert into tracks (title, duration, cd_articleId) values ("White Limo", 3, 64);
+insert into tracks (title, duration, cd_articleId) values ("Arlandria", 4, 64);
+insert into tracks (title, duration, cd_articleId) values ("These Days", 5, 64);
+insert into tracks (title, duration, cd_articleId) values ("Back & Forth", 4, 64);
+insert into tracks (title, duration, cd_articleId) values ("A Matter Of Time", 5, 64);
+insert into tracks (title, duration, cd_articleId) values ("Miss The Misery", 4, 64);
+insert into tracks (title, duration, cd_articleId) values ("I Should Have Known", 4, 64);
+insert into tracks (title, duration, cd_articleId) values ("Walk", 4, 64);
 
 
 insert into articles (releaseDate, name, description, discriminator, image) values ("1973-03-01 19:35:27", "Wasting Light", "Octavo álbum de la banda de rock progresivo Pink Floyd", "cd","thedarksideofthemoon.jpg");
-insert into cds (groupName, asin, discsNumber, duration, tracks, articleId) values ("Pink Floyd", "B00008CLOA", 1, 43, 10, 65);
-insert into tracks (title, duration, cd) values ("Speak To Me", 2, 65);
-insert into tracks (title, duration, cd) values ("Breathe (Breathe In The Air)", 3, 65);
-insert into tracks (title, duration, cd) values ("Time", 4, 65);
-insert into tracks (title, duration, cd) values ("The Great Gig In The Sky", 7, 65);
-insert into tracks (title, duration, cd) values ("Money", 5, 65);
-insert into tracks (title, duration, cd) values ("Us And Them", 6, 65);
-insert into tracks (title, duration, cd) values ("Any Colour You Like", 8, 65);
-insert into tracks (title, duration, cd) values ("Brain Damage", 3, 65);
-insert into tracks (title, duration, cd) values ("Eclipse", 4, 65);
-insert into tracks (title, duration, cd) values ("On The Run", 2, 65);
+insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Pink Floyd", "B00008CLOA", 1, 43, 65);
+insert into tracks (title, duration, cd_articleId) values ("Speak To Me", 2, 65);
+insert into tracks (title, duration, cd_articleId) values ("Breathe (Breathe In The Air)", 3, 65);
+insert into tracks (title, duration, cd_articleId) values ("Time", 4, 65);
+insert into tracks (title, duration, cd_articleId) values ("The Great Gig In The Sky", 7, 65);
+insert into tracks (title, duration, cd_articleId) values ("Money", 5, 65);
+insert into tracks (title, duration, cd_articleId) values ("Us And Them", 6, 65);
+insert into tracks (title, duration, cd_articleId) values ("Any Colour You Like", 8, 65);
+insert into tracks (title, duration, cd_articleId) values ("Brain Damage", 3, 65);
+insert into tracks (title, duration, cd_articleId) values ("Eclipse", 4, 65);
+insert into tracks (title, duration, cd_articleId) values ("On The Run", 2, 65);
 
 
 -- Insert articles and comics --
+insert into articles (releaseDate, name, description, discriminator, image) values ("2008-03-19 18:14:25", "Marvels Captain America: The Winter Soldier: The Art of the Movie Slipcase", "A comic masterpiece.", "comic","captainamerica.jpg");
+insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles"," Alan Moore", "2008-03-19 18:14:25", "DC Comics", "1401216676", 64,  66);
+insert into comics (chapter, number, collection, articleId) values (1, 1, 16, 66);
+insert into cartoonists (name, work, comic_articleId) values ("Brian Bolland","Writer",66);
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-02-14 18:14:25", "Watchmen ", "This Hugo Award-winning graphic novel chronicles the fall from grace of a group of super-heroes plagued by all-too-human failings. Along the way, the concept of the super-hero is dissected as the heroes are stalked by an unknown assassin.", "comic","watchmen.jpg");
+insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles", "Alan Moore", "2014-02-14 18:14:25", "DC Comics", "9788401342547", 416, 67);
+insert into comics (chapter, number, collection, articleId) values (1,1,20, 67);
+insert into cartoonists (name, work, comic_articleId) values ("Dave Gibbons", "Illustrator", 67);
+
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-10-15 18:14:25", "Batman Vol. 2: The City of Owls", "NIGHT OF THE OWLS continues here! Batman must stop the TALONS that have breeched the Batcave in order to save an innocent life ... and Gotham City! In the backup story, learn more about the PENNYWORTH family and the secrets they've kept from the Wayne family! Collects BATMAN #8-12 and BATMAN ANNUAL #1.", "comic","batmanvol2.jpg");
+insert into books (genre, language, author, editionDate, editorial, isbn, pages, articleId) values ("Ciencia-ficcion", "ingles", "Scott Snyder", "2014-02-14 18:14:25", "DC Comics", "1401237789", 208, 68);
+insert into comics (chapter, number, collection, articleId) values (2,2,5, 68);
+insert into cartoonists (name, work, comic_articleId) values ("Rafael Albuquerque", "Illustrator", 68);
