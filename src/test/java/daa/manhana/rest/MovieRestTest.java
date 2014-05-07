@@ -58,7 +58,7 @@ public class MovieRestTest extends ConfigRestTest {
 		TestUtils.assertOkStatus(response);
 
 		final List<daa.manhana.entities.Movie> movies = response.readEntity(new GenericType<List<daa.manhana.entities.Movie>>(){});
-		assertEquals(3, movies.size());
+		assertEquals(33, movies.size());
 	}
 	
 	@Test

@@ -24,24 +24,24 @@ public class ComicDAOTest extends ConfigTest {
 	
 	@Test
 	public void testingFindByName() {
-		List<Comic> test = comicDAO.findByName("Tintin");
+		List<Comic> test = comicDAO.findByName("Batman");
 
 		assertNotNull("Find by name is not null", test);
 		
 		assertEquals("Length is not 1", 1, test.size());
 		
-		assertEquals("Id is different than 15", 15, test.get(0).getId() );
+		assertEquals("Id is different than 72", 72, test.get(0).getId() );
 	}
 	
 	@Test
 	public void testingFindByNameWithPagination() {
-		List<Comic> test = comicDAO.findByName("Cigars", 1, 1);
+		List<Comic> test = comicDAO.findByName("Cometas", 1, 1);
 		
 		assertNotNull("Find by name with pagination is not null", test);
 		
 		assertEquals("Length is not 1", 1, test.size());
 		
-		assertEquals("Id is different than 15", 15, test.get(0).getId() );
+		assertEquals("Id is different than 73", 73, test.get(0).getId() );
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class ComicDAOTest extends ConfigTest {
 		
 		assertEquals("Length is not 2", 2, test.size());
 		
-		assertEquals("Id is different than 15", 15, test.get(0).getId() );
+		assertEquals("Id is different than 72", 72, test.get(0).getId() );
 	}
 	
 	@Test
@@ -65,8 +65,8 @@ public class ComicDAOTest extends ConfigTest {
 	
 	@Test
 	public void testingFindById() {
-		final int id = 16;
-		final String name = "Dragon ball";
+		final int id = 71;
+		final String name = "Watchmen ";
 		
 		Comic test = (Comic) comicDAO.findById(id);
 		
@@ -84,7 +84,7 @@ public class ComicDAOTest extends ConfigTest {
 		List<Comic> test = comicDAO.getAll();
 		assertNotNull("Find by id is not null", test);
 		
-		assertEquals("Length is not 2", 2, test.size());
+		assertEquals("Length is not 6", 6, test.size());
 	}
 
 }

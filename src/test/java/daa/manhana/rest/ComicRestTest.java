@@ -44,12 +44,12 @@ public class ComicRestTest extends ConfigRestTest {
 	
 	@Test
 	public void testingFindComicById() throws IOException {
-		final Response response = target("/comics/16").request().get();
+		final Response response = target("/comics/73").request().get();
 		TestUtils.assertOkStatus(response);
 
 		final daa.manhana.entities.Comic comic = response.readEntity(daa.manhana.entities.Comic.class);
-		assertEquals(16, comic.getId());
-		assertEquals("dragon ball", comic.getName().toLowerCase());
+		assertEquals(73, comic.getId());
+		assertEquals("cometas en el cielo", comic.getName().toLowerCase());
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ public class ComicRestTest extends ConfigRestTest {
 		TestUtils.assertOkStatus(response);
 
 		final List<daa.manhana.entities.Comic> comics = response.readEntity(new GenericType<List<daa.manhana.entities.Comic>>(){});
-		assertEquals(2, comics.size());
+		assertEquals(6, comics.size());
 	}
 	
 	@Test

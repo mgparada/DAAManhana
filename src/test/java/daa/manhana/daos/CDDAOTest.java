@@ -27,20 +27,20 @@ public class CDDAOTest extends ConfigTest {
 
 		assertNotNull("Find by name is not null", test);
 		
-		assertEquals("Length is not 3", 3, test.size());
+		assertEquals("Length is not 1", 1, test.size());
 		
-		assertEquals("Id is different than 13", 13, test.get(0).getId() );
+		assertEquals("Id is different than 66", 66, test.get(0).getId() );
 	}
 	
 	@Test
 	public void testingFindByNameWithPagination() {
-		List<CD> test = CDDAO.findByName("Pasodobles", 1, 1);
+		List<CD> test = CDDAO.findByName("Broken", 1, 1);
 		
 		assertNotNull("Find by name with pagination is not null", test);
 		
 		assertEquals("Length is not 1", 1, test.size());
 		
-		assertEquals("Id is different than 14", 14, test.get(0).getId() );
+		assertEquals("Id is different than 69", 69, test.get(0).getId() );
 	}
 	
 	@Test
@@ -49,9 +49,9 @@ public class CDDAOTest extends ConfigTest {
 		
 		assertNotNull("Find All with pagination is not null", test);
 		
-		assertEquals("Length is not 1", 1, test.size());
+		assertEquals("Length is not 2", 2, test.size());
 		
-		assertEquals("Id is different than 14", 14, test.get(0).getId() );
+		assertEquals("Id is different than 63", 63, test.get(0).getId() );
 	}
 	
 	@Test
@@ -64,8 +64,8 @@ public class CDDAOTest extends ConfigTest {
 	
 	@Test
 	public void testingFindById() {
-		final int id = 14;
-		final String name = "Por Pasodobles Por Sevillanas";
+		final int id = 67;
+		final String name = "XSCApE";
 		
 		CD test = CDDAO.findById(id);
 		
@@ -83,7 +83,7 @@ public class CDDAOTest extends ConfigTest {
 		List<CD> test = CDDAO.getAll();
 		assertNotNull("Find by id is not null", test);
 		
-		assertEquals("Length is not 3", 3, test.size());
+		assertEquals("Length is not 13", 13, test.size());
 	}
 
 }

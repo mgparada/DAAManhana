@@ -42,11 +42,11 @@ public class BookRestTest extends ConfigRestTest {
 	
 	@Test
 	public void testingFindBookById() throws IOException {
-		final Response response = target("/books/9").request().get();
+		final Response response = target("/books/34").request().get();
 		TestUtils.assertOkStatus(response);
 
 		final daa.manhana.entities.Book book = response.readEntity(daa.manhana.entities.Book.class);
-		assertEquals(9, book.getId());
+		assertEquals(34, book.getId());
 		assertEquals("el juego de ripper", book.getName().toLowerCase());
 	}
 	
@@ -65,7 +65,7 @@ public class BookRestTest extends ConfigRestTest {
 		TestUtils.assertOkStatus(response);
 
 		final List<daa.manhana.entities.Book> books = response.readEntity(new GenericType<List<daa.manhana.entities.Book>>(){});
-		assertEquals(1, books.size());
+		assertEquals(10, books.size());
 	}
 	
 	@Test

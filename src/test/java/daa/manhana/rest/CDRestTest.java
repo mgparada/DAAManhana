@@ -43,11 +43,11 @@ public class CDRestTest extends ConfigRestTest {
 	
 	@Test
 	public void testingFindCDById() throws IOException {
-		final Response response = target("/cds/12").request().get();
+		final Response response = target("/cds/66").request().get();
 		TestUtils.assertOkStatus(response);
 
 		final daa.manhana.entities.CD cd = response.readEntity(daa.manhana.entities.CD.class);
-		assertEquals(12, cd.getId());
+		assertEquals(66, cd.getId());
 		assertEquals("frozen", cd.getName().toLowerCase());
 	}
 	
