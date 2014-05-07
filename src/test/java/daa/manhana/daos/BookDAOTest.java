@@ -25,9 +25,9 @@ public class BookDAOTest extends ConfigTest {
 		
 		assertNotNull("Find by name is not null", test);
 		
-		assertEquals("Length is not 1", 1, test.size());
+		assertEquals("Length is not 3", 3, test.size());
 		
-		assertEquals("Id is different than 9", 9, test.get(0).getId() );
+		assertEquals("Id is different than 34", 34, test.get(0).getId() );
 	}
 	
 	@Test
@@ -38,7 +38,7 @@ public class BookDAOTest extends ConfigTest {
 		
 		assertEquals("Length is not 2", 1, test.size());
 		
-		assertEquals("Id is different than 11", 11, test.get(0).getId() );
+		assertEquals("Id is different than 43", 43, test.get(0).getId() );
 	}
 	
 	@Test
@@ -47,9 +47,9 @@ public class BookDAOTest extends ConfigTest {
 		
 		assertNotNull("Find All with pagination is not null", test);
 		
-		assertEquals("Length is not 1", 1, test.size());
+		assertEquals("Length is not 2", 2, test.size());
 		
-		assertEquals("Id is different than 9", 9, test.get(0).getId() );
+		assertEquals("Id is different than 48", 48, test.get(0).getId() );
 	}
 	
 	@Test
@@ -62,7 +62,7 @@ public class BookDAOTest extends ConfigTest {
 	
 	@Test
 	public void testingFindById() {
-		final int id = 10;
+		final int id = 35;
 		final String name = "DIVERGENT BOOK 1";
 		
 		Book test = bookDAO.findById(id);
@@ -81,7 +81,7 @@ public class BookDAOTest extends ConfigTest {
 		List<Book> test = bookDAO.getAll();
 		assertNotNull("Find by id is not null", test);
 		
-		assertEquals("Length is not 3", 3, test.size());
+		assertEquals("Length is not 23", 23, test.size());
 	}
 
 }

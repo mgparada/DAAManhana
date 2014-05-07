@@ -23,11 +23,11 @@ public class CDDAOTest extends ConfigTest {
 	
 	@Test
 	public void testingFindByName() {
-		List<CD> test = CDDAO.findByName("Fary");
+		List<CD> test = CDDAO.findByName("Frozen");
 
 		assertNotNull("Find by name is not null", test);
 		
-		assertEquals("Length is not 1", 1, test.size());
+		assertEquals("Length is not 3", 3, test.size());
 		
 		assertEquals("Id is different than 13", 13, test.get(0).getId() );
 	}

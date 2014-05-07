@@ -1,5 +1,3 @@
-use DAAManhana;
-
 drop table tracks;
 drop table actors;
 drop table cartoonists;
