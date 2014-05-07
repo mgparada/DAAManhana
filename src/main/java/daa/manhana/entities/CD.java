@@ -79,13 +79,13 @@ public class CD extends Article {
 		this.discsNumber = discsNumber;
 	}
 
-//	public List<Track> getTracks() {
-//		return tracks;
-//	}
-//
-//	public void setTracks(List<Track> tracks) {
-//		this.tracks = tracks;
-//	}
+	public List<Track> getTracks() {
+		return tracks;
+	}
+
+	public void setTracks(List<Track> tracks) {
+		this.tracks = tracks;
+	}
 	
 	
 }

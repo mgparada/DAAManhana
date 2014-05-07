@@ -51,13 +51,13 @@ public class Comic extends Book {
 		this.chapter = chapter;
 	}
 
-//	public List<Cartoonist> getCartoonists() {
-//		return cartoonists;
-//	}
-//
-//	public void setCartoonists(List<Cartoonist> cartoonists) {
-//		this.cartoonists = cartoonists;
-//	}
+	public List<Cartoonist> getCartoonists() {
+		return cartoonists;
+	}
+
+	public void setCartoonists(List<Cartoonist> cartoonists) {
+		this.cartoonists = cartoonists;
+	}
 
 	public int getCollection() {
 		return collection;

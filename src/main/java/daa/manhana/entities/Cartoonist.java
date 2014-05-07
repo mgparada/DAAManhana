@@ -57,13 +57,4 @@ public class Cartoonist {
 	public void setWork(String work) {
 		this.work = work;
 	}
-
-	public Comic getComic() {
-		return comic;
-	}
-
-	public void setComic(Comic comic) {
-		this.comic = comic;
-	}
-	
 }

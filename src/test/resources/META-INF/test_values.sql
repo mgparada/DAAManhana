@@ -267,7 +267,7 @@ insert into tracks (title, duration, cd_articleId) values ("Got a Man On My Mind
 insert into tracks (title, duration, cd_articleId) values ("Lovin' Or Leavin", 5, 58);
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2013-05-21 19:35:27", "Random Access Memories", "Cuarto álbum del famoso dúo francés Daft Punk", "cd","img/src/randomaccessmemories.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2013-05-21 19:35:27", "Random Access Memories", "Cuarto álbum del famoso dúo francés Daft Punk", "cd","img/articles/randomaccessmemories.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Daft Punk", "B00C061I3K", 1, 74, 59);
 insert into tracks (title, duration, cd_articleId) values ("Give Life Back to Music", 5, 59);
 insert into tracks (title, duration, cd_articleId) values ("The Game of Love", 5, 59);
@@ -384,7 +384,7 @@ insert into tracks (title, duration, cd_articleId) values ("Underwood", 5, 63);
 insert into tracks (title, duration, cd_articleId) values ("Burning", 5, 63);
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2011-04-12 19:35:27", "Wasting Light", "Último álbum de la banda creada por el ex batería de Nirvana", "cd","img/articles/wastinlight.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2011-04-12 19:35:27", "Wasting Light", "Último álbum de la banda creada por el ex batería de Nirvana", "cd","img/articles/wastinglight.jpg");
 insert into cds (groupName, asin, discsNumber, duration,  articleId) values ("Foo Fighters", "B004LUHQ1G", 1, 47, 64);
 insert into tracks (title, duration, cd_articleId) values ("Bridge Burning", 5, 64);
 insert into tracks (title, duration, cd_articleId) values ("Rope", 4, 64);
