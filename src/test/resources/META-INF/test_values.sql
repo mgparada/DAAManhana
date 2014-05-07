@@ -426,7 +426,7 @@ insert into tracks (title, duration, cd_articleId) values ("Cast - Frozen - Solo
 insert into tracks (title, duration, cd_articleId) values ("Demi Lovato - Let It Go", 2, 66);
 
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-13 19:35:27", "Frozen", "Exclusive Mr. Brainwash poster – Michael Jackson was an early admirer of Mr. Brainwash and they became friends. Now he has created an original piece of art which has been included as a poster with the CD version.", "cd","img/articles/xscape.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-13 19:35:27", "XSCApE", "Exclusive Mr. Brainwash poster – Michael Jackson was an early admirer of Mr. Brainwash and they became friends. Now he has created an original piece of art which has been included as a poster with the CD version.", "cd","img/articles/xscape.jpg");
 insert into cds (groupName, asin, discsNumber, duration, articleId) values ("Michael Jackson", "B00JDB4PEY", 1, 42, 67);
 insert into tracks (title, duration, cd_articleId) values ("Love Never Felt So Good", 2, 67);
 insert into tracks (title, duration, cd_articleId) values ("Chicago", 2, 67);
@@ -439,7 +439,7 @@ insert into tracks (title, duration, cd_articleId) values ("Xscape", 2, 67);
 insert into tracks (title, duration, cd_articleId) values ("Love Never Felt So Good (Original Version)", 2, 67);
 insert into tracks (title, duration, cd_articleId) values ("Chicago (Original Version)", 2, 67);
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-19 19:35:27", "XSCApE", "Sin descripcion por el momento", "cd","img/articles/ghoststories.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-19 19:35:27", "Magic", "Sin descripcion por el momento", "cd","img/articles/ghoststories.jpg");
 insert into cds (groupName, asin, discsNumber, duration, articleId) values ("Coldplay", "B00IQE4NUK", 1, 42, 68);
 insert into tracks (title, duration, cd_articleId) values ("Always In My Head", 3, 68);
 insert into tracks (title, duration, cd_articleId) values ("Magic", 3, 68);
@@ -451,7 +451,7 @@ insert into tracks (title, duration, cd_articleId) values ("Oceans", 4, 68);
 insert into tracks (title, duration, cd_articleId) values ("A Sky Full Of Stars", 4, 68);
 insert into tracks (title, duration, cd_articleId) values ("O", 3, 68);
 
-insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-06 19:35:27", "Frozen", "In a press release, McLachlan revealed that the album was inspired by her father's passing and her own appreciation of life: This album is about moving through the second half of my life in a more mindful and meaningful way, recognizing that every day, every moment is precious and though we all have our issues and problems, our damages, we all have the ability to continue to learn, grow from our experiences, thrive and shine on. Many of the songs are inspired at least partially or wholly by my father's passing three years ago and the profound effect losing him had on me. I had to find my footing again without the anchor of his unconditional love.", "cd","img/articles/shineon.jpg");
+insert into articles (releaseDate, name, description, discriminator, image) values ("2014-05-06 19:35:27", "Broken", "In a press release, McLachlan revealed that the album was inspired by her father's passing and her own appreciation of life: This album is about moving through the second half of my life in a more mindful and meaningful way, recognizing that every day, every moment is precious and though we all have our issues and problems, our damages, we all have the ability to continue to learn, grow from our experiences, thrive and shine on. Many of the songs are inspired at least partially or wholly by my father's passing three years ago and the profound effect losing him had on me. I had to find my footing again without the anchor of his unconditional love.", "cd","img/articles/shineon.jpg");
 insert into cds (groupName, asin, discsNumber, duration, articleId) values ("Sarah McLachlan", "B00I86JUSG", 1, 42, 69);
 insert into tracks (title, duration, cd_articleId) values ("In Your Shoes", 3, 69);
 insert into tracks (title, duration, cd_articleId) values ("Flesh And Blood", 3, 69);
