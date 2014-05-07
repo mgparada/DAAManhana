@@ -31,7 +31,7 @@ public class Track {
 	public Track(String title, int duration, CD cd) {
 		this.title = title;
 		this.duration = duration;
-		this.setCd(cd);
+		this.cd = cd;
 	}
 
 	public int getId() {
@@ -56,14 +56,6 @@ public class Track {
 
 	public void setDuration(int duration) {
 		this.duration = duration;
-	}
-
-	public CD getCd() {
-		return cd;
-	}
-
-	public void setCd(CD cd) {
-		this.cd = cd;
 	}
 }
 

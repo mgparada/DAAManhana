@@ -25,6 +25,20 @@ function setComicDetails(id) {
 
 function appendComic(article) {
 	var date = article['releaseDate'].split("-");
+	var cartoonists = "";
+	
+	$.each(article['cartoonists'], function(k, v) {
+		if (k%2 == 0) clazz = "ilustrator_content_impar"; else clazz = "ilustrator_content_par";
+		var toConcat = 
+			"<div class='" + clazz + "'>" +
+				"<div class='ilustrator_name'>" + v["name"] +
+				"</div>" +
+				"<div class='ilustrator_job'>" + v["work"] +
+				"</div>" +
+			"</div>";
+		
+		cartoonists = cartoonists.concat(toConcat);
+	});
 	
 	var toAppend = "<div class='article_content'>" +
 				"<div class='article_img'>" +
@@ -55,6 +69,9 @@ function appendComic(article) {
 						"<div class='cd_atribute'>" +
 							"<b>Género:</b> " + article["genre"] +
 						"</div>" +
+						"<div class='cd_atribute'>" +
+							"<b>Colección:</b> " + article["collection"] +
+						"</div>" +
 				"</div>" +
 				"<!-- Idioma + Numero + Coleccion -->" +
 				"<div class='cd_atributes_2'>" +
@@ -62,7 +79,7 @@ function appendComic(article) {
 							"<b>Idioma:</b> " + article["language"] +
 						"</div>" +
 						"<div class='cd_atribute'>" +
-							"<b>Número: ¿Capitulo? </b> " + article["chapter"] +
+							"<b>Capitulo: </b> " + article["chapter"] +
 						"</div>" +
 						"<div class='cd_atribute'>" +
 							"<b>Paginas: </b> " + article["pages"] +
@@ -81,18 +98,7 @@ function appendComic(article) {
 						"<b>Trabajo</b>" +
 					"</div>" +
 				"</div>" +
-				
-				"<!-- Dibujante -->" +
-				"<div class='ilustrator_content_impar'>" +
-					"<div class='ilustrator_name'>" +
-						"<a href='#'>Steve Ditko</a>" +
-					"</div>" +
-					"<div class='ilustrator_job'>" +
-						"Dibujante" +
-					"</div>" +
-				"</div>" +
-				"<!--       -->" +
-			
+				cartoonists +
 			"</div>" +		
 			"<!-- Banner -->" +
 			"<div class='article_banner_content'>" +
@@ -133,10 +139,7 @@ function appendBook(article) {
 					"<b>Editorial:</b> " + article["editorial"] +
 				"</div>" +
 				"<div class='cd_atribute'>" +
-					"<b>Género:</b> <a href='#'>" + articles["genre"] + "</a>" +
-				"</div>" +
-				"<div class='cd_atribute'>" +
-					"<b>Estilo:</b> -" +
+					"<b>Género:</b> -" + 
 				"</div>" +
 		"</div>" +
 		"<div class='cd_atributes_2'>" +
@@ -144,7 +147,7 @@ function appendBook(article) {
 					"<b>ISBN:</b> " + article["isbn"] +
 				"</div>" +
 				"<div class='cd_atribute'>" +
-					"<b>Idioma:</b>" + articles["language"] + 
+					"<b>Idioma:</b> Español" + 
 				"</div>" +
 				"<div class='cd_atribute'>" +
 					"<b>Páginas:</b> " + article["pages"] +
@@ -163,24 +166,25 @@ function appendBook(article) {
 }
 
 function appendCd(article) {
-	var cont = 1;
-	$.each(cont, article['tracks'], function(k, v) {
+	var tracks = "";
+	
+	$.each(article['tracks'], function(k, v) {
+		if (k%2 == 0) clazz = "task_content_impar"; else clazz = "task_content_par";
 		var toConcat = 
-			"<div class='task_content_impar'>" +
-			"<div class='task_number'>" +
-				cont + "." +
-			"</div>" +
-			"<div class='task_name'>" +
-				"Hells Bells" +
-			"</div>" +
-			"<div class='task_legth'>" +
-				"5:13" +
-			"</div>" +
-		"</div>";
-		cont++;
+			"<div class='" + clazz + "'>" +
+				"<div class='task_number'>" +
+					k +
+				"</div>" +
+				"<div class='task_name'>" +
+					v["title"] +
+				"</div>" +
+				"<div class='task_legth'>" +
+					v["duration"] +
+				"</div>" +
+			"</div>";
 		
-		actors = actors.concat(toConcat);
-	});
+		tracks = tracks.concat(toConcat);
+	});;
 	
 	var date = article['releaseDate'].split("-");
 	
@@ -205,13 +209,13 @@ function appendCd(article) {
 		"<div class='cd_content'>" +
 			"<div class='cd_atributes_1'>" +
 					"<div class='cd_atribute'>" +
-						"<b>Discográfica:</b> -" +
+						"<b>Grupo:</b> " + article["groupName"] +
 					"</div>" +
 					"<div class='cd_atribute'>" +
 						"<b>ASIN:</b> " + article["asin"] +
 					"</div>" +
 					"<div class='cd_atribute'>" +
-						"<b>Estilo:</b> -" +
+						"<b>Duración:</b> " + article["duration"] + " minutos" +
 					"</div>" +
 			"</div>" +
 			"<div class='cd_atributes_2'>" +
@@ -219,11 +223,8 @@ function appendCd(article) {
 						"<b>Nº Discos:</b> " + article["discsNumber"] +
 					"</div>" +
 					"<div class='cd_atribute'>" +
-						"<b>Nº Pistas:</b> -" +
+						"<b>Nº Pistas:</b> " + article["tracks"].length +
 					"</div>" +
-					"<div class='cd_atribute'>" +
-					"<b>Duración:</b> " + article["duration"] + " minutos" +
-				"</div>" +
 			"</div>" +
 		"</div>" +
 		"<!-- Pistas -->" +
@@ -241,7 +242,7 @@ function appendCd(article) {
 			"</div>" +
 			
 			"<div class='task_content_impar'>" +
-//				actors +
+				tracks +
 			"</div>" +
 		"</div>" +
 		"<div class='article_banner_content'>" +
@@ -258,8 +259,7 @@ function appendMovie(article) {
 	$.each(article['actors'], function(k, v) {
 		var toConcat = 
 			"<div class='actor_content_impar'>" +
-					"<div class='actor_name'>" +
-					"<a href='#'>" + v + "</a>" +
+					"<div class='actor_name'>" + v +
 				"</div>"+
 			"</div>";
 		
@@ -311,9 +311,6 @@ function appendMovie(article) {
 				"<div class='actor_name'>" +
 					"<b>Nombre</b>" +
 				"</div>" +
-			"<div class='actor_paper'>" +
-				"<b>Papel</b>" +
-			"</div>" +
 		"</div>" +
 			actors +
 		"<div class='article_banner_content'>" +
